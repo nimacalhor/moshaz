@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moshaz</title>
+  </head>
+  <body>
+    <!-- ________________________________________________________________________________
+    Header -->
+    <!-- 🔵 cn = container -->
+    <header class="header">
+      <div class="header__logo__cn">
+        <img src="./assets/moshazfinal.png" alt="logo" class="header__logo" />
+      </div>
+
+      <div class="header__content">
+        <!-- ________________________________________
+          Upper actions sign in log in search ... -->
+        <div class="header__actions">
+          <button class="header__btn header__btn--sign-up">
+            ثبت نام
+            <i class="header__icon header__icon--person"></i>
+          </button>
+
+          <button class="header__btn header__btn--log-in">
+            ورود
+            <i class="header__icon header__icon--lock"></i>
+          </button>
+
+          <div class="header__search__cn">
+            <i class="header__icon header__icon--magnifier"></i>
+            <input
+              type="text"
+              class="header__search-input"
+              placeholder="...جستوجو"
+            />
+          </div>
+
+          <button class="header__btn header__btn--cart">
+            سبد خرید
+            <i class="header__icon header__icon--cart"></i>
+            <span class="header__badge header__badge--cart"></span>
+          </button>
+
+          <button class="header__btn header__btn--lan">
+            <i class="header__icon header__icon--dropdown"></i>
+            <img src="" alt="" class="header__flag-img" />
+
+            <!-- drop down content -->
+            <div class="header__dropdown__cn">
+              <span class="header__dropdown-el header__dropdown-el--usa"></span
+              ><span class="header__dropdown-el header__dropdown-el--uk"></span>
+            </div>
+          </button>
+        </div>
+
+        <!-- ________________________________________
+        navigation Links -->
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__list__item">
+              <img
+                src="./assets/home-icon-silhouette.png"
+                alt="home"
+                class="header__list__item__img"
+              />
+              <a href="!#" class="header__list__item__link">خانه</a>
+            </li>
+
+            <li class="header__list__item">
+              <img
+                src="./assets/001-presentation.png"
+                alt=""
+                class="header__list__item__img"
+              />
+              <span href="!#" class="header__list__item__dropdown-toggler">
+                خدمات آموزشی
+                <i class="header__icon header__icon--dropdown"></i>
+              </span>
+              <ul class="header__list__dropdown-content">
+                <li class="header__list__dropdown-content__item">مشاوره</li>
+                <li class="header__list__dropdown-content__item">
+                  برگزاری کلاس های آنلاین و آزمون های منظم
+                </li>
+                <li class="header__list__dropdown-content__item">
+                  خدمات تدریس خصوصی آنلاین و حضوری
+                </li>
+                <li class="header__list__dropdown-content__item">
+                  تعیین رشته کنکور
+                </li>
+                <li class="header__list__dropdown-content__item">فروشگاه</li>
+              </ul>
+            </li>
+
+            <li class="header__list__item">
+              <img
+                src="./assets/002-open-book.png"
+                alt=""
+                class="header__list__item__img"
+              />
+              <a href="!#" class="header__list__item__link">محضولات</a>
+            </li>
+
+            <li class="header__list__item">
+              <img
+                src="./assets/003-teacher.png"
+                alt=""
+                class="header__list__img"
+              />
+              <a href="!#" class="header__list__link">
+                <i class="header__icon header__icon--dropdown"
+                  >معرفی دبیران مشاز</i
+                >
+              </a>
+              <ul class="header__list__dropdown-content">
+                <li class="header__list__dropdown-content__item"></li>
+                <li class="header__list__dropdown-content__item"></li>
+                <li class="header__list__dropdown-content__item"></li>
+                <li class="header__list__dropdown-content__item"></li>
+              </ul>
+            </li>
+
+            <li class="header__list__item">
+              <img
+                src="./assets/004-article.png"
+                alt=""
+                class="header__list__img"
+              />
+              <a href="!#" class="header__list__link">بلاگ</a>
+            </li>
+
+            <li class="header__list__item">
+              <img
+                src="./assets/005-journal.png"
+                alt=""
+                class="header__list__img"
+              />
+              <a href="!#" class="header__list__link">اخبار</a>
+            </li>
+
+            <li class="header__list__item">
+              <img
+                src="./assets/006-news.png"
+                alt=""
+                class="header__list__img"
+              />
+              <a href="!#" class="header__list__link">مقالات</a>
+            </li>
+
+            <li class="header__list__item">
+              <img
+                src="./assets/007-group.png"
+                alt=""
+                class="header__list__img"
+              />
+              <a href="!#" class="header__list__link">درباره ما</a>
+            </li>
+
+            <li class="header__list__item">
+              <img
+                src="./assets/008-headphones.png"
+                alt=""
+                class="header__list__img"
+              />
+              <a href="!#" class="header__list__link">ارتباط با ما</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- ________________________________________________________________________________
+    Hero / Slider -->
+    <section class="hero">
+      <!-- ________________________________________
+        slider -->
+      <div class="hero__slider">
+        <ul class="hero__slider__cn">
+          <li class="hero__slider__item">
+            <img src="" alt="" class="hero__slider__img" />
+          </li>
+          <li class="hero__slider__item">
+            <img src="" alt="" class="hero__slider__img" />
+          </li>
+          <li class="hero__slider__item">
+            <img src="" alt="" class="hero__slider__img" />
+          </li>
+          <li class="hero__slider__item">
+            <img src="" alt="" class="hero__slider__img" />
+          </li>
+        </ul>
+        <div class="hero__slider__indicator">
+          <button
+            class="
+              hero__slider__indicator__item
+              hero__slider__indicator__item--active
+            "
+          ></button
+          ><button class="hero__slider__indicator__item"></button
+          ><button class="hero__slider__indicator__item"></button
+          ><button class="hero__slider__indicator__item"></button>
+        </div>
+      </div>
+
+      <!-- ________________________________________
+        social media links -->
+      <div class="hero__social">
+        <a class="hero__social__link">
+          <i class="hero__social__link__icon fab fa-instagram"></i>
+          <span class="hero__social__link__title">@moshaz</span>
+        </a>
+        <a class="hero__social__link">
+          <i class="hero__social__link__icon fab fa-telegram-plane"></i>
+          <span class="hero__social__link__title">@moshaz</span>
+        </a>
+        <a class="hero__social__link">
+          <i class="hero__social__link__icon fab fa-whatsapp"></i>
+          <span class="hero__social__link__title">@moshaz</span>
+        </a>
+        <a class="hero__social__link">
+          <img class="hero__social__link__icon" src="./assets/Layer 2.png" />
+          <span class="hero__social__link__title">@moshaz</span>
+        </a>
+        <a class="hero__social__link">
+          <i class="hero__social__link__icon fab fa-twitter"></i>
+          <span class="hero__social__link__title">@moshaz</span>
+        </a>
+        <!-- ________________________________________
+        side out left -->
+        <div class="hero__side">
+          <div class="hero__card">
+            <button class="hero__card__toggler hero__card__toggler--products">
+              محصولات
+            </button>
+            <div class="hero__card__content">
+              <p class="hero__card__text">
+                محصولات مرتبط با پایه آموزشی شما، از جمله کتاب های کمک آموزشی،
+                سوالات امتحانات و ...را سفارش دهید
+              </p>
+              <button class="hero__card__action hero__card__action--products">
+                خرید محصول
+              </button>
+            </div>
+          </div>
+
+          <div class="hero__card">
+            <button class="hero__card__toggler hero__card__toggler--consulting">
+              مشاوره
+            </button>
+            <div class="hero__card__content">
+              <p class="hero__card__text">
+                اولین و تنها مرکز مشاوره تحصیلی و برنامه‌ریزی تحصیلی است که به
+                صورت علمی و با متد های نوین و حرکت فیدبک دار در راستای رسیدن به
+                اهداف عالی آموزشی داوطلبان خدمات منحصر به فردی ارِائه می کند.
+              </p>
+              <button class="hero__card__action hero__card__action--consulting">
+                رزرو مشاوره
+              </button>
+            </div>
+          </div>
+
+          <div class="hero__card">
+            <button class="hero__card__toggler hero__card__toggler--calender">
+              تقویم آنلاین
+            </button>
+            <div class="hero__card__content">
+              <p class="hero__card__text">
+                محصولات مرتبط با پایه آموزشی شما، از جمله کتاب های کمک آموزشی،
+                سوالات امتحانات و ...را سفارش دهید
+              </p>
+              <button class="hero__card__action hero__card__action--calender">
+                خرید محصول
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ________________________________________________________________________________
+    Gallery -->
+    <section class="gallery">
+      <div class="gallery__grid">
+        <div class="gallery__card">
+          <div class="gallery__card__upper">
+            <img
+              src="./assets/041-headphones.png"
+              alt=""
+              class="gallery__card__img"
+            />
+            <h3 class="gallery__card__title">مشاوره آموزشی</h3>
+          </div>
+          <p class="gallery__card__body">
+            اولین و تنها مرکز مشاوره تحصیلی و برنامه‌ریزی تحصیلی است که به صورت
+            علمی و با متد های نوین و حرکت فیدبک دار در راستای رسیدن به اهداف
+            عالی آموزشی داوطلبان خدمات منحصر به فردی ارِائه می کند.
+          </p>
+          <button class="gallery__card__action">
+            <i class="fas fa-chevron-circle-left"></i>
+          </button>
+        </div>
+
+        <div class="gallery__card">
+          <div class="gallery__card__upper">
+            <img
+              src="./assets/Group 158.png"
+              alt=""
+              class="gallery__card__img"
+            />
+            <h3 class="gallery__card__title">
+              برگزاری کلاس آنلاین و آزمون های منظم
+            </h3>
+          </div>
+          <p class="gallery__card__body">
+            در آموزش آنلاین، مدرسین و کارآموزان از طریق اینترنت و به صورت همزمان
+            (Synchronous) با یکدیگر تعامل داشته و فرآیند آموزش و یادگیری را به
+            انجام می‌رسانند.
+          </p>
+          <button class="gallery__card__action">
+            <i class="fas fa-chevron-circle-left"></i>
+          </button>
+        </div>
+
+        <div class="gallery__card">
+          <div class="gallery__card__upper">
+            <img
+              src="./assets/Group 156.png"
+              alt=""
+              class="gallery__card__img"
+            />
+            <h3 class="gallery__card__title">
+              خدمات تدریس خصوصی آنلاین و حضوری
+            </h3>
+          </div>
+          <p class="gallery__card__body">
+            شما در این قسمت می‌توانید تمام شرایط و نیازمندی‌هایتان را ثبت کنید و
+            یافتن معلم خصوصی موردنظرتان را به ما بسپارید. درخواست معلم خصوصی در
+            این بخش کاملاً با توجه به نیازهای شما خواهد بود.
+          </p>
+          <button class="gallery__card__action">
+            <i class="fas fa-chevron-circle-left"></i>
+          </button>
+        </div>
+
+        <div class="gallery__card">
+          <div class="gallery__card__upper">
+            <img src="./assets/014-pdf.png" alt="" class="gallery__card__img" />
+            <h3 class="gallery__card__title">تعیین رشته ی کنکور</h3>
+          </div>
+          <p class="gallery__card__body">
+            انتخاب رشته دقیق و اصولی یکی از برگ های برنده داوطلبان کنکور سراسری
+            برای قبولی در رشته و دانشگاه دلخواه می باشد و برای انجام هرچه بهتر
+            آن نیاز به اطلاعات دقیق از رتبه های قبولی است
+          </p>
+          <button class="gallery__card__action">
+            <i class="fas fa-chevron-circle-left"></i>
+          </button>
+        </div>
+
+        <div class="gallery__card">
+          <div class="gallery__card__upper">
+            <img
+              src="./assets/048-online learning.png"
+              alt=""
+              class="gallery__card__img"
+            />
+            <h3 class="gallery__card__title">
+              نمونه سوالات آمتحانی پایان سال و آزمون های جامع
+            </h3>
+          </div>
+          <p class="gallery__card__body">
+            شما در این قسمت می‌توانید تمام شرایط و نیازمندی‌هایتان را ثبت کنید و
+            یافتن معلم خصوصی موردنظرتان را به ما بسپارید. درخواست معلم خصوصی در
+            این بخش کاملاً با توجه به نیازهای شما خواهد بود.
+          </p>
+          <button class="gallery__card__action">
+            <i class="fas fa-chevron-circle-left"></i>
+          </button>
+        </div>
+
+        <div class="gallery__card">
+          <div class="gallery__card__upper">
+            <img src="" alt="" class="gallery__card__img" />
+            <h3 class="gallery__card__title">محتوای آموزشی</h3>
+          </div>
+          <p class="gallery__card__body">
+            شما در این قسمت می‌توانید تمام شرایط و نیازمندی‌هایتان را ثبت کنید و
+            یافتن معلم خصوصی موردنظرتان را به ما بسپارید. درخواست معلم خصوصی در
+            این بخش کاملاً با توجه به نیازهای شما خواهد بود.
+          </p>
+          <button class="gallery__card__action">
+            <i class="fas fa-chevron-circle-left"></i>
+          </button>
+        </div>
+      </div>
+      <!-- ________________________________________
+      article carousel -->
+      <div class="gallery__carousel">
+        <div class="gallery__carousel__cn">
+          <div class="gallery__carousel__card">
+            <div class="gallery__carousel__card__img__cn">
+              <img
+                src="./assets/team-students-completing-task_23-2147666610.png"
+                alt=""
+                class="gallery__carousel__card__img"
+              />
+            </div>
+            <div class="gallery__carousel__card__body">
+              <h3 class="gallery__card__title">
+                ثبت نام کلاس های آنلاین همه پایه ها، از ۱۵ مهرماه آغاز می شود.
+              </h3>
+              <p class="gallery__card__text">
+                کلاس ها آنلاین در تمامی پایه ها بعد از شروع سال تحصیلی جدید از
+                ۱۵ مهرماه ۹۹ آغاز خواهد شد و دانش آموزان تا ۱۰ ام مهرماه فرصت
+                ثبت نام در این دوره ها را خواهند داشت. تاریخ برگزاری آزمون های
+                آنلاین همگانی نیز پس از شروع دوره هاُ متعاقبا اعلام خواهد شد
+              </p>
+            </div>
+          </div>
+
+          <div class="gallery__carousel__card">
+            <div class="gallery__carousel__card__img__cn">
+              <img
+                src="./assets/team-students-completing-task_23-2147666610.png"
+                alt=""
+                class="gallery__carousel__card__img"
+              />
+            </div>
+            <div class="gallery__carousel__card__body">
+              <h3 class="gallery__card__title">
+                ثبت نام کلاس های آنلاین همه پایه ها، از ۱۵ مهرماه آغاز می شود.
+              </h3>
+              <p class="gallery__card__text">
+                کلاس ها آنلاین در تمامی پایه ها بعد از شروع سال تحصیلی جدید از
+                ۱۵ مهرماه ۹۹ آغاز خواهد شد و دانش آموزان تا ۱۰ ام مهرماه فرصت
+                ثبت نام در این دوره ها را خواهند داشت. تاریخ برگزاری آزمون های
+                آنلاین همگانی نیز پس از شروع دوره هاُ متعاقبا اعلام خواهد شد
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="
+            gallery__carousel__controller gallery__carousel__controller--prev
+          "
+        >
+          <i class="fab fa-chevron-circle-left"></i>
+        </button>
+        <button
+          class="
+            gallery__carousel__controller gallery__carousel__controller--next
+          "
+        >
+          <i class="fab fa-chevron-circle-right"></i>
+        </button>
+      </div>
+    </section>
+    <!-- ________________________________________________________________________________
+    Slogan -->
+    <section class="slogan">
+      <div class="slogan__text">
+        <span class="slogan__light">مدرسه آنلاین مشاز</span>
+        <h2 class="slogan__title"></h2>
+
+        <span class="slogan__dots">
+          <span class="slogan__dot"></span><span class="slogan__dot"></span
+          ><span class="slogan__dot slogan__dot--active"></span>
+        </span>
+
+        <p class="slogan__body">
+          تسهیل فرآیند یادگیری در کلاس برای دانش آموزان و توسعه زیر ساخت برگزاری
+          کلاس ها ، دوره ها و وبینار های آنلاین برای دبیران از اهداف اصلی مشاز
+          است. چشم انداز مشاز ایجاد و توسعه زیر ساخت خدمات آموزشی گسترده تر و با
+          کیفیت تر برای تمامی دانش آموزان کشور می باشد. به این امید که روزی هیچ
+          دانش آموز با استعدادی به علت دوری از مناطق برخوردار کشور از پیشرفت باز
+          نماند.
+        </p>
+      </div>
+      <!-- ________________________________________
+      img -->
+      <div class="slogan__img__cn">
+        <img src="./assets/3973328.png" alt="" class="slogan__img" />
+      </div>
+    </section>
+
+    <!-- ________________________________________________________________________________
+    Exams -->
+    <section class="exam">
+      <div class="exam__card">
+        <div class="exam__header">
+          <h4 class="exam__title">تست شخصیت شناسی</h4>
+        </div>
+        <div class="exam__content">
+          <div class="exam__img__cn">
+            <img src="./assets/Group 248.png" alt="" class="exam__img" />
+          </div>
+          <div class="exam__text">
+            <p class="exam__body">
+              شما چه شخصیتی دارید؟! این آزمون بر پایه تست روانشناسی mbti طراحی
+              شده که به راحتی نوع شخصیت و خلق و خوی شما را نشان میدهد تابهتر در
+              مورد آینده و رشته تحصیلی خودتان تصمیم بگیرید
+            </p>
+          </div>
+        </div>
+        <button class="exam__action">
+          <i class="exam__icon fab fa-chevron-circle-left"></i> شروع آزمون
+        </button>
+      </div>
+
+      <div class="exam__card">
+        <div class="exam__header">
+          <h4 class="exam__title">آزمون تعیین سطح</h4>
+        </div>
+        <div class="exam__content">
+          <div class="exam__img__cn">
+            <img src="./assets/Group 615.png" alt="" class="exam__img" />
+          </div>
+          <div class="exam__text">
+            <p class="exam__body">
+              در این آزمون دانش آموزان در یک تست ۱۵ دقیقه ای شرکت کرده که شامل
+              سوالاتی از دروس مختلف پایه مورد نظر آن ها می باشد نتیجه آزمون نشان
+              میدهد دانش آموز در چه سطحی از آن پایه قرار دارد.
+            </p>
+          </div>
+        </div>
+        <button class="exam__action">
+          <i class="exam__icon fab fa-chevron-circle-left"></i> شروع آزمون
+        </button>
+      </div>
+    </section>
+
+    <!-- ________________________________________________________________________________
+    new books -->
+    <section class="books">
+      <h5 class="books__title">جدیدترین کتاب های آموزشی</h5>
+      <div class="books__carousel__cn">
+        <div class="books__carousel">
+          <div class="books__card">
+            <div class="books__card__img__cn">
+              <img src="./assets/unnamed.png" alt="" class="books__card__img" />
+            </div>
+            <div class="books__card__text">
+              <h5 class="books__card__title">کتاب کمک درسی ریاضی پایه ۶</h5>
+              <span class="books__card__price">تومان 54000</span>
+            </div>
+            <button class="books__card__avtion">
+              <i class="fas fa-shopping-basket"></i>
+            </button>
+          </div>
+
+          <div class="books__card">
+            <div class="books__card__img__cn">
+              <img
+                src="./assets/unnamed (1).png"
+                alt=""
+                class="books__card__img"
+              />
+            </div>
+            <div class="books__card__text">
+              <h5 class="books__card__title">کتاب کمک درسی ریاضی پایه ۶</h5>
+              <span class="books__card__price">تومان 54000</span>
+            </div>
+            <button class="books__card__avtion">
+              <i class="fas fa-shopping-basket"></i>
+            </button>
+          </div>
+
+          <div class="books__card">
+            <div class="books__card__img__cn">
+              <img
+                src="./assets/riazi10-ensani.png"
+                alt=""
+                class="books__card__img"
+              />
+            </div>
+            <div class="books__card__text">
+              <h5 class="books__card__title">کتاب کمک درسی ریاضی پایه ۶</h5>
+              <span class="books__card__price">تومان 54000</span>
+            </div>
+            <button class="books__card__avtion">
+              <i class="fas fa-shopping-basket"></i>
+            </button>
+          </div>
+
+          <div class="books__card">
+            <div class="books__card__img__cn">
+              <img
+                src="./assets/Riazi_6_front copy.png"
+                alt=""
+                class="books__card__img"
+              />
+            </div>
+            <div class="books__card__text">
+              <h5 class="books__card__title">کتاب کمک درسی ریاضی پایه ۶</h5>
+              <span class="books__card__price">تومان 54000</span>
+            </div>
+            <button class="books__card__avtion">
+              <i class="fas fa-shopping-basket"></i>
+            </button>
+          </div>
+        </div>
+        <button class="books__carousel__action--next"></button>
+        <button class="books__carousel__action--pre"></button>
+      </div>
+    </section>
+
+    <!-- ________________________________________________________________________________
+    new softwares -->
+    <section class="softwares">
+      <div class="softeare__header">
+        <h3 class="software__title"></h3>
+        <div class="software__dots">
+          <span class="software__dot"></span><span class="software__dot"></span
+          ><span class="software__dot software__dot--active"></span>
+        </div>
+      </div>
+      <!-- ________________________________________
+      Grid -->
+      <div class="software__grid">
+        <div class="software__card">
+          <div class="software__card__img__cn">
+            <img src="./assets/unnamed (2).png" class="software__card__img" />
+          </div>
+          <div class="software__card__text">
+            <h4 class="software__card__title">
+              سی دی آموزشی و تعاملی دروس دوره یازدهم
+            </h4>
+            <span class="software__card__price"> 67000 تومان </span>
+          </div>
+        </div>
+
+        <div class="software__card">
+          <div class="software__card__img__cn">
+            <img src="./assets/unnamed (2).png" class="software__card__img" />
+          </div>
+          <div class="software__card__text">
+            <h4 class="software__card__title">
+              سی دی آموزشی و تعاملی دروس دوره یازدهم
+            </h4>
+            <span class="software__card__price"> 67000 تومان </span>
+          </div>
+        </div>
+
+        <div class="software__card">
+          <div class="software__card__img__cn">
+            <img src="./assets/unnamed (2).png" class="software__card__img" />
+          </div>
+          <div class="software__card__text">
+            <h4 class="software__card__title">
+              سی دی آموزشی و تعاملی دروس دوره یازدهم
+            </h4>
+            <span class="software__card__price"> 67000 تومان </span>
+          </div>
+        </div>
+
+        <div class="software__card">
+          <div class="software__card__img__cn">
+            <img src="./assets/unnamed (2).png" class="software__card__img" />
+          </div>
+          <div class="software__card__text">
+            <h4 class="software__card__title">
+              سی دی آموزشی و تعاملی دروس دوره یازدهم
+            </h4>
+            <span class="software__card__price"> 67000 تومان </span>
+          </div>
+        </div>
+
+        <div class="software__card">
+          <div class="software__card__img__cn">
+            <img src="./assets/unnamed (2).png" class="software__card__img" />
+          </div>
+          <div class="software__card__text">
+            <h4 class="software__card__title">
+              سی دی آموزشی و تعاملی دروس دوره یازدهم
+            </h4>
+            <span class="software__card__price"> 67000 تومان </span>
+          </div>
+        </div>
+
+        <div class="software__card">
+          <div class="software__card__img__cn">
+            <img src="./assets/unnamed (2).png" class="software__card__img" />
+          </div>
+          <div class="software__card__text">
+            <h4 class="software__card__title">
+              سی دی آموزشی و تعاملی دروس دوره یازدهم
+            </h4>
+            <span class="software__card__price"> 67000 تومان </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ________________________________________________________________________________
+    sale -->
+    <section class="sale">
+      <div class="sale__card">
+        <div class="sale__card__shape sale__card__shape--1"></div>
+        <div class="sale__card__shape sale__card__shape--2"></div>
+        <div class="sale__card__shape sale__card__shape--3"></div>
+
+        <div class="sale__card__part sale__card__part--img">
+          <img src="./assets/unnamed (2).png" alt="" class="sale__card__img" />
+        </div>
+        <div class="sale__card__part sale__card__part--text">
+          <h5 class="sale__card__title">
+            تخفیف استثنایی در کتاب های کمک آموزشی
+          </h5>
+        </div>
+        <div class="sale__card__part sale__card__part--btn">
+          <button class="sale__card__btn">
+            <i class="fab fa-chevron-circle-left"></i> مشاهده
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ________________________________________________________________________________
+    teacher Introduction -->
+    <section class="intro">
+      <div class="intro__header">
+        <h3 class="intro__title"></h3>
+        <div class="intro__dots">
+          <span class="intro__dot"></span><span class="intro__dot"></span
+          ><span class="intro__dot intro__dot--active"></span>
+        </div>
+      </div>
+      <!-- ________________________________________
+      carousel -->
+      <div class="intro__carousel">
+        <div class="intro__carousel__cn">
+          <div class="intro__card">
+            <div class="intro__card__img__cn">
+              <img src="./assets/man.png" alt="" class="intro__card__img" />
+            </div>
+            <div class="intro__card__text">
+              <h3 class="intro__card__title">مسعود نوروزی زاده</h3>
+              <p class="intro__card__body">
+                دبیر ریاضیات پایه هفتم و هشتم ۵ سال تدریس در مدارس
+              </p>
+            </div>
+          </div>
+
+          <div class="intro__card">
+            <div class="intro__card__img__cn">
+              <img src="./assets/man.png" alt="" class="intro__card__img" />
+            </div>
+            <div class="intro__card__text">
+              <h3 class="intro__card__title">مسعود نوروزی زاده</h3>
+              <p class="intro__card__body">
+                دبیر ریاضیات پایه هفتم و هشتم ۵ سال تدریس در مدارس
+              </p>
+            </div>
+          </div>
+
+          <div class="intro__card">
+            <div class="intro__card__img__cn">
+              <img src="./assets/man.png" alt="" class="intro__card__img" />
+            </div>
+            <div class="intro__card__text">
+              <h3 class="intro__card__title">مسعود نوروزی زاده</h3>
+              <p class="intro__card__body">
+                دبیر ریاضیات پایه هفتم و هشتم ۵ سال تدریس در مدارس
+              </p>
+            </div>
+          </div>
+
+          <button class="intro__carousel__indicator"></button
+          ><button class="intro__carousel__indicator"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ________________________________________________________________________________
+    Schools introduction -->
+    <section class="school">
+      <div class="school__header">
+        <h3 class="school__title"></h3>
+        <div class="school__dots">
+          <span class="school__dot"></span><span class="school__dot"></span
+          ><span class="school__dot school__dot--active"></span>
+        </div>
+      </div>
+
+      <!-- ________________________________________
+      carousel -->
+      <div class="school__carousel">
+        <div class="school__carousel__cn">
+          <div class="school__card">
+            <div class="school__card__img__cn">
+              <img src="" alt="" class="school__card__img" />
+            </div>
+            <div class="school__card__content">
+              <div class="school__card__upper">
+                <h5 class="school__card__title"></h5>
+                <div class="school__card__rating"></div>
+              </div>
+              <div class="school__card__lower">
+                <div class="school__card__phone">
+                  <i></i>
+                  <span></span>
+                </div>
+                <div class="school__card__location">
+                  <i></i>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="school__card">
+            <div class="school__card__img__cn">
+              <img src="" alt="" class="school__card__img" />
+            </div>
+            <div class="school__card__content">
+              <div class="school__card__upper">
+                <h5 class="school__card__title"></h5>
+                <div class="school__card__rating"></div>
+              </div>
+              <div class="school__card__lower">
+                <div class="school__card__phone">
+                  <i></i>
+                  <span></span>
+                </div>
+                <div class="school__card__location">
+                  <i></i>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ________________________________________
+        indicator -->
+        <div class="school__carousel__indicators">
+          <button class="school__carousel__inficator"></button
+          ><button class="school__carousel__inficator"></button
+          ><button class="school__carousel__inficator"></button
+          ><button class="school__carousel__inficator"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ________________________________________________________________________________
+    news -->
+    <section class="news">
+      <div class="news__carousel">
+        <div class="news__header">
+          <h3 class="news__title">جدیدترین اخبار</h3>
+          <div class="news__dots">
+            <span class="news__dot"></span><span class="news__dot"></span
+            ><span class="news__dot news__dot--active"></span>
+          </div>
+        </div>
+
+        <!-- ________________________________________
+        carousel -->
+        <div class="news__carousel">
+          <div class="news__carousel__cn">
+            <div class="news__carousel__card">
+              <div class="news__carousel__card__img__cn">
+                <img
+                  src="./assets/team-students-completing-task_23-2147666610.png"
+                  alt=""
+                  class="news__carousel__card__img"
+                />
+              </div>
+              <div class="news__carousel__card__text">
+                <h3 class="news__carousel__card__title">
+                  خوش بینی تحصیلی معلمان و پیشرفت تحصیلی دانش آموزان در مدارس
+                  متوسطه شهری
+                </h3>
+                <p class="news__carousel__card__body">
+                  ۲۰‌روز مانده به شروع سال تحصیلی جدید، شیوه‌نامه بازگشایی مدارس
+                  از سوی وزارت آموزش و پرورش منتشر شد تا دانش‌آموزان، والدین
+                  آنها، مدیران و معلمان مدارس بدانند در سال تحصیلی جدید که به
+                  سال کرونا معروف است، چه باید بکنند و چطور به مدرسه بروند.
+                </p>
+                <div class="news__carousel__card__date">
+                  <i></i>
+                  <span>چهارشنبه ۲۴ مرداد۱۳۹۹</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="news__carousel__card">
+              <div class="news__carousel__card__img__cn">
+                <img
+                  src="./assets/team-students-completing-task_23-2147666610.png"
+                  alt=""
+                  class="news__carousel__card__img"
+                />
+              </div>
+              <div class="news__carousel__card__text">
+                <h3 class="news__carousel__card__title">
+                  خوش بینی تحصیلی معلمان و پیشرفت تحصیلی دانش آموزان در مدارس
+                  متوسطه شهری
+                </h3>
+                <p class="news__carousel__card__body">
+                  ۲۰‌روز مانده به شروع سال تحصیلی جدید، شیوه‌نامه بازگشایی مدارس
+                  از سوی وزارت آموزش و پرورش منتشر شد تا دانش‌آموزان، والدین
+                  آنها، مدیران و معلمان مدارس بدانند در سال تحصیلی جدید که به
+                  سال کرونا معروف است، چه باید بکنند و چطور به مدرسه بروند.
+                </p>
+                <div class="news__carousel__card__date">
+                  <i></i>
+                  <span>چهارشنبه ۲۴ مرداد۱۳۹۹</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ________________________________________
+    list news -->
+      <div class="news__list">
+        <div class="news__header">
+          <h3 class="news__title"></h3>
+          <div class="news__dots">
+            <span class="news__dot"></span><span class="news__dot"></span
+            ><span class="news__dot news__dot--active"></span>
+          </div>
+        </div>
+
+        <!-- ________________________________________
+        LIST -->
+        <div class="news__list__cn">
+            <div class="news__list__card">
+                
+            </div>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://kit.fontawesome.com/66471906c3.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
