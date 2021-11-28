@@ -4,166 +4,160 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fontIcons.css">
     <title>Moshaz</title>
+
+    <!-- FAVICON -->
   </head>
   <body>
     <!-- ________________________________________________________________________________
     Header -->
     <!-- 🔵 cn = container -->
     <header class="header">
+      <button class="header__hamburger">
+        <i class="glyphicon glyphicon-hamburger"></i>
+      </button>
+
       <div class="header__logo__cn">
-        <img src="./assets/moshazfinal.png" alt="logo" class="header__logo" />
+        <img src="./assets/logo.png" alt="logo" class="header__logo" />
       </div>
 
       <div class="header__content">
         <!-- ________________________________________
           Upper actions sign in log in search ... -->
         <div class="header__actions">
-          <button class="header__btn header__btn--sign-up">
-            ثبت نام
-            <i class="header__icon header__icon--person"></i>
-          </button>
-
-          <button class="header__btn header__btn--log-in">
-            ورود
-            <i class="header__icon header__icon--lock"></i>
-          </button>
-
-          <div class="header__search__cn">
-            <i class="header__icon header__icon--magnifier"></i>
-            <input
-              type="text"
-              class="header__search-input"
-              placeholder="...جستوجو"
-            />
+          <div class="header__actions__template">
+            <button class="header__btn header__btn--sign-up">
+              <i class="header__icon header__icon--person glyphicon glyphicon-sign-up"></i>
+              <span class="header__btn--sign-up--text">
+                ثبت نام
+              </span>
+            </button>
+  
+            <button class="header__btn header__btn--log-in ">
+              <i class="glyphicon glyphicon-log-in"></i>
+              <span class="header__btn--log-in--text">
+                ورود
+              </span>
+            </button>
+  
+            <div class="header__search__cn">
+              <i class="header__icon header__icon--magnifier glyphicon glyphicon-magnifier"></i>
+              <input
+                type="text"
+                class="header__search-input"
+                placeholder="...جستوجو"
+              />
+          </div>
           </div>
 
-          <button class="header__btn header__btn--cart">
-            سبد خرید
-            <i class="header__icon header__icon--cart"></i>
-            <span class="header__badge header__badge--cart"></span>
-          </button>
+          <div class="header__actions__template">
+            <button class="header__btn header__btn--cart ">
+              <span class="header__btn--cart--text">
+                سبد خرید
+  
+              </span>
+              <i class="glyphicon glyphicon-cart"></i>
+              <span class="header__badge header__badge--cart">
+                0
+              </span>
+            </button>
+  
+            <button class="header__btn header__btn--lan">
+              <i class="header__icon header__icon--dropdown"></i>
+              <img src="./assets/iran.png" alt="" class="header__flag-img" />
+  
+              <!-- drop down content -->
+              <div class="header__dropdown__cn">
+                <span class="header__dropdown-el header__dropdown-el--usa"></span
+                ><span class="header__dropdown-el header__dropdown-el--uk"></span>
+              </div>
+            </button>
+          </div>
 
-          <button class="header__btn header__btn--lan">
-            <i class="header__icon header__icon--dropdown"></i>
-            <img src="" alt="" class="header__flag-img" />
-
-            <!-- drop down content -->
-            <div class="header__dropdown__cn">
-              <span class="header__dropdown-el header__dropdown-el--usa"></span
-              ><span class="header__dropdown-el header__dropdown-el--uk"></span>
-            </div>
-          </button>
         </div>
 
         <!-- ________________________________________
         navigation Links -->
         <nav class="header__nav">
+          <img src="./assets/logo.png" alt="" class="header__nav__logo">
+          <div class="header__search__cn header__search__cn--mobile">
+            <i class="header__icon header__icon--magnifier glyphicon glyphicon-magnifier"></i>
+            <input
+              type="text"
+              class="header__search-input"
+              placeholder="...جستوجو"
+            />
+        </div>
           <ul class="header__list">
             <li class="header__list__item">
-              <img
-                src="./assets/home-icon-silhouette.png"
-                alt="home"
-                class="header__list__item__img"
-              />
-              <a href="!#" class="header__list__item__link">خانه</a>
+              <i class="glyphicon glyphicon-home"></i>
+              <a href="!#" class="header__list__link">خانه</a>
+            </li>
+
+            <li class="header__list__item header__list__item--edu-services">
+                <i class="glyphicon glyphicon-explainer"></i>
+                <span>
+                  خدمات آموزشی
+                  <i class="glyphicon glyphicon-dropdown"></i>
+                </span>
+
+                <ul class="header__list__dropdown-content">
+                  <li class="header__list__dropdown-content__item">مشاوره</li>
+                  <li class="header__list__dropdown-content__item">
+                    برگزاری کلاس های آنلاین و آزمون های منظم
+                  </li>
+                  <li class="header__list__dropdown-content__item">
+                    خدمات تدریس خصوصی آنلاین و حضوری
+                  </li>
+                  <li class="header__list__dropdown-content__item">
+                    تعیین رشته کنکور
+                  </li>
+                  <li class="header__list__dropdown-content__item">فروشگاه</li>
+                </ul>
             </li>
 
             <li class="header__list__item">
-              <img
-                src="./assets/001-presentation.png"
-                alt=""
-                class="header__list__item__img"
-              />
-              <span href="!#" class="header__list__item__dropdown-toggler">
-                خدمات آموزشی
-                <i class="header__icon header__icon--dropdown"></i>
-              </span>
-              <ul class="header__list__dropdown-content">
-                <li class="header__list__dropdown-content__item">مشاوره</li>
-                <li class="header__list__dropdown-content__item">
-                  برگزاری کلاس های آنلاین و آزمون های منظم
-                </li>
-                <li class="header__list__dropdown-content__item">
-                  خدمات تدریس خصوصی آنلاین و حضوری
-                </li>
-                <li class="header__list__dropdown-content__item">
-                  تعیین رشته کنکور
-                </li>
-                <li class="header__list__dropdown-content__item">فروشگاه</li>
-              </ul>
+              <i class="glyphicon glyphicon-open-book"></i>
+              <a href="!#" class="header__list__link">محضولات</a>
+            </li>
+
+            <li class="header__list__item header__list__item--teacher-into">
+                <i class="glyphicon glyphicon-explainer"></i>
+                <span>معرفی دبیران مشاز
+                  <i class="glyphicon glyphicon-dropdown"></i>
+                </span>
+                <ul class="header__list__dropdown-content">
+                  <li class="header__list__dropdown-content__item"></li>
+                  <li class="header__list__dropdown-content__item"></li>
+                  <li class="header__list__dropdown-content__item"></li>
+                  <li class="header__list__dropdown-content__item"></li>
+                </ul>
             </li>
 
             <li class="header__list__item">
-              <img
-                src="./assets/002-open-book.png"
-                alt=""
-                class="header__list__item__img"
-              />
-              <a href="!#" class="header__list__item__link">محضولات</a>
-            </li>
-
-            <li class="header__list__item">
-              <img
-                src="./assets/003-teacher.png"
-                alt=""
-                class="header__list__img"
-              />
-              <a href="!#" class="header__list__link">
-                <i class="header__icon header__icon--dropdown"
-                  >معرفی دبیران مشاز</i
-                >
-              </a>
-              <ul class="header__list__dropdown-content">
-                <li class="header__list__dropdown-content__item"></li>
-                <li class="header__list__dropdown-content__item"></li>
-                <li class="header__list__dropdown-content__item"></li>
-                <li class="header__list__dropdown-content__item"></li>
-              </ul>
-            </li>
-
-            <li class="header__list__item">
-              <img
-                src="./assets/004-article.png"
-                alt=""
-                class="header__list__img"
-              />
+              <i class="glyphicon glyphicon-blog"></i>
               <a href="!#" class="header__list__link">بلاگ</a>
             </li>
 
             <li class="header__list__item">
-              <img
-                src="./assets/005-journal.png"
-                alt=""
-                class="header__list__img"
-              />
+              <i class="glyphicon glyphicon-book-cover"></i>
               <a href="!#" class="header__list__link">اخبار</a>
             </li>
 
             <li class="header__list__item">
-              <img
-                src="./assets/006-news.png"
-                alt=""
-                class="header__list__img"
-              />
+             <i class="glyphicon glyphicon-news-paper"></i>
               <a href="!#" class="header__list__link">مقالات</a>
             </li>
 
             <li class="header__list__item">
-              <img
-                src="./assets/007-group.png"
-                alt=""
-                class="header__list__img"
-              />
+              <i class="glyphicon glyphicon-people"></i>
               <a href="!#" class="header__list__link">درباره ما</a>
             </li>
 
             <li class="header__list__item">
-              <img
-                src="./assets/008-headphones.png"
-                alt=""
-                class="header__list__img"
-              />
+              <i class="glyphicon glyphicon-headphone"></i>
               <a href="!#" class="header__list__link">ارتباط با ما</a>
             </li>
           </ul>
@@ -206,26 +200,27 @@
       <!-- ________________________________________
         social media links -->
       <div class="hero__social">
-        <a class="hero__social__link">
-          <i class="hero__social__link__icon fab fa-instagram"></i>
+        <a class="hero__social__link hero__social__link--instagrem">
+          <i class="glyphicon glyphicon-instagram"></i>
           <span class="hero__social__link__title">@moshaz</span>
         </a>
-        <a class="hero__social__link">
-          <i class="hero__social__link__icon fab fa-telegram-plane"></i>
+        <a class="hero__social__link hero__social__link--telegram">
+          <i class="glyphicon glyphicon-telegram"></i>
           <span class="hero__social__link__title">@moshaz</span>
         </a>
-        <a class="hero__social__link">
-          <i class="hero__social__link__icon fab fa-whatsapp"></i>
+        <a class="hero__social__link hero__social__link--whatsapp">
+          <i class="glyphicon glyphicon-whatsapp"></i>
           <span class="hero__social__link__title">@moshaz</span>
         </a>
-        <a class="hero__social__link">
-          <img class="hero__social__link__icon" src="./assets/Layer 2.png" />
+        <a class="hero__social__link hero__social__link--aparat">
+          <i class="glyphicon glyphicon-aparat"></i>
           <span class="hero__social__link__title">@moshaz</span>
         </a>
-        <a class="hero__social__link">
-          <i class="hero__social__link__icon fab fa-twitter"></i>
+        <a class="hero__social__link hero__social__link--twitter">
+          <i class="glyphicon glyphicon-twitter"></i>
           <span class="hero__social__link__title">@moshaz</span>
         </a>
+      </div>
         <!-- ________________________________________
         side out left -->
         <div class="hero__side">
@@ -275,7 +270,6 @@
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- ________________________________________________________________________________
@@ -297,7 +291,7 @@
             عالی آموزشی داوطلبان خدمات منحصر به فردی ارِائه می کند.
           </p>
           <button class="gallery__card__action">
-            <i class="fas fa-chevron-circle-left"></i>
+            <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
 
@@ -318,7 +312,7 @@
             انجام می‌رسانند.
           </p>
           <button class="gallery__card__action">
-            <i class="fas fa-chevron-circle-left"></i>
+            <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
 
@@ -339,7 +333,7 @@
             این بخش کاملاً با توجه به نیازهای شما خواهد بود.
           </p>
           <button class="gallery__card__action">
-            <i class="fas fa-chevron-circle-left"></i>
+            <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
 
@@ -354,7 +348,7 @@
             آن نیاز به اطلاعات دقیق از رتبه های قبولی است
           </p>
           <button class="gallery__card__action">
-            <i class="fas fa-chevron-circle-left"></i>
+            <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
 
@@ -375,7 +369,7 @@
             این بخش کاملاً با توجه به نیازهای شما خواهد بود.
           </p>
           <button class="gallery__card__action">
-            <i class="fas fa-chevron-circle-left"></i>
+            <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
 
@@ -390,7 +384,7 @@
             این بخش کاملاً با توجه به نیازهای شما خواهد بود.
           </p>
           <button class="gallery__card__action">
-            <i class="fas fa-chevron-circle-left"></i>
+            <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
       </div>
@@ -445,14 +439,14 @@
             gallery__carousel__controller gallery__carousel__controller--prev
           "
         >
-          <i class="fab fa-chevron-circle-left"></i>
+          <i class="glyphicon glyphicon-arrow-right"></i>
         </button>
         <button
           class="
             gallery__carousel__controller gallery__carousel__controller--next
           "
         >
-          <i class="fab fa-chevron-circle-right"></i>
+          <i class="glyphicon glyphicon-arrow-left"></i>
         </button>
       </div>
     </section>
@@ -504,7 +498,7 @@
           </div>
         </div>
         <button class="exam__action">
-          <i class="exam__icon fab fa-chevron-circle-left"></i> شروع آزمون
+          <i class="glyphicon glyphicon-chevron-left"></i> شروع آزمون
         </button>
       </div>
 
@@ -525,7 +519,7 @@
           </div>
         </div>
         <button class="exam__action">
-          <i class="exam__icon fab fa-chevron-circle-left"></i> شروع آزمون
+          <i class="glyphicon glyphicon-chevron-left"></i> شروع آزمون
         </button>
       </div>
     </section>
@@ -545,7 +539,7 @@
               <span class="books__card__price">تومان 54000</span>
             </div>
             <button class="books__card__avtion">
-              <i class="fas fa-shopping-basket"></i>
+              <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
 
@@ -562,7 +556,7 @@
               <span class="books__card__price">تومان 54000</span>
             </div>
             <button class="books__card__avtion">
-              <i class="fas fa-shopping-basket"></i>
+              <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
 
@@ -579,7 +573,7 @@
               <span class="books__card__price">تومان 54000</span>
             </div>
             <button class="books__card__avtion">
-              <i class="fas fa-shopping-basket"></i>
+              <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
 
@@ -596,7 +590,7 @@
               <span class="books__card__price">تومان 54000</span>
             </div>
             <button class="books__card__avtion">
-              <i class="fas fa-shopping-basket"></i>
+              <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
         </div>
@@ -710,7 +704,26 @@
         </div>
         <div class="sale__card__part sale__card__part--btn">
           <button class="sale__card__btn">
-            <i class="fab fa-chevron-circle-left"></i> مشاهده
+            <i class="glyphicon glyphicon-chevron-left"></i> مشاهده
+          </button>
+        </div>
+      </div>
+      <div class="sale__card">
+        <div class="sale__card__shape sale__card__shape--1"></div>
+        <div class="sale__card__shape sale__card__shape--2"></div>
+        <div class="sale__card__shape sale__card__shape--3"></div>
+
+        <div class="sale__card__part sale__card__part--img">
+          <img src="./assets/unnamed (2).png" alt="" class="sale__card__img" />
+        </div>
+        <div class="sale__card__part sale__card__part--text">
+          <h5 class="sale__card__title">
+            تخفیف استثنایی در کتاب های کمک آموزشی
+          </h5>
+        </div>
+        <div class="sale__card__part sale__card__part--btn">
+          <button class="sale__card__btn">
+            <i class="glyphicon glyphicon-chevron-left"></i> مشاهده
           </button>
         </div>
       </div>
@@ -766,8 +779,11 @@
             </div>
           </div>
 
-          <button class="intro__carousel__indicator"></button
-          ><button class="intro__carousel__indicator"></button>
+          <button class="intro__carousel__indicator">
+            <i class="glyphicon glyphicon-arrow-right"></i></button
+          ><button class="intro__carousel__indicator">
+            <i class="glyphicon glyphicon-arrow-left"></i>
+          </button>
         </div>
       </div>
     </section>
@@ -798,11 +814,11 @@
               </div>
               <div class="school__card__lower">
                 <div class="school__card__phone">
-                  <i></i>
+                  <i class="glyphicon glyphicon-phone"></i>
                   <span></span>
                 </div>
                 <div class="school__card__location">
-                  <i></i>
+                  <i class="glyphicon glyphicon-location"></i>
                   <span></span>
                 </div>
               </div>
@@ -820,11 +836,11 @@
               </div>
               <div class="school__card__lower">
                 <div class="school__card__phone">
-                  <i></i>
+                  <i class="glyphicon glyphicon-phone"></i>
                   <span></span>
                 </div>
                 <div class="school__card__location">
-                  <i></i>
+                  <i class="glyphicon glyphicon-location"></i>
                   <span></span>
                 </div>
               </div>
@@ -879,7 +895,7 @@
                   سال کرونا معروف است، چه باید بکنند و چطور به مدرسه بروند.
                 </p>
                 <div class="news__carousel__card__date">
-                  <i></i>
+                  <i class="glyphicon glyphicon-clock"></i>
                   <span>چهارشنبه ۲۴ مرداد۱۳۹۹</span>
                 </div>
               </div>
@@ -905,7 +921,7 @@
                   سال کرونا معروف است، چه باید بکنند و چطور به مدرسه بروند.
                 </p>
                 <div class="news__carousel__card__date">
-                  <i></i>
+                  <i class="glyphicon glyphicon-clock"></i>
                   <span>چهارشنبه ۲۴ مرداد۱۳۹۹</span>
                 </div>
               </div>
@@ -979,9 +995,10 @@
       <div class="article__carousel">
         <div class="article__carousel__cn">
           <div class="article__card">
-            <img src="./assets/student.png" alt="" class="article__card__img">
+            <!-- <img src="./assets/student.png" alt="" class="article__card__img"> -->
             <div class="article__card__text">
               <h4 class="article__card__title">تاثیر استفاده از ابزارهای ارزشیابی توصیفی بر پیشرفت تحصیلی دانش آموزان</h4>
+              <i class="glyphicon glyphicon-clock"></i>
               <span class="article__card__badge">
                 چهارشنبه ۲۴ مرداد۱۳۹۹
               </span>
@@ -1002,11 +1019,11 @@
         <div class="footer__section footer__section--logo">
           <img src="./assets/moshazfinal.png" alt="" class="footer__logo">
           <div class="footer__info footer__info--phone">
-            <i></i>
+            <i class="glyphicon glyphicon-phone"></i>
             <p>تلفن <span>09998875643</span></p>
           </div>
           <div class="footer__info footer__info--mail">
-            <i></i>
+            <i class="glyphicon glyphicon-mail"></i>
             <p>ایمل <span>email@gmail.com</span></p>
           </div>
         </div>
@@ -1032,14 +1049,16 @@
           </h6>
           <span>ایمیل خود را برای ارسال خبر نامه وارد کنید</span>
           <div class="footer__input footer__input--email">
-            <i></i>
+            <i class="glyphicon glyphicon-mail"></i>
             <input class="footer__input__email" type="email" >
           </div>
           <div class="footer__input footer__input--security">
             <!-- security code 😕 ?-->
             <input class="footer__input__security" type="email" >
           </div>
-          <button class="footer__section__button"></button>
+          <button class="footer__section__button">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+          </button>
         </div>
         <div class="footer__section footer__section--symbol">
           <img src="./assets/eeeeeee.png" alt="" class="footer__section__symbol"><img src="./assets/eeeeeee.png" alt="" class="footer__section__symbol">
@@ -1059,9 +1078,5 @@
          -->
       </div>
     </footer>
-    <script
-      src="https://kit.fontawesome.com/66471906c3.js"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
