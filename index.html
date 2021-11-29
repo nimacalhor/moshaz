@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl">  
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/fontIcons.css">
     <title>Moshaz</title>
-
-    <!-- FAVICON -->
   </head>
   <body>
     <!-- ________________________________________________________________________________
@@ -18,84 +16,89 @@
       <button class="header__hamburger">
         <i class="glyphicon glyphicon-hamburger"></i>
       </button>
-
       <div class="header__logo__cn">
         <img src="./assets/logo.png" alt="logo" class="header__logo" />
       </div>
-
       <div class="header__content">
         <!-- ________________________________________
           Upper actions sign in log in search ... -->
         <div class="header__actions">
           <div class="header__actions__template">
-            <button class="header__btn header__btn--sign-up">
+            <a href="#" class="btn header__btn header__btn--sign-up">
               <i class="header__icon header__icon--person glyphicon glyphicon-sign-up"></i>
               <span class="header__btn--sign-up--text">
                 ثبت نام
               </span>
-            </button>
-  
-            <button class="header__btn header__btn--log-in ">
+            </a>
+            <a class="btn header__btn header__btn--log-in ">
               <i class="glyphicon glyphicon-log-in"></i>
               <span class="header__btn--log-in--text">
                 ورود
               </span>
-            </button>
-  
-            <div class="header__search__cn">
-              <i class="header__icon header__icon--magnifier glyphicon glyphicon-magnifier"></i>
+            </a>
+            <form class="header__search__cn">
+              <button type="submit">
+                <i class="header__icon header__icon--magnifier glyphicon glyphicon-magnifier"></i>
+              </button>
               <input
                 type="text"
                 class="header__search-input"
                 placeholder="...جستوجو"
               />
+          </form>
           </div>
-          </div>
-
           <div class="header__actions__template">
-            <button class="header__btn header__btn--cart ">
+            <a href="#" class="btn header__btn header__btn--cart ">
               <span class="header__btn--cart--text">
                 سبد خرید
-  
               </span>
               <i class="glyphicon glyphicon-cart"></i>
               <span class="header__badge header__badge--cart">
                 0
               </span>
-            </button>
-  
+            </a>
             <button class="header__btn header__btn--lan">
               <i class="header__icon header__icon--dropdown"></i>
               <img src="./assets/iran.png" alt="" class="header__flag-img" />
-  
               <!-- drop down content -->
-              <div class="header__dropdown__cn">
-                <span class="header__dropdown-el header__dropdown-el--usa"></span
-                ><span class="header__dropdown-el header__dropdown-el--uk"></span>
-              </div>
+              <ul class="header__dropdown__cn header__dropdown__cn--lan">
+                <li class="header__dropdown-el header__dropdown-el--usa">
+                  <a href="#">
+                    <img class="header__flag-img" src="./assets/iran.png" alt="">
+                    <span>persian</span>
+                  </a>
+                </li>
+                <li class="header__dropdown-el header__dropdown-el--uk">
+                  <a href="#">
+                    <img class="header__flag-img" src="./assets/iran.png" alt="">
+                    <span>persian</span>
+                  </a>
+                </li>
+              </ul>
             </button>
           </div>
-
         </div>
-
         <!-- ________________________________________
         navigation Links -->
         <nav class="header__nav">
           <img src="./assets/logo.png" alt="" class="header__nav__logo">
-          <div class="header__search__cn header__search__cn--mobile">
-            <i class="header__icon header__icon--magnifier glyphicon glyphicon-magnifier"></i>
+          <form class="header__search__cn header__search__cn--mobile">
+            <button type="submit">
+              <i class="header__icon header__icon--magnifier glyphicon glyphicon-magnifier"></i>
+            </button>
             <input
               type="text"
-              class="header__search-input"
+              class="header__search-input--mobile"
               placeholder="...جستوجو"
             />
-        </div>
+        </form>
           <ul class="header__list">
             <li class="header__list__item">
-              <i class="glyphicon glyphicon-home"></i>
-              <a href="!#" class="header__list__link">خانه</a>
+              <a href="!#" class="header__list__link">
+                <i class="glyphicon glyphicon-home"></i>
+                خانه
+              </a>
             </li>
-
             <li class="header__list__item header__list__item--edu-services">
                 <i class="glyphicon glyphicon-explainer"></i>
                 <span>
@@ -104,61 +107,88 @@
                 </span>
 
                 <ul class="header__list__dropdown-content">
-                  <li class="header__list__dropdown-content__item">مشاوره</li>
                   <li class="header__list__dropdown-content__item">
-                    برگزاری کلاس های آنلاین و آزمون های منظم
+                    <a href="#">
+                      مشاوره
+                    </a>
                   </li>
                   <li class="header__list__dropdown-content__item">
-                    خدمات تدریس خصوصی آنلاین و حضوری
+                    <a href="#">
+                      برگزاری کلاس های آنلاین و آزمون های منظم
+                    </a>
                   </li>
                   <li class="header__list__dropdown-content__item">
-                    تعیین رشته کنکور
+                    <a href="#">
+                      خدمات تدریس خصوصی آنلاین و حضوری
+                    </a>
                   </li>
-                  <li class="header__list__dropdown-content__item">فروشگاه</li>
+                  <li class="header__list__dropdown-content__item">
+                    <a href="#">
+                      تعیین رشته کنکور
+                    </a>
+                  </li>
+                  <li class="header__list__dropdown-content__item">
+                    <a href="#">
+                      فروشگاه
+                    </a>
+                  </li>
                 </ul>
             </li>
-
             <li class="header__list__item">
-              <i class="glyphicon glyphicon-open-book"></i>
-              <a href="!#" class="header__list__link">محضولات</a>
+              <a href="!#" class="header__list__link">
+                <i class="glyphicon glyphicon-open-book"></i>
+                محضولات
+              </a>
             </li>
-
             <li class="header__list__item header__list__item--teacher-into">
                 <i class="glyphicon glyphicon-explainer"></i>
                 <span>معرفی دبیران مشاز
                   <i class="glyphicon glyphicon-dropdown"></i>
                 </span>
                 <ul class="header__list__dropdown-content">
-                  <li class="header__list__dropdown-content__item"></li>
-                  <li class="header__list__dropdown-content__item"></li>
-                  <li class="header__list__dropdown-content__item"></li>
-                  <li class="header__list__dropdown-content__item"></li>
+                  <li class="header__list__dropdown-content__item">
+                    <a href="#">لینک</a>
+                  </li>
+                  <li class="header__list__dropdown-content__item">
+                    <a href="#">لینک</a>
+                  </li>
+                  <li class="header__list__dropdown-content__item">
+                    <a href="#">لینک</a>
+                  </li>
+                  <li class="header__list__dropdown-content__item">
+                    <a href="#">لینک</a>
+                  </li>
                 </ul>
             </li>
-
             <li class="header__list__item">
-              <i class="glyphicon glyphicon-blog"></i>
-              <a href="!#" class="header__list__link">بلاگ</a>
+              <a href="!#" class="header__list__link">
+                <i class="glyphicon glyphicon-blog"></i>
+                بلاگ
+              </a>
             </li>
-
             <li class="header__list__item">
-              <i class="glyphicon glyphicon-book-cover"></i>
-              <a href="!#" class="header__list__link">اخبار</a>
+              <a href="!#" class="header__list__link">
+                <i class="glyphicon glyphicon-book-cover"></i>
+                اخبار
+              </a>
             </li>
-
             <li class="header__list__item">
-             <i class="glyphicon glyphicon-news-paper"></i>
-              <a href="!#" class="header__list__link">مقالات</a>
+              <a href="!#" class="header__list__link">
+                <i class="glyphicon glyphicon-news-paper"></i>
+                مقالات
+              </a>
             </li>
-
             <li class="header__list__item">
-              <i class="glyphicon glyphicon-people"></i>
-              <a href="!#" class="header__list__link">درباره ما</a>
+              <a href="!#" class="header__list__link">
+                <i class="glyphicon glyphicon-people"></i>
+                درباره ما
+              </a>
             </li>
-
             <li class="header__list__item">
-              <i class="glyphicon glyphicon-headphone"></i>
-              <a href="!#" class="header__list__link">ارتباط با ما</a>
+              <a href="!#" class="header__list__link">
+                <i class="glyphicon glyphicon-headphone"></i>
+                ارتباط با ما
+              </a>
             </li>
           </ul>
         </nav>
@@ -167,6 +197,7 @@
     <!-- ________________________________________________________________________________
     Hero / Slider -->
     <section class="hero">
+      <div>
       <!-- ________________________________________
         slider -->
       <div class="hero__slider">
@@ -184,19 +215,7 @@
             <img src="" alt="" class="hero__slider__img" />
           </li>
         </ul>
-        <div class="hero__slider__indicator">
-          <button
-            class="
-              hero__slider__indicator__item
-              hero__slider__indicator__item--active
-            "
-          ></button
-          ><button class="hero__slider__indicator__item"></button
-          ><button class="hero__slider__indicator__item"></button
-          ><button class="hero__slider__indicator__item"></button>
-        </div>
       </div>
-
       <!-- ________________________________________
         social media links -->
       <div class="hero__social">
@@ -238,7 +257,6 @@
               </button>
             </div>
           </div>
-
           <div class="hero__card">
             <button class="hero__card__toggler hero__card__toggler--consulting">
               مشاوره
@@ -254,7 +272,6 @@
               </button>
             </div>
           </div>
-
           <div class="hero__card">
             <button class="hero__card__toggler hero__card__toggler--calender">
               تقویم آنلاین
@@ -270,11 +287,12 @@
             </div>
           </div>
         </div>
+      </div>
     </section>
-
     <!-- ________________________________________________________________________________
     Gallery -->
     <section class="gallery">
+      <div>
       <div class="gallery__grid">
         <div class="gallery__card">
           <div class="gallery__card__upper">
@@ -294,7 +312,6 @@
             <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
-
         <div class="gallery__card">
           <div class="gallery__card__upper">
             <img
@@ -315,7 +332,6 @@
             <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
-
         <div class="gallery__card">
           <div class="gallery__card__upper">
             <img
@@ -336,7 +352,6 @@
             <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
-
         <div class="gallery__card">
           <div class="gallery__card__upper">
             <img src="./assets/014-pdf.png" alt="" class="gallery__card__img" />
@@ -351,7 +366,6 @@
             <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
-
         <div class="gallery__card">
           <div class="gallery__card__upper">
             <img
@@ -372,7 +386,6 @@
             <i class="glyphicon glyphicon-chevron-left"></i>
           </button>
         </div>
-
         <div class="gallery__card">
           <div class="gallery__card__upper">
             <img src="" alt="" class="gallery__card__img" />
@@ -412,7 +425,6 @@
               </p>
             </div>
           </div>
-
           <div class="gallery__carousel__card">
             <div class="gallery__carousel__card__img__cn">
               <img
@@ -449,19 +461,19 @@
           <i class="glyphicon glyphicon-arrow-left"></i>
         </button>
       </div>
+    </div>
     </section>
     <!-- ________________________________________________________________________________
     Slogan -->
     <section class="slogan">
+      <div>
       <div class="slogan__text">
         <span class="slogan__light">مدرسه آنلاین مشاز</span>
         <h2 class="slogan__title"></h2>
-
         <span class="slogan__dots">
           <span class="slogan__dot"></span><span class="slogan__dot"></span
           ><span class="slogan__dot slogan__dot--active"></span>
         </span>
-
         <p class="slogan__body">
           تسهیل فرآیند یادگیری در کلاس برای دانش آموزان و توسعه زیر ساخت برگزاری
           کلاس ها ، دوره ها و وبینار های آنلاین برای دبیران از اهداف اصلی مشاز
@@ -476,11 +488,12 @@
       <div class="slogan__img__cn">
         <img src="./assets/3973328.png" alt="" class="slogan__img" />
       </div>
+    </div>
     </section>
-
     <!-- ________________________________________________________________________________
     Exams -->
     <section class="exam">
+      <div>
       <div class="exam__card">
         <div class="exam__header">
           <h4 class="exam__title">تست شخصیت شناسی</h4>
@@ -501,7 +514,6 @@
           <i class="glyphicon glyphicon-chevron-left"></i> شروع آزمون
         </button>
       </div>
-
       <div class="exam__card">
         <div class="exam__header">
           <h4 class="exam__title">آزمون تعیین سطح</h4>
@@ -522,11 +534,12 @@
           <i class="glyphicon glyphicon-chevron-left"></i> شروع آزمون
         </button>
       </div>
+    </div>
     </section>
-
     <!-- ________________________________________________________________________________
     new books -->
     <section class="books">
+      <div>
       <h5 class="books__title">جدیدترین کتاب های آموزشی</h5>
       <div class="books__carousel__cn">
         <div class="books__carousel">
@@ -542,7 +555,6 @@
               <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
-
           <div class="books__card">
             <div class="books__card__img__cn">
               <img
@@ -559,7 +571,6 @@
               <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
-
           <div class="books__card">
             <div class="books__card__img__cn">
               <img
@@ -576,7 +587,6 @@
               <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
-
           <div class="books__card">
             <div class="books__card__img__cn">
               <img
@@ -597,11 +607,12 @@
         <button class="books__carousel__action--next"></button>
         <button class="books__carousel__action--pre"></button>
       </div>
+    </div>
     </section>
-
     <!-- ________________________________________________________________________________
     new softwares -->
     <section class="softwares">
+      <div>
       <div class="softeare__header">
         <h3 class="software__title"></h3>
         <div class="software__dots">
@@ -623,7 +634,6 @@
             <span class="software__card__price"> 67000 تومان </span>
           </div>
         </div>
-
         <div class="software__card">
           <div class="software__card__img__cn">
             <img src="./assets/unnamed (2).png" class="software__card__img" />
@@ -635,7 +645,6 @@
             <span class="software__card__price"> 67000 تومان </span>
           </div>
         </div>
-
         <div class="software__card">
           <div class="software__card__img__cn">
             <img src="./assets/unnamed (2).png" class="software__card__img" />
@@ -647,7 +656,6 @@
             <span class="software__card__price"> 67000 تومان </span>
           </div>
         </div>
-
         <div class="software__card">
           <div class="software__card__img__cn">
             <img src="./assets/unnamed (2).png" class="software__card__img" />
@@ -659,7 +667,6 @@
             <span class="software__card__price"> 67000 تومان </span>
           </div>
         </div>
-
         <div class="software__card">
           <div class="software__card__img__cn">
             <img src="./assets/unnamed (2).png" class="software__card__img" />
@@ -671,7 +678,6 @@
             <span class="software__card__price"> 67000 تومان </span>
           </div>
         </div>
-
         <div class="software__card">
           <div class="software__card__img__cn">
             <img src="./assets/unnamed (2).png" class="software__card__img" />
@@ -684,16 +690,16 @@
           </div>
         </div>
       </div>
+    </div>
     </section>
-
     <!-- ________________________________________________________________________________
     sale -->
     <section class="sale">
+      <div>
       <div class="sale__card">
         <div class="sale__card__shape sale__card__shape--1"></div>
         <div class="sale__card__shape sale__card__shape--2"></div>
         <div class="sale__card__shape sale__card__shape--3"></div>
-
         <div class="sale__card__part sale__card__part--img">
           <img src="./assets/unnamed (2).png" alt="" class="sale__card__img" />
         </div>
@@ -712,7 +718,6 @@
         <div class="sale__card__shape sale__card__shape--1"></div>
         <div class="sale__card__shape sale__card__shape--2"></div>
         <div class="sale__card__shape sale__card__shape--3"></div>
-
         <div class="sale__card__part sale__card__part--img">
           <img src="./assets/unnamed (2).png" alt="" class="sale__card__img" />
         </div>
@@ -727,11 +732,12 @@
           </button>
         </div>
       </div>
+    </div>
     </section>
-
     <!-- ________________________________________________________________________________
     teacher Introduction -->
     <section class="intro">
+      <div>
       <div class="intro__header">
         <h3 class="intro__title"></h3>
         <div class="intro__dots">
@@ -754,7 +760,6 @@
               </p>
             </div>
           </div>
-
           <div class="intro__card">
             <div class="intro__card__img__cn">
               <img src="./assets/man.png" alt="" class="intro__card__img" />
@@ -766,7 +771,6 @@
               </p>
             </div>
           </div>
-
           <div class="intro__card">
             <div class="intro__card__img__cn">
               <img src="./assets/man.png" alt="" class="intro__card__img" />
@@ -778,7 +782,6 @@
               </p>
             </div>
           </div>
-
           <button class="intro__carousel__indicator">
             <i class="glyphicon glyphicon-arrow-right"></i></button
           ><button class="intro__carousel__indicator">
@@ -786,11 +789,12 @@
           </button>
         </div>
       </div>
+    </div>
     </section>
-
     <!-- ________________________________________________________________________________
     Schools introduction -->
     <section class="school">
+      <div>
       <div class="school__header">
         <h3 class="school__title"></h3>
         <div class="school__dots">
@@ -798,7 +802,6 @@
           ><span class="school__dot school__dot--active"></span>
         </div>
       </div>
-
       <!-- ________________________________________
       carousel -->
       <div class="school__carousel">
@@ -824,7 +827,6 @@
               </div>
             </div>
           </div>
-
           <div class="school__card">
             <div class="school__card__img__cn">
               <img src="" alt="" class="school__card__img" />
@@ -847,7 +849,6 @@
             </div>
           </div>
         </div>
-
         <!-- ________________________________________
         indicator -->
         <div class="school__carousel__indicators">
@@ -857,11 +858,12 @@
           ><button class="school__carousel__inficator"></button>
         </div>
       </div>
+    </div>
     </section>
-
     <!-- ________________________________________________________________________________
     news -->
     <section class="news">
+      <div>
       <div class="news__carousel">
         <div class="news__header">
           <h3 class="news__title">جدیدترین اخبار</h3>
@@ -870,7 +872,6 @@
             ><span class="news__dot news__dot--active"></span>
           </div>
         </div>
-
         <!-- ________________________________________
         carousel -->
         <div class="news__carousel">
@@ -900,7 +901,6 @@
                 </div>
               </div>
             </div>
-
             <div class="news__carousel__card">
               <div class="news__carousel__card__img__cn">
                 <img
@@ -939,7 +939,6 @@
             ><span class="news__dot news__dot--active"></span>
           </div>
         </div>
-
         <!-- ________________________________________
         LIST -->
         <div class="news__list__cn">
@@ -952,7 +951,6 @@
               <p class="news__list__card__info">جمهوری اسلامی -  ۲۴ اردیبهشت ۱۳۹۹</p>
             </div>
           </div>
-
             <div class="news__list__card__img__cn">
               <img src="./assets/mmd.png" alt="" class="news__ist__card__img" />
             </div>
@@ -961,7 +959,6 @@
               <p class="news__list__card__info">جمهوری اسلامی -  ۲۴ اردیبهشت ۱۳۹۹</p>
             </div>
           </div>
-
             <div class="news__list__card__img__cn">
               <img src="./assets/mmd.png" alt="" class="news__ist__card__img" />
             </div>
@@ -972,11 +969,12 @@
           </div>
         </div>
       </div>
+    </div>
     </section>
-
     <!-- ________________________________________________________________________________
     articles -->
     <section class="articles">
+      <div>
       <div class="article__header">
         <div class="news__header">
           <h3 class="news__title">جدیدترین اخبار</h3>
@@ -989,7 +987,6 @@
           مشاهده همه
         </button>
       </div>
-
       <!-- ________________________________________
       article cards -->
       <div class="article__carousel">
@@ -1005,13 +1002,11 @@
             </div>
           </div>
         </div>
-
         <div class="article__carousel__indicators">
           <button class="article__carousel__indicator article__carousel__indicator--active"></button><button class="article__carousel__indicator"></button><button class="article__carousel__indicator"></button><button class="article__carousel__indicator"></button>
         </div>
-      </div>
+      </div></div>
     </section>
-
     <!-- ________________________________________________________________________________
     Footer -->
     <footer class="footer">
@@ -1027,7 +1022,6 @@
             <p>ایمل <span>email@gmail.com</span></p>
           </div>
         </div>
-
         <div class="footer__section footer__section--links">
           <h6 class="footer__section__title">
             خدمات ما
@@ -1041,7 +1035,6 @@
             <li class="footer__link__item"> <a href="!#">فروشگاه آنلاین</a></li>
           </ul>
         </div>
-
         <div class="footer__section footer__section--form">
           <h6 class="footer__section__title">
             خبرنامه
@@ -1068,13 +1061,7 @@
       map -->
       <div class="footer__map">
         <!-- 
-
-
-
           🗺 map
-
-
-
          -->
       </div>
     </footer>
