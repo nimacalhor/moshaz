@@ -1,0 +1,246 @@
+.intro {
+  width: 90%;
+  margin-block: 5rem;
+  padding: 0 10% 0.5rem 0;
+
+  position: relative;
+  z-index: inherit;
+
+  background-color: #e0dcf6;
+  border-radius: 5vw 0 0 0;
+
+  // ____________________
+  // svg
+  & svg {
+    position: absolute;
+    height: fit-content;
+    inset: auto 0 0 0;
+
+    transform: translateY(99%);
+
+    background-color: #e0dcf6;
+  }
+}
+@media (min-width: 768px) {
+  .intro {
+    width: 80%;
+  }
+}
+
+// ____________________
+// header
+.intro__header {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+
+  margin: 0.75rem 0 2rem 0;
+}
+
+.intro__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 0.5rem;
+}
+
+.intro__dot {
+  width: 5px;
+  height: 5px;
+  margin-inline: 0.15rem;
+
+  border-radius: 2rem;
+  background-color: red;
+
+  &:nth-child(1) {
+    background-color: #4d39ad;
+  }
+  &:nth-child(2) {
+    background-color: #602d88;
+  }
+  &:nth-child(3) {
+    background-color: #ca4e97;
+  }
+}
+
+// ____________________
+// carousel
+$intro_card_width: 15rem;
+
+.intro__carousel {
+  margin: 0 auto 0 1rem;
+}
+@media (min-width: 768px) {
+  .intro__carousel {
+    margin: 0 auto 0 4rem;
+  }
+}
+
+.intro__carousel__cn {
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+
+  padding: 5rem 0 2rem 0;
+
+  // 🟨🟨 may be changed
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (min-width: 576px) {
+  .intro__carousel__cn {
+    width: calc(1 * (20rem));
+  }
+}
+@media (min-width: 768px) {
+  .intro__carousel__cn {
+    width: calc(2 * (20rem));
+  }
+}
+@media (min-width: 992px) {
+  .intro__carousel__cn {
+    width: calc(3 * (20rem));
+  }
+}
+
+// ____________________
+// card
+.intro__card {
+  min-width: $intro_card_width;
+  min-height: 10rem;
+
+  overflow: visible;
+
+  position: relative;
+  z-index: 2;
+
+  padding: 3rem 1.5rem 0.5rem 1.5rem;
+  margin: 0 1rem;
+
+  display: grid;
+  place-content: center;
+
+  background-color: rgb(255, 255, 255);
+  border-radius: 2rem 0.25rem 0.25rem 0.25rem;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease-in;
+
+  &:hover .intro__card__img__cn {
+    outline: 10px solid #e0dcf6;
+    transform: translate(50%, -55%) scale(1.03);
+  }
+  // ____________________
+  // pink shape
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -0.5rem 0 -0.5rem 60%;
+
+    border: 0.5rem solid rgb(202, 78, 151);
+    border-left: none;
+    border-right: none;
+    border-radius: 0.5rem;
+
+    // didn't work 😕
+    // background: linear-gradient(
+    //   100deg,
+    //   rgba(202, 78, 151, 1) 0%,
+    //   rgba(96, 45, 136, 1) 100%
+    // );
+  }
+  // ____________________
+  // shadow
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: -1;
+
+    transition: all 0.3 ease-in;
+    border-radius: 2rem 0.25rem 0.25rem 0.25rem;
+    box-shadow: 6px 6px 10px #c1bdd4, -6px -6px 10px #c1bdd4;
+  }
+}
+
+// ____________________
+.intro__card__img__cn {
+  position: absolute;
+  inset: 0 50% auto auto;
+
+  transform: translate(50%, -50%);
+
+  height: 110px;
+  width: 110px;
+
+  border-radius: 100%;
+  border: 3.5px solid #602d88;
+  outline: 5px solid #e0dcf6;
+  outline-offset: 0;
+  transition: all 0.2s ease-in;
+
+  overflow: hidden;
+
+  display: grid;
+  place-content: center;
+}
+.intro__card__img {
+  object-fit: cover;
+
+  max-width: 150%;
+}
+
+// ____________________
+.intro__card__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+.intro__card__title {
+  display: block;
+  width: 90%;
+  margin: 1rem 0 0 0;
+  padding: 0 0 1rem 0;
+
+  color: #602d88;
+  border-bottom: 2px solid #d0bede;
+}
+
+.intro__carousel__indicator {
+  position: absolute;
+  top: 60%;
+  // transform: translateX(-50%);
+  z-index: 4;
+
+  height: 40px;
+  width: 40px;
+
+  display: grid;
+  place-content: center;
+
+  background-color: #602D88;
+
+  &--next{
+    right: 8%;
+  }
+  &--prev{
+    left: 8%;
+  }
+
+  &:hover{
+    box-shadow: none;
+  }
+
+  i{
+    color: #CA4E97;
+  }
+}

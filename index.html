@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">  
+  
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/fontIcons.css">
+    <link rel="stylesheet" href="./css/style.min.css">
     <title>Moshaz</title>
   </head>
   <body>
@@ -583,8 +584,12 @@
     </section>
     <!-- ________________________________________________________________________________
     new books -->
-    <section class="books">
-      <div>
+    <section >
+      <div class="books">
+        <svg xmlns="http://www.w3.org/2000/svg" width="" height="153" viewBox="0 0 1420 153">
+          <path id="Union_1" data-name="Union 1" d="M-181,153V0h.887V9.55A67.559,67.559,0,0,0-124.272,76H1169a70,70,0,0,1,70,70v7Z" transform="translate(1239 153) rotate(180)" fill="#fff"/>
+        </svg>
+        
       <h5 class="books__title">جدیدترین کتاب های آموزشی</h5>
       <div class="books__carousel__cn">
         <div class="books__carousel">
@@ -596,7 +601,7 @@
               <h5 class="books__card__title">کتاب کمک درسی ریاضی پایه ۶</h5>
               <span class="books__card__price">تومان 54000</span>
             </div>
-            <button class="books__card__avtion">
+            <button class="books__card__action">
               <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
@@ -612,7 +617,7 @@
               <h5 class="books__card__title">کتاب کمک درسی ریاضی پایه ۶</h5>
               <span class="books__card__price">تومان 54000</span>
             </div>
-            <button class="books__card__avtion">
+            <button class="books__card__action">
               <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
@@ -628,7 +633,7 @@
               <h5 class="books__card__title">کتاب کمک درسی ریاضی پایه ۶</h5>
               <span class="books__card__price">تومان 54000</span>
             </div>
-            <button class="books__card__avtion">
+            <button class="books__card__action">
               <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
@@ -644,25 +649,31 @@
               <h5 class="books__card__title">کتاب کمک درسی ریاضی پایه ۶</h5>
               <span class="books__card__price">تومان 54000</span>
             </div>
-            <button class="books__card__avtion">
+            <button class="books__card__action">
               <i class="glyphicon glyphicon-cart"></i>
             </button>
           </div>
         </div>
-        <button class="books__carousel__action--next"></button>
-        <button class="books__carousel__action--pre"></button>
+        <button class="books__carousel__action books__carousel__action--next">
+          <i class="glyphicon glyphicon-arrow-right"></i>
+        </button>
+        <button class="books__carousel__action books__carousel__action--pre">
+          <i class="glyphicon glyphicon-arrow-left"></i>
+
+        </button>
       </div>
     </div>
     </section>
     <!-- ________________________________________________________________________________
     new softwares -->
-    <section class="softwares">
-      <div>
-      <div class="softeare__header">
-        <h3 class="software__title"></h3>
+    <section >
+      <div class="software">
+      <div class="software__header">
+        <h3 class="software__title">جدیدترین نرم افزارهای آموزشی</h3>
         <div class="software__dots">
-          <span class="software__dot"></span><span class="software__dot"></span
-          ><span class="software__dot software__dot--active"></span>
+          <span class="software__dot"></span>
+          <span class="software__dot"></span>
+          <span class="software__dot"></span>
         </div>
       </div>
       <!-- ________________________________________
@@ -739,8 +750,8 @@
     </section>
     <!-- ________________________________________________________________________________
     sale -->
-    <section class="sale">
-      <div>
+    <section >
+      <div class="sale">
       <div class="sale__card">
         <div class="sale__card__shape sale__card__shape--1"></div>
         <div class="sale__card__shape sale__card__shape--2"></div>
@@ -754,9 +765,9 @@
           </h5>
         </div>
         <div class="sale__card__part sale__card__part--btn">
-          <button class="sale__card__btn">
+          <a href="#" class="btn sale__card__btn">
             <i class="glyphicon glyphicon-chevron-left"></i> مشاهده
-          </button>
+          </a>
         </div>
       </div>
       <div class="sale__card">
@@ -772,22 +783,23 @@
           </h5>
         </div>
         <div class="sale__card__part sale__card__part--btn">
-          <button class="sale__card__btn">
+          <a href="#" class="btn sale__card__btn">
             <i class="glyphicon glyphicon-chevron-left"></i> مشاهده
-          </button>
+          </a>
         </div>
       </div>
     </div>
     </section>
     <!-- ________________________________________________________________________________
     teacher Introduction -->
-    <section class="intro">
-      <div>
+    <section >
+      <div class="intro">
       <div class="intro__header">
-        <h3 class="intro__title"></h3>
+        <h3 class="intro__title">معرفی دبیران</h3>
         <div class="intro__dots">
-          <span class="intro__dot"></span><span class="intro__dot"></span
-          ><span class="intro__dot intro__dot--active"></span>
+          <span class="intro__dot"></span>
+          <span class="intro__dot"></span>
+          <span class="intro__dot"></span>
         </div>
       </div>
       <!-- ________________________________________
@@ -796,7 +808,7 @@
         <div class="intro__carousel__cn">
           <div class="intro__card">
             <div class="intro__card__img__cn">
-              <img src="./assets/man.png" alt="" class="intro__card__img" />
+              <img src="./assets/man.jpg" alt="" class="intro__card__img" />
             </div>
             <div class="intro__card__text">
               <h3 class="intro__card__title">مسعود نوروزی زاده</h3>
@@ -807,7 +819,7 @@
           </div>
           <div class="intro__card">
             <div class="intro__card__img__cn">
-              <img src="./assets/man.png" alt="" class="intro__card__img" />
+              <img src="./assets/man.jpg" alt="" class="intro__card__img" />
             </div>
             <div class="intro__card__text">
               <h3 class="intro__card__title">مسعود نوروزی زاده</h3>
@@ -818,7 +830,7 @@
           </div>
           <div class="intro__card">
             <div class="intro__card__img__cn">
-              <img src="./assets/man.png" alt="" class="intro__card__img" />
+              <img src="./assets/man.jpg" alt="" class="intro__card__img" />
             </div>
             <div class="intro__card__text">
               <h3 class="intro__card__title">مسعود نوروزی زاده</h3>
@@ -827,13 +839,17 @@
               </p>
             </div>
           </div>
-          <button class="intro__carousel__indicator">
+          <button class="intro__carousel__indicator intro__carousel__indicator--next">
             <i class="glyphicon glyphicon-arrow-right"></i></button
-          ><button class="intro__carousel__indicator">
+          ><button class="intro__carousel__indicator intro__carousel__indicator--prev">
             <i class="glyphicon glyphicon-arrow-left"></i>
           </button>
         </div>
       </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 1419 153">
+        <path id="Union_3" data-name="Union 3" d="M0,153V0H1V7A70.116,70.116,0,0,0,59.165,76H1349a70,70,0,0,1,70,70v7Z" fill="#fff"/>
+      </svg>
+      
     </div>
     </section>
     <!-- ________________________________________________________________________________

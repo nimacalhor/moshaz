@@ -1,0 +1,79 @@
+@import './header';
+@import './hero';
+@import './gallery';
+@import './exam';
+@import './books';
+@import './slogan';
+@import './softwares';
+@import './intro';
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+button,
+.btn {
+  position: relative;
+
+  padding: 0.1rem 0.5rem;
+  margin: 0 0.25rem;
+
+  border: solid 0.25px #ecebeb;
+  border-radius: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  background: #ffffff;
+  /* box-shadow: 3px 3px 2px #e1e1e1, -3px -3px 2px #ebebeb; */
+
+  transition: all ease-in 0.3s;
+}
+
+button:hover,
+.btn:hover {
+  box-shadow: 3px 3px 6px #cdcdcd, -3px -3px 6px #ffffff;
+  transform: translateY(-2px);
+}
+button:active,
+.btn:active {
+  transform: translateY(1.5px);
+  box-shadow: none;
+}
+
+/* ____________________
+scroll bar */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(202, 78, 151);
+  background: linear-gradient(
+    0deg,
+    rgba(202, 78, 151, 1) 0%,
+    rgba(96, 45, 136, 1) 100%
+  );
+  border: 2px solid hsl(0, 0%, 90%);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: hsl(0, 0%, 90%);
+  border-radius: 0.5rem;
+  margin-block: 0.5rem;
+}
+
+@supports (scrollbar-color: rgb(202, 78, 151) hsl(0, 0%, 90%)) {
+  * {
+    scrollbar-color: rgb(202, 78, 151) hsl(0, 0%, 90%);
+  }
+}
+

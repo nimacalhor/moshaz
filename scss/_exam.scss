@@ -1,0 +1,140 @@
+.exam {
+  width: 100%;
+  margin: 2rem 0 0 0;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  place-content: center center;
+  place-items: center center;
+}
+@media (min-width: 992px) {
+  .exam {
+    margin: 5rem 0 0 0;
+
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ____________________
+  card */
+.exam__card {
+  width: 85%;
+  margin: 1.5rem 0;
+  position: relative;
+  z-index: inherit;
+
+  border-radius: 1.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: hsl(0, 0%, 99%);
+
+  /* content */
+  display: flex;
+  flex-direction: column;
+  place-content: space-between;
+}
+@media (min-width: 992px) {
+  .exam__card {
+    margin: 0;
+  }
+}
+
+/* shape */
+.exam__card::before {
+  content: "";
+  position: absolute;
+  inset: -0.75rem 0.5rem -0.75rem 60%;
+  z-index: -1;
+
+  border-radius: 0.5rem;
+  background: rgb(202, 78, 151);
+  background: linear-gradient(
+    35deg,
+    rgba(202, 78, 151, 1) 0%,
+    rgba(96, 45, 136, 1) 100%
+  );
+}
+
+/* shadow */
+.exam__card__shadow {
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: -2;
+  box-shadow: 8px 8px 20px #ebebeb, -8px -8px 20px #ffffff;
+}
+/* ____________________
+  card content */
+.exam__header {
+  background-color: #372784;
+  border-radius: 1.5rem 0.5rem 0 0;
+}
+
+.exam__title {
+  margin: 1rem;
+  color: #ffffff;
+}
+
+.exam__content {
+  display: flex;
+  flex-direction: column;
+  place-content: space-around;
+  place-items: center;
+
+  padding: 1.25rem 1rem;
+
+  color: #6c6c6c;
+}
+@media (min-width: 576px){
+  .exam__content{
+    flex-direction: row;
+  }
+}
+
+.exam__img__cn {
+  margin: 0 0 0 1rem;
+  display: grid;
+  place-content: center;
+  width: 100%;
+  // max-width: 100%;
+  img{
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+
+.exam__text {
+  padding: 0 1rem;
+  line-height: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.exam__action__cn {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 0 0 1rem 1rem;
+}
+
+.exam__action {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+  background-color: #ef9226;
+}
+
+.exam__action i {
+  width: 32px;
+  height: 30px;
+  margin: 0 0.5rem 0 0;
+  padding: 0.15rem 0 0 0;
+
+  display: flex;
+  place-content: center;
+  place-items: center;
+
+  border-radius: 2rem;
+  background-color: #de7117;
+  color: #ffffff;
+}
