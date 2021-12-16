@@ -129,10 +129,14 @@ $intro_card_width: 15rem;
   cursor: pointer;
 
   transition: all 0.3s ease-in;
-
+  
+  
+    &:hover{
+      transform: translateY(-1rem);
+    }
   &:hover .intro__card__img__cn {
-    outline: 10px solid #e0dcf6;
-    transform: translate(50%, -55%) scale(1.03);
+    outline: 2px solid #e0dcf6;
+    transform: translate(50%, -45%) scale(1.03);
   }
   // ____________________
   // pink shape

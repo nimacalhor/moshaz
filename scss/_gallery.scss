@@ -196,6 +196,7 @@
 /* grid child element */
 .gallery__carousel__card__img__cn {
   grid-row: 1/1;
+  width: 100%;
 }
 .gallery__carousel__card__body {
   grid-row: 2/ 2;
@@ -215,6 +216,7 @@
   padding: 0;
   height: 100%;
   object-fit: cover;
+  max-width: 90vw;
 }
 @media (min-width: 576px){
   .gallery__carousel__card__img{

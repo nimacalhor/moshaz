@@ -1,0 +1,243 @@
+.school {
+  width: 90%;
+  margin: 4rem auto;
+}
+@media (min-width: 768px) {
+  .school {
+    width: 80%;
+  }
+}
+
+// ____________________
+// header
+.school__header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.school__dots {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-inline: 0.5rem;
+}
+
+.school__dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 2rem;
+  margin-inline: 0.25rem;
+
+  &:nth-child(1) {
+    background-color: #4d39ad;
+  }
+
+  &:nth-child(2) {
+    background-color: #602d88;
+  }
+
+  &:nth-child(3) {
+    background-color: #ca4e97;
+  }
+}
+
+// ____________________
+// cards container
+.school__carousel {
+  position: relative;
+}
+.school__carousel__cn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 2rem 0;
+}
+@media (min-width: 768px) {
+  .school__carousel__cn {
+    flex-direction: row;
+  }
+}
+
+// ____________________
+// card
+.school__card {
+  width: 100%;
+
+  position: relative;
+  z-index: inherit;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 0.75rem;
+  margin: 1rem 0;
+
+  height: 7.25rem;
+
+  border-radius: 2rem 0.5rem 0.5rem 0.5rem;
+  color: #ffffff;
+  background: rgb(96, 45, 136);
+  background: linear-gradient(
+    0deg,
+    rgba(96, 45, 136, 1) 20%,
+    rgba(55, 39, 132, 1) 100%
+  );
+
+  cursor: pointer;
+
+  //shape
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -0.5rem 0.25rem 0.25rem 3%;
+    z-index: -1;
+
+    background: rgb(202, 78, 151);
+    background: linear-gradient(
+      90deg,
+      rgba(202, 78, 151, 1) 0%,
+      rgba(96, 45, 136, 1) 100%
+    );
+    border-radius: 2rem 0.5rem 0 0;
+  }
+
+  // shadow
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    z-index: -2;
+
+    transition: all 0.3s ease;
+
+    border-radius: 2rem 0.5rem 0.5rem 0.5rem;
+    box-shadow: 7px 7px 14px #c2c2c2, -7px -7px 14px #ffffff;
+  }
+  &:hover::after {
+    box-shadow: 11px 11px 22px #e8e8e8, -11px -11px 22px #ffffff;
+  }
+
+  // img
+  &:hover > .school__card__img__cn::after {
+    opacity: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .school__card {
+    width: 45%;
+    margin: 0;
+  }
+}
+
+// img
+.school__card__img__cn {
+  width: 40%;
+  overflow: hidden;
+
+  display: grid;
+  place-content: center;
+
+  border-radius: 0.5rem;
+
+  position: relative;
+
+  &::after {
+    font-family: FontIcon;
+    content: "\F001";
+    position: absolute;
+    inset: 0;
+
+    display: grid;
+    place-content: center;
+
+    font-size: 1.5rem;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0%;
+
+    transition: all 0.3s ease-in-out;
+  }
+}
+@media (min-width: 992px) {
+  .school__card__img__cn {
+    width: 30%;
+  }
+}
+.school__card__img {
+  // max-width: 100%;
+  object-fit: cover;
+}
+
+// content
+.school__card__content {
+  width: 55%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.school__card__upper {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 0.25rem 0 1.5rem 0;
+  border-bottom: 1px solid #efefef;
+}
+
+.school__card__title {
+  margin: 0;
+  padding: 0;
+  font-size: 1.05rem;
+}
+
+//
+.school__card__lower {
+  font-size: 0.8rem;
+
+  i {
+    color: #ffffff;
+    margin: 0 0 0 0.25rem;
+  }
+}
+
+.school__card__phone {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin: 0.25rem 0;
+}
+
+// indicators
+.school__carousel__indicators {
+  position: absolute;
+  inset: auto 0 -3rem 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.school__carousel__indicator {
+  display: inline-block;
+  // width: 5px;
+  padding: 3px;
+  background-color: #602d88;
+
+  &--active {
+    background-color: #ffffff;
+    border: 8px solid #ca4e97;
+    box-shadow: 5px 5px 2px #f5f5f5, -5px -5px 2px #ffffff;
+  }
+}
