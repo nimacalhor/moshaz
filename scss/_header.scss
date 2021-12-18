@@ -23,12 +23,72 @@ header {
   }
 }
 
+// ________________________________________________________________________________
+// sticky heder
+header.sticky-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 99999;
+  padding-block: 0;
+  border-radius: 0 !important;
+
+  // background
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  // ____________________
+  .header__content {
+    .header__actions {
+      display: none;
+    }
+    // ____________________
+    .header__nav {
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(5.5px);
+      -webkit-backdrop-filter: blur(5.5px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      @media (min-width: 768px) {
+        & {
+          background: none;
+          box-shadow: none;
+          border: none;
+          border-radius: 0;
+          backdrop-filter: none;
+        }
+      }
+      ul.header__list {
+        margin: 0.75rem 0 0.5rem 0;
+        width: 85%;
+      }
+    }
+  }
+  // ____________________
+  .header__logo__cn {
+    min-width: none;
+    display: none;
+
+    img.header__logo {
+      transform: scale(0.9);
+    }
+  }
+  // ____________________
+}
+
 /*  */
 
 /* logo hamburger */
 .header__hamburger {
-  position: relative;
-  display: block;
+  position: fixed;
+  inset: 1rem 1rem auto auto;
+  display: grid;
+  place-content: center;
+  padding: 0.5rem;
   z-index: 999;
   border: 0;
 }
@@ -42,6 +102,7 @@ header {
   color: #6d458c;
   font-size: 1.5rem;
   font-weight: 700;
+  transform: translateY(2px);
 }
 
 /*  */
@@ -267,19 +328,38 @@ header {
   nav */
 .header__nav {
   display: inline-block;
-  position: absolute;
-  inset: 0 0 -100% 20%;
-  /* height: ; */
+  position: fixed;
+  inset: 0 0 0 20%;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  width: auto;
+  overflow-y: scroll;
   z-index: 99;
   background-color: #ffffff;
+  transform: translateX(120%);
+  transition: transform 0.4s ease-out;
 }
 @media (min-width: 768px) {
   .header__nav {
     position: relative;
-    inset: 0 0 0 0;
+    inset: 0 0 auto 0;
+    height: auto;
+    overflow-y: visible;
+    transform: none;
 
     margin: 0.5rem 0 0.75rem 0;
   }
+}
+
+.overlay-shadow {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  inset: 0 0 0 0;
+  background-color: rgba(73, 7, 40, 0.2);
+  z-index: 99;
+  display: none;
 }
 
 /*  */
@@ -323,7 +403,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
 
   position: relative;
   z-index: 99;
@@ -367,7 +447,7 @@ header {
 .header__list__item__title {
   position: relative;
   width: 100%;
-  border-radius: 0.75rem;
+  border-radius: 0.25rem;
   background-color: #572b79;
   padding: 0.5rem 0;
   z-index: 2;
@@ -426,21 +506,30 @@ header {
     Dropdown ⬇
    */
 /* toggle drop down on hover */
-.header__list__item--edu-services:hover > ul {
-  display: flex;
+@media (min-width: 768px) {
+  .header__list__item:hover {
+    ul {
+      transform: scaleY(1) !important;
+    }
+  }
 }
-.header__list__dropdown-content {
-  display: none;
-  width: 99%;
 
-  position: relative;
-  top: -0.5rem;
+.header__list__dropdown-content {
+  transform: scaleY(1);
+  transform-origin: top;
+
+  width: 99%;
+  height: fit-content;
+  overflow: hidden;
+
+  position: absolute;
+  top: 90%;
   right: 0;
   left: 0;
 
   margin: 0 auto;
 
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in;
   color: #363636;
   background-color: #ffffff;
 
@@ -448,12 +537,10 @@ header {
   box-shadow: 8px 8px 16px #d9d9d9;
 
   /* content */
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  /* gap: 0.75rem; */
-  /* overflow-x: hidden;
-    overflow-y: visible; */
 
   padding: 0;
 
@@ -528,6 +615,7 @@ header {
   text-decoration: none;
   color: #2b2b2b;
   transition: all 0.2s ease-in;
+  font-size: 1.1rem;
 }
 /* hover effect */
 .header__list__dropdown-content__item:hover a,
