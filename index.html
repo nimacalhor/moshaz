@@ -227,21 +227,40 @@
         slider -->
         <div class="hero__slider">
           <ul class="hero__slider__cn">
-            <li class="hero__slider__item">
+            <li data-current="true" class="hero__slider__item hero__slider__item--current">
               <img
                 src="./assets/14802.png"
                 alt="slider"
                 class="hero__slider__img"
               />
             </li>
-            <li class="hero__slider__item">
-              <img src="" alt="" class="hero__slider__img" />
+            <li data-current="false" class="hero__slider__item">
+              <img
+                src="./assets/noteBook.jpg"
+                alt="slider"
+                class="hero__slider__img"
+              />
             </li>
-            <li class="hero__slider__item">
-              <img src="" alt="" class="hero__slider__img" />
+            <li data-current="false" class="hero__slider__item">
+              <img
+                src="./assets/lamp.jpg"
+                alt="slider"
+                class="hero__slider__img"
+              />
             </li>
-            <li class="hero__slider__item">
-              <img src="" alt="" class="hero__slider__img" />
+            <li data-current="false" class="hero__slider__item">
+              <img
+                src="./assets/coffee.jpg"
+                alt="slider"
+                class="hero__slider__img"
+              />
+            </li>
+            <li data-current="false" class="hero__slider__item">
+              <img
+                src="./assets/pen.jpg"
+                alt="slider"
+                class="hero__slider__img"
+              />
             </li>
           </ul>
           <svg
@@ -286,6 +305,10 @@
               />
             </g>
           </svg>
+
+          <div class="hero__slider__nav">
+            <button data-target="0" class="hero__slider__indicator"></button>
+          </div>
         </div>
         <!-- ________________________________________
         social media links -->
@@ -1348,7 +1371,7 @@
               خدمات ما
               <div class="footer__section__line"></div>
             </h6>
-            <button class="footer__section__toggle-btn">
+            <button class="footer__section__toggle-btn footer__section__toggle-btn--links">
               <i class="glyphicon glyphicon-dropdown"></i>
             </button>
           </div>
@@ -1372,23 +1395,25 @@
               خدمات ما
               <div class="footer__section__line"></div>
             </h6>
-            <button class="footer__section__toggle-btn">
+            <button class="footer__section__toggle-btn footer__section__toggle-btn--form">
               <i class="glyphicon glyphicon-dropdown"></i>
             </button>
           </div>
-          <span>ایمیل خود را برای ارسال خبر نامه وارد کنید</span>
-          <div class="footer__input footer__input--email">
-            <i class="glyphicon glyphicon-mail"></i>
-            <input class="footer__input__email" type="email" />
+          <div class="footer__section--form__cn">
+            <span>ایمیل خود را برای ارسال خبر نامه وارد کنید</span>
+            <div class="footer__input footer__input--email">
+              <i class="glyphicon glyphicon-mail"></i>
+              <input class="footer__input__email" type="email" />
+            </div>
+            <div class="footer__input footer__input--security">
+              <!-- security code 😕 ?-->
+              <input class="footer__input__security" type="email" />
+            </div>
+            <button class="footer__section__button">
+              ارسال
+              <i class="glyphicon glyphicon-chevron-left"></i>
+            </button>
           </div>
-          <div class="footer__input footer__input--security">
-            <!-- security code 😕 ?-->
-            <input class="footer__input__security" type="email" />
-          </div>
-          <button class="footer__section__button">
-            ارسال
-            <i class="glyphicon glyphicon-chevron-left"></i>
-          </button>
         </div>
         <div class="footer__section footer__section--symbol">
           <img
