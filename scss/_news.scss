@@ -45,6 +45,8 @@
   width: 90%;
   margin: 0 auto;
 
+  height: 30rem;
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
@@ -67,8 +69,14 @@
 }
 
 .news__carousel {
+  position: relative;
   grid-column: 1;
   grid-row: 1;
+  max-height: 100%;
+
+  overflow: hidden;
+
+  padding: 0 0.5rem;
 }
 @media (min-width: 768px) {
   .news__carousel {
@@ -106,15 +114,38 @@
 }
 
 .news__carousel__cn {
-  overflow: hidden;
-  width: 100%;
+  width: auto;
   position: relative;
+  height: 100%;
 
-  //   temp
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 2%;
+  transition: transform 0.45s cubic-bezier(.73,.25,.68,1.35);
+}
+
+.news__carousel__item {
+  position: absolute;
+  height: 100%;
+  max-width: 100%;
+  padding: 0 1rem;
+  @media (min-width: 576px) {
+    & {
+      width: 45%;
+    }
+  }
+  @media (min-width: 768px) {
+    & {
+      width: 90%;
+    }
+  }
+  @media (min-width: 992px) {
+    & {
+      width: 45%;
+    }
+  }
+  @media (min-width: 1400px) {
+    & {
+      width: 30%;
+    }
+  }
 }
 
 .news__carousel__card {
@@ -122,8 +153,8 @@
   flex-direction: column;
   justify-content: space-between;
 
-  max-width: 100%;
-  min-width: 95%;
+  height: auto;
+  width: 100%;
   padding: 0.75rem;
 
   margin: 0 auto;
@@ -148,31 +179,14 @@
     color: #602d88;
   }
 }
-@media (min-width: 576px) {
-  .news__carousel__card {
-    min-width: 45%;
-  }
-}
-@media (min-width: 768px) {
-  .news__carousel__card {
-    min-width: 90%;
-  }
-}
-@media (min-width: 992px) {
-  .news__carousel__card {
-    min-width: 45%;
-  }
-}
-@media (min-width: 1400px) {
-  .news__carousel__card {
-    min-width: 30%;
-  }
-}
+
 .news__carousel__card__img__cn {
   width: 100%;
   margin: 0 auto;
   display: grid;
   place-content: center;
+
+  max-height: 50%;
 
   position: relative;
   z-index: inherit;
@@ -246,10 +260,10 @@
     transform: translateY(-50%) scale(1.05);
   }
 
-  &--prev {
+  &--left {
     left: 0;
   }
-  &--next {
+  &--right {
     right: 0;
   }
 }
@@ -347,6 +361,6 @@
   padding: 0.5rem 0 0 0;
   margin-top: 0.25rem;
 
-  border-top: 2px solid #EFEFEF;
+  border-top: 2px solid #efefef;
   color: #602d88;
 }

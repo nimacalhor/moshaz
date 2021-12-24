@@ -70,6 +70,8 @@ $intro_card_width: 15rem;
 
 .intro__carousel {
   margin: 0 auto 0 1rem;
+  height: 25rem;
+  overflow: hidden;
 }
 @media (min-width: 768px) {
   .intro__carousel {
@@ -78,17 +80,12 @@ $intro_card_width: 15rem;
 }
 
 .intro__carousel__cn {
-  overflow: hidden;
-  max-width: 100%;
-  width: 100%;
+  width: auto;
+  position: relative;
+  height: 100%;
 
-  padding: 5rem 0 2rem 0;
-
-  // 🟨🟨 may be changed
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  transition: transform 0.4s cubic-bezier(.73,.25,.68,1.35);
+  padding: 6rem 0 4rem 0;
 }
 @media (min-width: 576px) {
   .intro__carousel__cn {
@@ -108,13 +105,23 @@ $intro_card_width: 15rem;
 
 // ____________________
 // card
+.intro__carousel__item{
+  position: absolute;
+  transition: transform 0.3s ease-out;
+
+  &--current{
+    transform: scale(1.1);
+  }
+}
+
+
 .intro__card {
-  min-width: $intro_card_width;
-  min-height: 10rem;
+  width: $intro_card_width;
+  height: 10rem;
+  position: relative;
 
   overflow: visible;
 
-  position: relative;
   z-index: 2;
 
   padding: 3rem 1.5rem 0.5rem 1.5rem;
@@ -223,7 +230,7 @@ $intro_card_width: 15rem;
   position: absolute;
   top: 60%;
   // transform: translateX(-50%);
-  z-index: 4;
+  z-index: 98;
 
   height: 40px;
   width: 40px;
@@ -233,10 +240,10 @@ $intro_card_width: 15rem;
 
   background-color: #602D88;
 
-  &--next{
+  &--right{
     right: 8%;
   }
-  &--prev{
+  &--left{
     left: 8%;
   }
 

@@ -154,16 +154,40 @@
 /* ____________________
   carousel */
 .gallery__carousel {
-  display: grid;
-  place-content: center;
-
   position: relative;
-
+  height: 80vh;
   margin: 8rem 0 0 0;
+  overflow: hidden;
+  @media (min-width: 550px) {
+    & {
+      height: 90vh;
+    }
+  }
+  @media (min-width: 700px) {
+    & {
+      height: 120vh;
+    }
+  }
+  @media (min-width: 768px) {
+    & {
+      height: 40vh;
+    }
+  }
 }
 
 .gallery__carousel__cn {
   position: relative;
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.4s cubic-bezier(.48,.46,.55,1.08);
+}
+
+.gallery__carousel__item{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(5%);
+  width: 90%;
 }
 
 .gallery__carousel__card {
@@ -177,9 +201,7 @@
   background-color: #f5f4fa;
 
   padding: 0 1rem;
-  margin: 0 auto;
-
-  width: 55%;
+  margin: 0 1rem;
 }
 @media (min-width: 768px) {
   .gallery__carousel__card {
@@ -188,8 +210,6 @@
     grid-template-rows: 1fr;
 
     gap: 1rem;
-
-    width: 85%;
   }
 }
 
@@ -214,12 +234,13 @@
 .gallery__carousel__card__img {
   margin: 0;
   padding: 0;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   max-width: 90vw;
 }
-@media (min-width: 576px){
-  .gallery__carousel__card__img{
+@media (min-width: 576px) {
+  .gallery__carousel__card__img {
     max-width: 100%;
   }
 }
@@ -235,10 +256,12 @@
   position: absolute;
   display: inline-block;
   top: 50%;
-  right: -1rem;
+  right: 0;
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
+
+  z-index: 990;
 
   display: flex;
   place-content: center center;
@@ -254,7 +277,7 @@
   font-size: 1.2rem;
 }
 
-.gallery__carousel__controller--next {
+.gallery__carousel__controller--left {
   right: auto;
-  left: -1rem;
+  left: 0;
 }

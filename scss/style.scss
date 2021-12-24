@@ -1,17 +1,16 @@
-@import './fontIcons';
-@import './header';
-@import './hero';
-@import './gallery';
-@import './exam';
-@import './books';
-@import './slogan';
-@import './softwares';
-@import './intro';
-@import './school';
-@import './news';
-@import './articles';
-@import './footer';
-
+@import "./fontIcons";
+@import "./header";
+@import "./hero";
+@import "./gallery";
+@import "./exam";
+@import "./books";
+@import "./slogan";
+@import "./softwares";
+@import "./intro";
+@import "./school";
+@import "./news";
+@import "./articles";
+@import "./footer";
 
 body {
   margin: 0;
@@ -54,6 +53,12 @@ button:active,
   box-shadow: none;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 /* ____________________
 scroll bar */
 ::-webkit-scrollbar {
@@ -82,4 +87,3 @@ scroll bar */
     scrollbar-color: rgb(202, 78, 151) hsl(0, 0%, 90%);
   }
 }
-

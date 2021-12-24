@@ -14,9 +14,58 @@ const btnHamburger = document.querySelector(".header__hamburger")
 // hero
 const sectionHero = document.querySelector("div.hero")
 const containerHeroSlider = document.querySelector(".hero__slider__cn")
-const HeroSlides = Array.from(containerHeroSlider.children)
+const heroSlides = Array.from(containerHeroSlider.children)
 const containerHeroSliderDots = document.querySelector(".hero__slider__nav")
 const heroSliderDots = Array.from(containerHeroSliderDots.children)
+
+// ____________________
+// gallery
+const containerGallerySlider = document.querySelector("ul.gallery__carousel__cn")
+const gallerySlides = Array.from(containerGallerySlider.children)
+
+const btnGallerySlideLeft = document.querySelector("button.gallery__carousel__controller--left")
+const btnGallerySlideRight = document.querySelector("button.gallery__carousel__controller--right")
+
+// ____________________
+// books carousel
+const containerBooksSlider = document.querySelector("ul.books__carousel__cn")
+const booksSlides = Array.from(containerBooksSlider.children)
+
+const btnBooksSliderRight = document.querySelector("button.books__carousel__action--right")
+const btnBooksSliderLeft = document.querySelector("button.books__carousel__action--left")
+
+
+// ____________________
+// teacher intro
+const containerIntroSlider = document.querySelector("ul.intro__carousel__cn")
+const introSlides = Array.from(containerIntroSlider.children)
+
+const btnIntroSliderRight = document.querySelector("button.intro__carousel__indicator--right")
+const btnIntroSliderLeft = document.querySelector("button.intro__carousel__indicator--left")
+
+// ____________________
+// schools
+const containerSchoolSlider = document.querySelector("ul.school__carousel__cn")
+const schoolSlides = Array.from(containerSchoolSlider.children)
+
+const containerSchoolDots = document.querySelector("div.school__carousel__indicators")
+const schoolDots = Array.from(containerSchoolDots.children)
+
+// ____________________
+// news
+const containerNewsSlider = document.querySelector("ul.news__carousel__cn")
+const newsSlides = Array.from(containerNewsSlider.children)
+
+const btnNewsSliderRight = document.querySelector("button.news__carousel__ind--right")
+const btnNewsSliderLeft = document.querySelector("button.news__carousel__ind--left")
+
+// ____________________
+// article
+const containerArticleSlider = document.querySelector("ul.article__carousel__cn")
+const articleSlides = Array.from(containerArticleSlider.children)
+
+const containerArticleDots = document.querySelector(".article__carousel__indicators")
+const articleDots = Array.from(containerArticleDots.children)
 
 // ____________________
 // footer
@@ -200,6 +249,7 @@ const moveSlide = function (parent, className, target) {
     if (!targetSlide) {
         const allSlides = Array.from(parent.children)
         allSlides.forEach(el => el.classList.remove(currentClassName));
+        allSlides[0].classList.add(currentClassName)
         moveSlide(parent, className, allSlides[0])
         return
     }
@@ -214,6 +264,8 @@ const moveSlide = function (parent, className, target) {
     currentSlide.dataset.current = "false";
     targetSlide.classList.add(currentClassName)
     targetSlide.dataset.current = "true"
+
+
 }
 
 const createSliderIndicators = function (container, amount) {
@@ -253,26 +305,100 @@ const updateInd = function (sliderParent, indParent) {
 // ________________________________________________________________________________
 // hero carousel
 const heroSlideInfo = {
-    slideWidth: HeroSlides[0].getBoundingClientRect().width
+    slideWidth: heroSlides[0].getBoundingClientRect().width,
 }
 
 // arrange each slide item
-HeroSlides.forEach((el, i) => setSlidePosition(el, i, heroSlideInfo.slideWidth))
-
+heroSlides.forEach((el, i) => setSlidePosition(el, i, heroSlideInfo.slideWidth))
 
 // ____________________
 // control by indicators
-// create them
 createSliderIndicators(containerHeroSliderDots, (Array.from(containerHeroSlider.children).length))
 
 containerHeroSliderDots.addEventListener("click", e => {
     if (e.target.localName !== "button") return
-    moveSlide(containerHeroSlider, "hero__slider__item", HeroSlides[getIndicatorIndex(e)]);
+    moveSlide(containerHeroSlider, "hero__slider__item", heroSlides[getIndicatorIndex(e)]);
 
     updateInd(containerHeroSlider, containerHeroSliderDots)
 })
 
-// 1 check if the clicked el is not parent
-// 2 change the current class name
-// 3 find the index of that el
-// 4 move the slider container
+// ________________________________________________________________________________
+// gallery carousel
+const gallerySlideInfo = {
+    slideWidth: gallerySlides[0].getBoundingClientRect().width
+}
+gallerySlides.forEach((el, i) => setSlidePosition(el, i, gallerySlideInfo.slideWidth))
+
+btnGallerySlideRight.addEventListener("click", () => {
+    moveSlide(containerGallerySlider, "gallery__carousel__item", "next");
+})
+btnGallerySlideLeft.addEventListener("click", () => {
+    moveSlide(containerGallerySlider, "gallery__carousel__item", "prev");
+})
+
+// ________________________________________________________________________________
+// books slider
+const booksSliderInfo = {
+    slideWidth: booksSlides[0].getBoundingClientRect().width
+}
+
+booksSlides.forEach((el, i) => setSlidePosition(el, i, booksSliderInfo.slideWidth + 5))
+
+btnBooksSliderRight.addEventListener("click", () => moveSlide(containerBooksSlider, "books__carousel__item", "next"))
+btnBooksSliderLeft.addEventListener("click", () => moveSlide(containerBooksSlider, "books__carousel__item", "prev"))
+
+// ________________________________________________________________________________
+// teacher intro slider
+const introSliderInfo = {
+    slideWidth: introSlides[0].getBoundingClientRect().width
+}
+
+introSlides.forEach((el, i) => setSlidePosition(el, i, introSliderInfo.slideWidth + 5))
+
+btnIntroSliderRight.addEventListener("click", () => moveSlide(containerIntroSlider, "intro__carousel__item", "next"))
+btnIntroSliderLeft.addEventListener("click", () => moveSlide(containerIntroSlider, "intro__carousel__item", "prev"))
+
+// ________________________________________________________________________________
+// school Slider
+const schoolSliderInfo = {
+    slideWidth: schoolSlides[0].getBoundingClientRect().width
+}
+
+schoolSlides.forEach((el, i) => setSlidePosition(el, i, schoolSliderInfo.slideWidth))
+
+createSliderIndicators(containerSchoolDots, schoolSlides.length)
+
+containerSchoolDots.addEventListener("click", e => {
+    if (e.target.localName !== "button") return
+    moveSlide(containerSchoolSlider, "school__carousel__item", schoolSlides[getIndicatorIndex(e)]);
+
+    updateInd(containerSchoolSlider, containerSchoolDots)
+})
+
+// ________________________________________________________________________________
+// news slider
+const newsSliderInfo = {
+    slideWidth: newsSlides[0].getBoundingClientRect().width
+}
+
+newsSlides.forEach((el, i) => setSlidePosition(el, i, newsSliderInfo.slideWidth + 15))
+
+btnNewsSliderRight.addEventListener("click", () => moveSlide(containerNewsSlider, "news__carousel__item", "next"))
+btnNewsSliderLeft.addEventListener("click", () => moveSlide(containerNewsSlider, "news__carousel__item", "prev"))
+
+// ________________________________________________________________________________
+// articles carousel
+const articleSliderInfo = {
+    slideWidth: articleSlides[0].getBoundingClientRect().width
+}
+
+articleSlides.forEach((el, i) => setSlidePosition(el, i, articleSliderInfo.slideWidth))
+
+createSliderIndicators(containerArticleDots, articleSlides.length)
+
+containerArticleDots.addEventListener("click", e => {
+    if (e.target.localName !== "button") return
+    moveSlide(containerArticleSlider, "article__carousel__item", articleSlides[getIndicatorIndex(e)]);
+
+    updateInd(containerArticleSlider, containerArticleDots)
+})

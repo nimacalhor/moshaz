@@ -30,34 +30,41 @@
 
 /* ____________________
   carousel */
-.books__carousel__cn {
+.books__carousel {
   position: relative;
   width: 95%;
   margin: 0 0 0 auto;
+  height: 20rem;
+  overflow: hidden;
+
 }
 @media (min-width: 992px) {
-  .books__carousel__cn {
+  .books__carousel {
     width: 80%;
   }
 }
 
-.books__carousel {
-  width: 100%;
-  overflow-x: hidden;
-
+.books__carousel__cn {
+  width: auto;
+  height: 100%;
+  position: relative;
   /* To allow the cards move up */
   padding-top: 2rem;
 
-  /* 🟨🟨 may be changed after implantation of carousel  */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  transition: all 0.4s cubic-bezier(.48,.46,.68,1.35);
+}
+
+.books__carousel__item{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* ____________________
   cards */
 .books__card {
-  min-width: 12rem;
+  width: 12rem;
+  height: 15rem;
 
   position: relative;
 
@@ -121,6 +128,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 98;
 
   width: 40px;
   height: 40px;
@@ -136,21 +144,19 @@
   box-shadow: none;
   background-color: hsl(325, 54%, 50%);
 }
-.books__carousel__action--next {
-  right: 0;
-  transform: translateX(50%);
+.books__carousel__action--right {
+  right: 5%;
 }
-.books__carousel__action--next:hover {
-  right: 0;
-  transform: translateX(55%);
+.books__carousel__action--right:hover {
+  transform: translateY(-49%);
+  right: 5%;
 }
-.books__carousel__action--pre {
-  left: 0;
-  transform: translateX(-50%);
+.books__carousel__action--left {
+  left: 5%;
 }
-.books__carousel__action--pre:hover {
-  left: 0;
-  transform: translateX(-55%);
+.books__carousel__action--left:hover {
+  transform: translateY(-49%);
+  left: 5%;
 }
 .books__carousel__action i {
   color: #ffffff;
