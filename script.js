@@ -231,174 +231,144 @@ for (let [section, { el, initialHeight, controller, isActive }] of Object.entrie
 }
 
 // ________________________________________________________________________________
-// carousel functions
-const setSlidePosition = function (el, i, width) {
-    el.style.left = width * i + "px"
-}
-
-const moveSlide = function (parent, className, target) {
-    const currentClassName = `${className}--current`
-    const currentSlide = parent.querySelector(`.${currentClassName}`)
-    let targetSlide = target;
-
-    // movement info
-    if (target === "next") targetSlide = currentSlide.nextElementSibling;
-    else if (target === "prev") targetSlide = currentSlide.previousElementSibling;
-
-    // if there are no more slides 
-    if (!targetSlide) {
-        const allSlides = Array.from(parent.children)
-        allSlides.forEach(el => el.classList.remove(currentClassName));
-        allSlides[0].classList.add(currentClassName)
-        moveSlide(parent, className, allSlides[0])
-        return
+// Slider 
+class Slider {
+    constructor(parent, slides) {
+        this._parent = parent;
+        this._slides = slides;
+    }
+    // position
+    _getSlideWidth() {
+        return this._slides[0].getBoundingClientRect().width
     }
 
-    const amountToMove = targetSlide.style.left;
+    _setSlidePosition(el, i, margin = 0) {
+        el.style.left = this._getSlideWidth() * i + margin + "px"
+    }
 
-    // move the parent
-    parent.style.transform = `translateX(-${amountToMove})`
+    setPosition(margin) {
+        this._slides.forEach((el, i) => this._setSlidePosition(el, i, margin))
+    }
 
-    // change current class
-    currentSlide.classList.remove(currentClassName)
-    currentSlide.dataset.current = "false";
-    targetSlide.classList.add(currentClassName)
-    targetSlide.dataset.current = "true"
+    // move
+    _identifyTarget(target, currentSlide) {
+        if (target === "next") return currentSlide.nextElementSibling;
+        else if (target === "prev") return currentSlide.previousElementSibling;
+        else return target
+    }
 
+    _resetSlider() {
+        this._slides.forEach(el => el.dataset.current = "false");
+        this._slides[0].dataset.current = "true";
+        this.move(this._slides[0])
+    }
 
+    _transformParent(amount) {
+        this._parent.style.transform = `translateX(-${amount})`
+    }
+
+    move(target) {
+        const currentSlide = this._parent.querySelector(`li[data-current="true"]`)
+        let targetSlide = this._identifyTarget(target, currentSlide);
+        if (!targetSlide) {
+            this._resetSlider();
+            return
+        }
+        const amountToMove = targetSlide.style.left;
+        this._transformParent(amountToMove)
+
+        currentSlide.dataset.current = "false";
+        targetSlide.dataset.current = "true"
+    }
 }
 
-const createSliderIndicators = function (container, amount) {
-    // find indicator example
-    const indicator = container.firstElementChild;
-    // empty container
-    container.innerHTML = "";
-    // create indicator as amount 
-    for (let i = 0; i < amount; i++) {
-        const newInd = indicator.cloneNode()
+class SliderWithInd extends Slider {
+    constructor(parent, slides, indCn) {
+        super(parent, slides);
+        // indicator container
+        this._indCn = indCn;
+        this._indicators;
+    }
+
+    _getClass() {
+        return this._indCn.firstElementChild.classList[0] + "--current"
+    }
+
+    // create ind
+    _insertIndicator(ind, i) {
+        const newInd = ind.cloneNode()
         newInd.dataset.target = i;
-        container.appendChild(newInd)
+        this._indCn.appendChild(newInd)
     }
-    // make active class
-    const className = indicator.classList[0] + "--current";
-    const indicators = container.children;
-    indicators[0].classList.add(className)
+
+    createIndicators() {
+        const { _indCn, _insertIndicator, _slides, _getClass } = this;
+        const indicator = _indCn.firstElementChild;
+        _indCn.innerHTML = "";
+
+        for (let i = 0; i < _slides.length; i++) _insertIndicator.call(this, indicator, i)
+
+        this._indicators = Array.from(this._indCn.children)
+        console.log(this._indicators)
+        // make active class
+        const className = _getClass.call(this);
+        this._indicators[0].classList.add(className)
+
+    }
+
+    // click handling
+    getIndex(e) {
+        const clickedInd = e.target.closest("button");
+        return clickedInd.dataset.target
+    }
+
+    // update ind
+    update() {
+        const className = this._getClass.call(this);
+        this._indicators.forEach(ind => ind.classList.remove(className))
+        const index = Math.abs(this._slides.findIndex(item => item.dataset.current === "true"))
+        this._indicators[index].classList.add(className)
+    }
 }
 
-const getIndicatorIndex = function (e) {
-    const clickedInd = e.target.closest("button");
-    // find Index of indicator
-    const result = clickedInd.dataset.target
-    return result
+const activateSlider = function (slidesCn, slidesArr, btnNext, btnPrev, dotsCn, margin = 0) {
+    let slider;
+    if (dotsCn) slider = new SliderWithInd(slidesCn, slidesArr, dotsCn)
+    else slider = new Slider(slidesCn, slidesArr)
+
+    slider.setPosition(margin)
+
+    btnNext && btnNext.addEventListener("click", () => slider.move("next"))
+    btnPrev && btnPrev.addEventListener("click", () => slider.move("prev"))
+
+    if(!dotsCn) return
+
+    slider.createIndicators()
+    dotsCn.addEventListener("click", e => {
+        if (e.target.localName !== "button") return
+        slider.move(slidesArr[slider.getIndex(e)])
+        slider.update()
+    })
 }
 
-const updateInd = function (sliderParent, indParent) {
-    const className = indParent.firstElementChild.classList[0] + "--current";
-    const indicatorArr = Array.from(indParent.children);
-
-    indicatorArr.forEach(ind => ind.classList.remove(className))
-
-    const index = Math.abs(Array.from(sliderParent.children).findIndex(item => item.dataset.current === "true"))
-
-    indicatorArr[index].classList.add(className)
-}
-// ________________________________________________________________________________
 // hero carousel
-const heroSlideInfo = {
-    slideWidth: heroSlides[0].getBoundingClientRect().width,
-}
+activateSlider(containerHeroSlider, heroSlides, false, false, containerHeroSliderDots)
 
-// arrange each slide item
-heroSlides.forEach((el, i) => setSlidePosition(el, i, heroSlideInfo.slideWidth))
-
-// ____________________
-// control by indicators
-createSliderIndicators(containerHeroSliderDots, (Array.from(containerHeroSlider.children).length))
-
-containerHeroSliderDots.addEventListener("click", e => {
-    if (e.target.localName !== "button") return
-    moveSlide(containerHeroSlider, "hero__slider__item", heroSlides[getIndicatorIndex(e)]);
-
-    updateInd(containerHeroSlider, containerHeroSliderDots)
-})
-
-// ________________________________________________________________________________
 // gallery carousel
-const gallerySlideInfo = {
-    slideWidth: gallerySlides[0].getBoundingClientRect().width
-}
-gallerySlides.forEach((el, i) => setSlidePosition(el, i, gallerySlideInfo.slideWidth))
+activateSlider(containerGallerySlider, gallerySlides, btnGallerySlideRight, btnGallerySlideLeft, false)
 
-btnGallerySlideRight.addEventListener("click", () => {
-    moveSlide(containerGallerySlider, "gallery__carousel__item", "next");
-})
-btnGallerySlideLeft.addEventListener("click", () => {
-    moveSlide(containerGallerySlider, "gallery__carousel__item", "prev");
-})
-
-// ________________________________________________________________________________
 // books slider
-const booksSliderInfo = {
-    slideWidth: booksSlides[0].getBoundingClientRect().width
-}
+activateSlider(containerBooksSlider, booksSlides, btnBooksSliderRight, btnBooksSliderLeft, false, 5)
 
-booksSlides.forEach((el, i) => setSlidePosition(el, i, booksSliderInfo.slideWidth + 5))
-
-btnBooksSliderRight.addEventListener("click", () => moveSlide(containerBooksSlider, "books__carousel__item", "next"))
-btnBooksSliderLeft.addEventListener("click", () => moveSlide(containerBooksSlider, "books__carousel__item", "prev"))
-
-// ________________________________________________________________________________
 // teacher intro slider
-const introSliderInfo = {
-    slideWidth: introSlides[0].getBoundingClientRect().width
-}
+activateSlider(containerIntroSlider, introSlides, btnIntroSliderRight, btnIntroSliderLeft, false, 5)
 
-introSlides.forEach((el, i) => setSlidePosition(el, i, introSliderInfo.slideWidth + 5))
-
-btnIntroSliderRight.addEventListener("click", () => moveSlide(containerIntroSlider, "intro__carousel__item", "next"))
-btnIntroSliderLeft.addEventListener("click", () => moveSlide(containerIntroSlider, "intro__carousel__item", "prev"))
-
-// ________________________________________________________________________________
 // school Slider
-const schoolSliderInfo = {
-    slideWidth: schoolSlides[0].getBoundingClientRect().width
-}
+activateSlider(containerSchoolSlider, schoolSlides, false, false, containerSchoolDots)
 
-schoolSlides.forEach((el, i) => setSlidePosition(el, i, schoolSliderInfo.slideWidth))
-
-createSliderIndicators(containerSchoolDots, schoolSlides.length)
-
-containerSchoolDots.addEventListener("click", e => {
-    if (e.target.localName !== "button") return
-    moveSlide(containerSchoolSlider, "school__carousel__item", schoolSlides[getIndicatorIndex(e)]);
-
-    updateInd(containerSchoolSlider, containerSchoolDots)
-})
-
-// ________________________________________________________________________________
 // news slider
-const newsSliderInfo = {
-    slideWidth: newsSlides[0].getBoundingClientRect().width
-}
+activateSlider(containerNewsSlider, newsSlides, btnNewsSliderRight, btnNewsSliderLeft, false)
 
-newsSlides.forEach((el, i) => setSlidePosition(el, i, newsSliderInfo.slideWidth + 15))
-
-btnNewsSliderRight.addEventListener("click", () => moveSlide(containerNewsSlider, "news__carousel__item", "next"))
-btnNewsSliderLeft.addEventListener("click", () => moveSlide(containerNewsSlider, "news__carousel__item", "prev"))
-
-// ________________________________________________________________________________
 // articles carousel
-const articleSliderInfo = {
-    slideWidth: articleSlides[0].getBoundingClientRect().width
-}
+activateSlider(containerArticleSlider, articleSlides, false, false, containerArticleDots)
 
-articleSlides.forEach((el, i) => setSlidePosition(el, i, articleSliderInfo.slideWidth))
-
-createSliderIndicators(containerArticleDots, articleSlides.length)
-
-containerArticleDots.addEventListener("click", e => {
-    if (e.target.localName !== "button") return
-    moveSlide(containerArticleSlider, "article__carousel__item", articleSlides[getIndicatorIndex(e)]);
-
-    updateInd(containerArticleSlider, containerArticleDots)
-})
