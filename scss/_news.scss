@@ -11,22 +11,18 @@
   border-radius: 0 0 5vw 5vw;
 
   background-image: url("../assets/classroom.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  @include fixedBg;
 
   &::before {
-    content: "";
-    position: absolute;
+    @include pseudo;
     inset: 0 0 0 0;
     z-index: 0;
-    background-color: #602d88;
+    background-color: $primary-color;
 
     opacity: 0.8;
   }
 
-  & > * {
+  * {
     position: relative;
     z-index: 2;
   }
@@ -52,19 +48,19 @@
   grid-template-rows: 1fr 1fr;
 
   gap: 2vw;
-}
-@media (min-width: 768px) {
-  .news__content {
-    width: 75%;
+  @media (min-width: 768px) {
+    & {
+      width: 75%;
 
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
   }
-}
-@media (min-width: 992px) {
-  .news__content {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+  @media (min-width: 992px) {
+    & {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
   }
 }
 
@@ -77,34 +73,34 @@
   overflow: hidden;
 
   padding: 0 0.5rem;
-}
-@media (min-width: 768px) {
-  .news__carousel {
-    grid-column: 1;
-    grid-row: 1;
+  @media (min-width: 768px) {
+    & {
+      grid-column: 1;
+      grid-row: 1;
+    }
   }
-}
-@media (min-width: 992px) {
-  .news__carousel {
-    grid-column: 1 / 3;
-    grid-row: 1;
+  @media (min-width: 992px) {
+    & {
+      grid-column: 1 / 3;
+      grid-row: 1;
+    }
   }
 }
 
 .news__list {
   grid-column: 1;
   grid-row: 2;
-}
-@media (min-width: 768px) {
-  .news__list {
-    grid-column: 2;
-    grid-row: 1;
+  @media (min-width: 768px) {
+    & {
+      grid-column: 2;
+      grid-row: 1;
+    }
   }
-}
-@media (min-width: 992px) {
-  .news__list {
-    grid-column: 3;
-    grid-row: 1;
+  @media (min-width: 992px) {
+    & {
+      grid-column: 3;
+      grid-row: 1;
+    }
   }
 }
 
@@ -118,7 +114,7 @@
   position: relative;
   height: 100%;
 
-  transition: transform 0.45s cubic-bezier(.73,.25,.68,1.35);
+  transition: transform 0.45s cubic-bezier(0.73, 0.25, 0.68, 1.35);
 }
 
 .news__carousel__item {
@@ -163,7 +159,7 @@
   border-radius: 0.75rem;
 
   cursor: pointer;
-  transition: all 0.3s ease-in;
+  @include simpleTransition;
 
   &:hover {
     transform: translateY(-3px);
@@ -183,8 +179,8 @@
 .news__carousel__card__img__cn {
   width: 100%;
   margin: 0 auto;
-  display: grid;
-  place-content: center;
+
+  @include grid-center;
 
   max-height: 50%;
 
@@ -193,8 +189,7 @@
 
   //   effect
   &::after {
-    content: "";
-    position: absolute;
+    @include pseudo;
     inset: 0 0 0 0;
     z-index: 1;
 
@@ -342,8 +337,7 @@
 }
 
 .news__ist__card__img {
-  max-width: 100%;
-  object-fit: cover;
+  @include imgRes;
   border-radius: 0.5rem;
 }
 
@@ -352,8 +346,7 @@
 }
 
 .news__list__card__title {
-  margin: 0;
-  padding: 0;
+  @include m0p0;
 }
 
 .news__list__card__info {
@@ -362,5 +355,5 @@
   margin-top: 0.25rem;
 
   border-top: 2px solid #efefef;
-  color: #602d88;
+  color: $primary-color;
 }

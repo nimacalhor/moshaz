@@ -5,27 +5,26 @@
 
   position: relative;
 
-  background-color: #602d88;
+  background-color: $primary-color;
   border-radius: 0 0 5vw 0;
-}
-@media (min-width: 992px) {
-  .books {
-    width: 80%;
+  @media (min-width: 992px) {
+    & {
+      width: 80%;
+    }
   }
-}
+  /* svg */
+  svg {
+    height: fit-content;
+    max-width: 100%;
+    position: absolute;
+    inset: -10px 0 auto 0;
+  }
 
-/* svg */
-.books svg {
-  height: fit-content;
-  max-width: 100%;
-  position: absolute;
-  inset: -10px 0 auto 0;
-}
-
-.books__title {
-  color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 1.1rem;
+  &__title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 1.1rem;
+  }
 }
 
 /* ____________________
@@ -36,28 +35,24 @@
   margin: 0 0 0 auto;
   height: 20rem;
   overflow: hidden;
-
-}
-@media (min-width: 992px) {
-  .books__carousel {
-    width: 80%;
+  @media (min-width: 992px) {
+    & {
+      width: 80%;
+    }
   }
-}
+  &__cn {
+    width: auto;
+    height: 100%;
+    position: relative;
+    /* To allow the cards move up */
+    padding-top: 2rem;
+    transition: all 0.4s cubic-bezier(0.48, 0.46, 0.68, 1.35);
+  }
 
-.books__carousel__cn {
-  width: auto;
-  height: 100%;
-  position: relative;
-  /* To allow the cards move up */
-  padding-top: 2rem;
-
-  transition: all 0.4s cubic-bezier(.48,.46,.68,1.35);
-}
-
-.books__carousel__item{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  &__item {
+    position: absolute;
+    @include top-center;
+  }
 }
 
 /* ____________________
@@ -80,84 +75,80 @@
 
   /* not sure if I should make the parent element "anchor tag" */
   cursor: pointer;
-  transition: all 0.4s ease-in;
-}
+  @include simpleTransition;
 
-.books__card:hover,
-.books__card:focus {
-  transform: translateY(-1.5rem);
-  box-shadow: 8px 8px 16px #532775, -8px -8px 16px #6d339b;
-}
+  &:hover,
+  &:focus {
+    transform: translateY(-1.5rem);
+    box-shadow: 8px 8px 16px #532775, -8px -8px 16px #6d339b;
+  }
 
-.books__card__img {
-  max-width: 100%;
-  object-fit: cover;
-}
+  &__img {
+    @include imgRes;
+  }
 
-.books__card__title {
-  margin: 1rem 0 0.5rem 0;
-}
+  &__title {
+    margin: 1rem 0 0.5rem 0;
+  }
 
-.books__card__price {
-  color: #602d88;
-}
+  &__price {
+    color: $primary-color;
+  }
 
-.books__card__action {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 0.5rem;
+  &__action {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
 
-  width: 35px;
-  height: 35px;
+    width: 35px;
+    height: 35px;
 
-  display: grid;
-  place-content: center;
+    @include grid-center;
+    background-color: $primary-color;
 
-  background-color: #602d88;
-}
-.books__card__action i {
-  color: #ffffff;
-  font-size: 1.2rem;
-  top: 50%;
-  transform: translateY(-40%);
+    i {
+      color: #ffffff;
+      font-size: 1.2rem;
+      top: 50%;
+      transform: translateY(-40%);
+    }
+  }
 }
 
 /* ____________________
   indicators */
 .books__carousel__action {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  @include top-center;
   z-index: 98;
+  @include h-w(40px);
 
-  width: 40px;
-  height: 40px;
+  @include grid-center;
 
-  display: grid;
-  place-content: center;
-
-  background-color: #ca4e97;
+  background-color: $secondary-color;
   border: 0;
-}
-.books__carousel__action:hover,
-.books__carousel__action:focus {
-  box-shadow: none;
-  background-color: hsl(325, 54%, 50%);
-}
-.books__carousel__action--right {
-  right: 5%;
-}
-.books__carousel__action--right:hover {
-  transform: translateY(-49%);
-  right: 5%;
-}
-.books__carousel__action--left {
-  left: 5%;
-}
-.books__carousel__action--left:hover {
-  transform: translateY(-49%);
-  left: 5%;
-}
-.books__carousel__action i {
-  color: #ffffff;
+
+  &:hover,
+  &:focus {
+    box-shadow: none;
+    background-color: darken($color: $secondary-color, $amount: 10);
+  }
+
+  &--right {
+    right: 5%;
+    &:hover {
+      transform: translateY(-49%);
+      right: 5%;
+    }
+  }
+  &--left {
+    left: 5%;
+    &:hover {
+      transform: translateY(-49%);
+      left: 5%;
+    }
+  }
+  i {
+    color: #ffffff;
+  }
 }

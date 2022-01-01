@@ -1,0 +1,39 @@
+$primary-color: #602d88;
+$secondary-color: #ca4e97;
+$accent-color: #ef9226;
+
+$primary-gradient-row: linear-gradient(90deg, #ca4e97, #602d88);
+$primary-gradient-35: linear-gradient(
+  35deg,
+  rgba(202, 78, 151, 1) 0%,
+  rgba(96, 45, 136, 1) 100%
+);
+
+$instagram-gradient: linear-gradient(
+  74deg,
+  rgba(90, 0, 225, 1) 0%,
+  rgba(182, 22, 228, 1) 33%,
+  rgba(188, 72, 142, 1) 66%,
+  rgba(237, 171, 19, 1) 100%
+);
+$telegram-gradient: linear-gradient(
+  74deg,
+  rgba(66, 203, 255, 1) 0%,
+  rgba(0, 180, 248, 1) 50%,
+  rgba(0, 113, 201, 1) 100%
+);
+$whatsapp-gradient: linear-gradient(
+  74deg,
+  rgba(1, 196, 0, 1) 0%,
+  rgba(0, 125, 30, 1) 100%
+);
+$aparat-gradient: linear-gradient(
+  74deg,
+  rgba(237, 20, 91, 1) 0%,
+  rgba(167, 16, 61, 1) 100%
+);
+$twitter-gradient: linear-gradient(
+  74deg,
+  rgba(0, 213, 255, 1) 0%,
+  rgba(0, 121, 173, 1) 100%
+);

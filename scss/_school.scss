@@ -1,10 +1,10 @@
 .school {
   width: 90%;
   margin: 4rem auto;
-}
-@media (min-width: 768px) {
-  .school {
-    width: 80%;
+  @media (min-width: 768px) {
+    & {
+      width: 80%;
+    }
   }
 }
 
@@ -140,10 +140,10 @@
   &:hover > .school__card__img__cn::after {
     opacity: 100%;
   }
-}
-@media (min-width: 768px) {
-  .school__card {
-    margin: 0;
+  @media (min-width: 768px) {
+    & {
+      margin: 0;
+    }
   }
 }
 
@@ -152,8 +152,7 @@
   width: 40%;
   overflow: hidden;
 
-  display: grid;
-  place-content: center;
+  @include grid-center;
 
   border-radius: 0.5rem;
 
@@ -165,24 +164,22 @@
     position: absolute;
     inset: 0;
 
-    display: grid;
-    place-content: center;
+    @include grid-center;
 
     font-size: 1.5rem;
     color: #ffffff;
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0%;
 
-    transition: all 0.3s ease-in-out;
+    @include simpleTransition;
   }
-}
-@media (min-width: 992px) {
-  .school__card__img__cn {
-    width: 30%;
+  @media (min-width: 992px) {
+    & {
+      width: 30%;
+    }
   }
 }
 .school__card__img {
-  // max-width: 100%;
   object-fit: cover;
 }
 

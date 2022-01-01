@@ -1,0 +1,80 @@
+@mixin grid-center {
+  display: grid;
+  place-content: center;
+}
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin top-center {
+  transform: translateY(-50%);
+  top: 50%;
+}
+@mixin push--auto {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+@mixin w100h100 {
+  width: 100%;
+  height: 100%;
+}
+@mixin h-w($amount) {
+  @if $amount == 100 {
+    height: 100vh;
+    width: 100vw;
+  } @else {
+    height: $amount;
+    width: $amount;
+  }
+}
+@mixin m0p0 {
+  margin: 0;
+  padding: 0;
+}
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+@mixin listIns {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@mixin imgRes {
+  object-fit: cover;
+  max-width: 100%;
+}
+@mixin imgFit {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+@mixin simpleTransition {
+  transition: all ease 0.4s;
+}
+@mixin glass {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+@mixin clear-glass {
+  background: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  backdrop-filter: none;
+}
+@mixin fixedBg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}

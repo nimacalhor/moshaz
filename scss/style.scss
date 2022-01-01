@@ -1,4 +1,6 @@
 @import "./fontIcons";
+@import "./variables";
+@import "./mixins";
 @import "./header";
 @import "./hero";
 @import "./gallery";
@@ -37,7 +39,6 @@ button,
   text-decoration: none;
 
   background: #ffffff;
-  /* box-shadow: 3px 3px 2px #e1e1e1, -3px -3px 2px #ebebeb; */
 
   transition: all ease-in 0.3s;
 }

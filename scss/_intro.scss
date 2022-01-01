@@ -11,7 +11,7 @@
 
   // ____________________
   // svg
-  & svg {
+  svg {
     position: absolute;
     height: fit-content;
     inset: auto 0 0 0;
@@ -20,10 +20,10 @@
 
     background-color: #e0dcf6;
   }
-}
-@media (min-width: 768px) {
-  .intro {
-    width: 80%;
+  @media (min-width: 768px) {
+    & {
+      width: 80%;
+    }
   }
 }
 
@@ -72,10 +72,10 @@ $intro_card_width: 15rem;
   margin: 0 auto 0 1rem;
   height: 25rem;
   overflow: hidden;
-}
-@media (min-width: 768px) {
-  .intro__carousel {
-    margin: 0 auto 0 4rem;
+  @media (min-width: 768px) {
+    & {
+      margin: 0 auto 0 4rem;
+    }
   }
 }
 
@@ -84,36 +84,35 @@ $intro_card_width: 15rem;
   position: relative;
   height: 100%;
 
-  transition: transform 0.4s cubic-bezier(.73,.25,.68,1.35);
+  transition: transform 0.4s cubic-bezier(0.73, 0.25, 0.68, 1.35);
   padding: 6rem 0 4rem 0;
-}
-@media (min-width: 576px) {
-  .intro__carousel__cn {
-    width: calc(1 * (20rem));
+  @media (min-width: 576px) {
+    & {
+      width: calc(1 * (20rem));
+    }
   }
-}
-@media (min-width: 768px) {
-  .intro__carousel__cn {
-    width: calc(2 * (20rem));
+  @media (min-width: 768px) {
+    & {
+      width: calc(2 * (20rem));
+    }
   }
-}
-@media (min-width: 992px) {
-  .intro__carousel__cn {
-    width: calc(3 * (20rem));
+  @media (min-width: 992px) {
+    & {
+      width: calc(3 * (20rem));
+    }
   }
 }
 
 // ____________________
 // card
-.intro__carousel__item{
+.intro__carousel__item {
   position: absolute;
-  transition: transform 0.3s ease-out;
+  @include simpleTransition;
 
-  &--current{
+  &--current {
     transform: scale(1.1);
   }
 }
-
 
 .intro__card {
   width: $intro_card_width;
@@ -135,12 +134,11 @@ $intro_card_width: 15rem;
 
   cursor: pointer;
 
-  transition: all 0.3s ease-in;
-  
-  
-    &:hover{
-      transform: translateY(-1rem);
-    }
+  @include simpleTransition;
+
+  &:hover {
+    transform: translateY(-1rem);
+  }
   &:hover .intro__card__img__cn {
     outline: 2px solid #e0dcf6;
     transform: translate(50%, -45%) scale(1.03);
@@ -148,31 +146,22 @@ $intro_card_width: 15rem;
   // ____________________
   // pink shape
   &::before {
-    content: "";
-    position: absolute;
+    @include pseudo;
     inset: -0.5rem 0 -0.5rem 60%;
 
     border: 0.5rem solid rgb(202, 78, 151);
     border-left: none;
     border-right: none;
     border-radius: 0.5rem;
-
-    // didn't work 😕
-    // background: linear-gradient(
-    //   100deg,
-    //   rgba(202, 78, 151, 1) 0%,
-    //   rgba(96, 45, 136, 1) 100%
-    // );
   }
   // ____________________
   // shadow
   &::after {
-    content: "";
-    position: absolute;
+    @include pseudo;
     inset: 0 0 0 0;
     z-index: -1;
 
-    transition: all 0.3 ease-in;
+    @include simpleTransition;
     border-radius: 2rem 0.25rem 0.25rem 0.25rem;
     box-shadow: 6px 6px 10px #c1bdd4, -6px -6px 10px #c1bdd4;
   }
@@ -185,8 +174,7 @@ $intro_card_width: 15rem;
 
   transform: translate(50%, -50%);
 
-  height: 110px;
-  width: 110px;
+  @include h-w(110px);
 
   border-radius: 100%;
   border: 3.5px solid #602d88;
@@ -201,7 +189,6 @@ $intro_card_width: 15rem;
 }
 .intro__card__img {
   object-fit: cover;
-
   max-width: 150%;
 }
 
@@ -229,7 +216,6 @@ $intro_card_width: 15rem;
 .intro__carousel__indicator {
   position: absolute;
   top: 60%;
-  // transform: translateX(-50%);
   z-index: 98;
 
   height: 40px;
@@ -238,20 +224,20 @@ $intro_card_width: 15rem;
   display: grid;
   place-content: center;
 
-  background-color: #602D88;
+  background-color: #602d88;
 
-  &--right{
+  &--right {
     right: 8%;
   }
-  &--left{
+  &--left {
     left: 8%;
   }
 
-  &:hover{
+  &:hover {
     box-shadow: none;
   }
 
-  i{
-    color: #CA4E97;
+  i {
+    color: #ca4e97;
   }
 }

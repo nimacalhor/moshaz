@@ -6,13 +6,13 @@
   grid-template-rows: 1fr 1fr;
   place-content: center center;
   place-items: center center;
-}
-@media (min-width: 992px) {
-  .exam {
-    margin: 5rem 0 0 0;
+  @media (min-width: 992px) {
+    & {
+      margin: 5rem 0 0 0;
 
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr;
+    }
   }
 }
 
@@ -31,36 +31,30 @@
   display: flex;
   flex-direction: column;
   place-content: space-between;
-}
-@media (min-width: 992px) {
-  .exam__card {
-    margin: 0;
+  @media (min-width: 992px) {
+    & {
+      margin: 0;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -0.75rem 0.5rem -0.75rem 60%;
+    z-index: -1;
+
+    border-radius: 0.5rem;
+    background: rgb(202, 78, 151);
+    background: $primary-gradient-35;
+  }
+  /* shadow */
+  &__shadow {
+    position: absolute;
+    inset: 0 0 0 0;
+    z-index: -2;
+    box-shadow: 8px 8px 20px #ebebeb, -8px -8px 20px #ffffff;
   }
 }
 
-/* shape */
-.exam__card::before {
-  content: "";
-  position: absolute;
-  inset: -0.75rem 0.5rem -0.75rem 60%;
-  z-index: -1;
-
-  border-radius: 0.5rem;
-  background: rgb(202, 78, 151);
-  background: linear-gradient(
-    35deg,
-    rgba(202, 78, 151, 1) 0%,
-    rgba(96, 45, 136, 1) 100%
-  );
-}
-
-/* shadow */
-.exam__card__shadow {
-  position: absolute;
-  inset: 0 0 0 0;
-  z-index: -2;
-  box-shadow: 8px 8px 20px #ebebeb, -8px -8px 20px #ffffff;
-}
 /* ____________________
   card content */
 .exam__header {
@@ -82,25 +76,22 @@
   padding: 1.25rem 1rem;
 
   color: #6c6c6c;
-}
-@media (min-width: 576px){
-  .exam__content{
-    flex-direction: row;
+  @media (min-width: 576px) {
+    & {
+      flex-direction: row;
+    }
   }
 }
 
 .exam__img__cn {
   margin: 0 0 0 1rem;
-  display: grid;
-  place-content: center;
+  @include grid-center;
   width: 100%;
-  // max-width: 100%;
-  img{
+  img {
     max-width: 100%;
     object-fit: cover;
   }
 }
-
 
 .exam__text {
   padding: 0 1rem;
@@ -121,20 +112,19 @@
   justify-content: space-between;
 
   padding: 0.5rem 0.75rem 0.5rem 0.5rem;
-  background-color: #ef9226;
-}
+  background-color: $accent-color;
+  i {
+    width: 32px;
+    height: 30px;
+    margin: 0 0.5rem 0 0;
+    padding: 0.15rem 0 0 0;
 
-.exam__action i {
-  width: 32px;
-  height: 30px;
-  margin: 0 0.5rem 0 0;
-  padding: 0.15rem 0 0 0;
+    display: flex;
+    place-content: center;
+    place-items: center;
 
-  display: flex;
-  place-content: center;
-  place-items: center;
-
-  border-radius: 2rem;
-  background-color: #de7117;
-  color: #ffffff;
+    border-radius: 2rem;
+    background-color: $accent-color;
+    color: #ffffff;
+  }
 }
