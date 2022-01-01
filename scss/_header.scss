@@ -41,6 +41,7 @@ header.sticky-header {
   border: 1px solid rgba(255, 255, 255, 0.18);
 
   // ____________________
+
   .header__content {
     .header__actions {
       display: none;
@@ -63,8 +64,13 @@ header.sticky-header {
         }
       }
       ul.header__list {
-        margin: 0.75rem 0 0.5rem 0;
         width: 85%;
+        margin: 0 auto;
+        @media (min-width: 768px) {
+          & {
+            margin: 0.75rem 0 0.5rem 0;
+          }
+        }
       }
     }
   }
@@ -506,26 +512,13 @@ header.sticky-header {
     Dropdown ⬇
    */
 /* toggle drop down on hover */
-@media (min-width: 768px) {
-  .header__list__item:hover {
-    ul {
-      transform: scaleY(1) !important;
-    }
-  }
-}
 
 .header__list__dropdown-content {
-  transform: scaleY(1);
   transform-origin: top;
 
   width: 99%;
   height: fit-content;
   overflow: hidden;
-
-  position: absolute;
-  top: 90%;
-  right: 0;
-  left: 0;
 
   margin: 0 auto;
 

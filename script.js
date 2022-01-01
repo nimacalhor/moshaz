@@ -2,6 +2,7 @@
 // elements
 // ____________________
 // header
+
 const header = document.querySelector("header")
 const headerDropDownParents = document.querySelectorAll(".header__list__item")
 const headerDropDownEl = document.querySelectorAll("ul.header__list__dropdown-content")
@@ -74,81 +75,46 @@ const footerFormCn = document.querySelector("div.footer__section--form__cn")
 const btnFooterListToggler = document.querySelector("button.footer__section__toggle-btn--links")
 const btnFooterFormToggler = document.querySelector("button.footer__section__toggle-btn--form")
 
+// ________________________________________________________________________________
+// Accordion
+class Accordion {
+    constructor(controller, content, padding = null,) {
+        this._controller = controller;
+        this._content = content;
+        this._padding = padding && padding + "rem";
+
+        this._setInitial()
+        this._controller.addEventListener("click", () => this._toggle())
+    }
+
+    _isActive() {
+        return !(this._content.style.maxHeight)
+    }
+
+    _setInitial() {
+        this._content.classList.add("accordion--hidden")
+    }
+
+    _toggle() {
+        if (this._isActive()) {
+            this._content.style.maxHeight = this._content.scrollHeight + "px"
+            this._content.style.padding = this._padding
+        }
+        else {
+            this._content.style.maxHeight = null
+            this._content.style.padding = null
+        }
+    }
+}
+
+const getViewPort = () => Math.max(document.documentElement.clientWidth, window.innerWidth);
+
 
 // ________________________________________________________________________________
 // mobile nav dropdown
-const headerDropDown = {}
-
-// make a name from the class name of element
-const getModifierClass = function (el) {
-    const elClass = Array.from(el.classList).filter(className => className.includes("--")).join("")
-    const elName = elClass.slice(elClass.indexOf("--") + 2);
-    return elName
-}
-
-// get the needed info
-const setHeaderDropDown = function (el) {
-    const elName = getModifierClass(el);
-    const child = el.querySelector("ul");
-    headerDropDown[elName] = {
-        el,
-        isActive: false,
-        dropDownEl: child,
-        marginAmount: child.getBoundingClientRect().height + 20 + "px"
-    }
-}
-
-const closeAllNavDropDowns = function () {
-    for (let [key, { isActive, el, dropDownEl }] of Object.entries(headerDropDown)) {
-        isActive = false
-        dropDownEl.style.transform = "scale(0)"
-        el.style.marginBottom = 0;
-    }
-}
-
 headerDropDownParents.forEach(function (el) {
-    if (el.children.length < 2) return
-    setHeaderDropDown(el)
-
-    el.addEventListener("click", function ({ target }) {
-        // get the element which will get the margin
-        const correctEl = target.closest(".header__list__item");
-        const targetName = getModifierClass(correctEl);
-        // change active state
-        headerDropDown[targetName].isActive = !headerDropDown[targetName].isActive;
-
-        if (headerDropDown[targetName].isActive) { // open
-            correctEl.style.marginBottom = headerDropDown[targetName].marginAmount;
-            headerDropDown[targetName].dropDownEl.style.transform = "scale(1)"
-
-        } else { // close
-            headerDropDown[targetName].dropDownEl.style.transform = "scale(0)"
-            setTimeout(() => {
-                correctEl.style.marginBottom = 0;
-            }, 300);
-        }
-
-    })
-})
-
-headerDropDownEl.forEach(el => el.style.transform = "scaleY(0)")
-
-// close dropdown when click outside
-headerNav.addEventListener("click", function ({ target }) {
-    if (target.localName !== "img"
-        && target.localName !== "form"
-        && target.localName !== "input"
-        && target.localName !== "button"
-        && target.localName !== "ul") return
-    else closeAllNavDropDowns();
-})
-
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-        headerNav.style.transform = "translateX(0)"
-        closeAllNavDropDowns();
-        overlayShadowEl.style.display = "none"
-    }
+    if (!el.querySelector("ul")) return
+    new Accordion(el.querySelector(".header__list__item__title"), el.querySelector("ul.header__list__dropdown-content"))
 })
 
 // ________________________________________________________________________________
@@ -193,41 +159,9 @@ headerObserver.observe(sectionHero)
 
 // ________________________________________________________________________________
 // footer dropDowns
-const footerDropDowns = {
-    list: {
-        el: footerNavList,
-        initialHeight: footerNavList.getBoundingClientRect().height,
-        controller: btnFooterListToggler,
-        isActive: false
-    },
-    from: {
-        el: footerFormCn,
-        initialHeight: footerFormCn.getBoundingClientRect().height,
-        controller: btnFooterFormToggler,
-        isActive: false
-    }
-}
-
-for (let [section, { el, initialHeight, controller, isActive }] of Object.entries(footerDropDowns)) {
-
-    if (window.innerWidth > 768) break
-
-    // close dropDowns default
-    el.style.height = 0;
-    el.style.transform = "scaleY(0)"
-    isActive = false
-
-    // listen for click
-    controller.addEventListener("click", function () {
-        isActive = !isActive;
-
-        if (isActive) {
-            el.style.height = initialHeight + "px";
-        }
-        else {
-            el.style.height = 0
-        }
-    })
+if (getViewPort() < 768) {
+    new Accordion(btnFooterListToggler, footerNavList, false,)
+    new Accordion(btnFooterFormToggler, footerFormCn, false,)
 }
 
 // ________________________________________________________________________________
@@ -341,7 +275,7 @@ const activateSlider = function (slidesCn, slidesArr, btnNext, btnPrev, dotsCn, 
     btnNext && btnNext.addEventListener("click", () => slider.move("next"))
     btnPrev && btnPrev.addEventListener("click", () => slider.move("prev"))
 
-    if(!dotsCn) return
+    if (!dotsCn) return
 
     slider.createIndicators()
     dotsCn.addEventListener("click", e => {

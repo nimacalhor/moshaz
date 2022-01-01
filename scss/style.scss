@@ -87,3 +87,9 @@ scroll bar */
     scrollbar-color: rgb(202, 78, 151) hsl(0, 0%, 90%);
   }
 }
+
+.accordion--hidden{
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+}
