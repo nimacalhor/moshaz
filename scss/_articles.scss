@@ -1,19 +1,15 @@
 .articles {
   width: 85%;
   margin: 2rem auto;
-  @media (min-width: 768px) {
-    & {
-      width: 75%;
-    }
+  @include tablet {
+    width: 75%;
   }
 }
 
 // ____________________
 // header
 .article__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @extend .d-flex,.flex-row,.justify-content-between,.align-items-center;
 
   h3 {
     color: #202020;
@@ -24,8 +20,7 @@
   padding: 0.25rem 0.75rem;
   font-size: 1rem;
 
-  display: flex;
-  align-items: center;
+@include grid-center;
 
   i {
     margin: 0 0.5rem 0 0;
@@ -36,7 +31,7 @@
 
 // ____________________
 // carousel
-.article__carousel{
+.article__carousel {
   position: relative;
   overflow: hidden;
   height: fit-content;
@@ -49,7 +44,7 @@
 
   height: 22rem;
 
-  transition: transform 0.45s cubic-bezier(.73,.25,.68,1.35);
+  transition: transform 0.45s cubic-bezier(0.73, 0.25, 0.68, 1.35);
 }
 
 // ____________________
@@ -58,15 +53,11 @@
   position: absolute;
   width: 90%;
   padding: 0 1rem;
-  @media (min-width: 768px) {
-    & {
-      width: 45%;
-    }
+  @include tablet {
+    width: 45%;
   }
-  @media (min-width: 992px) {
-    & {
-      width: 30%;
-    }
+  @include laptop {
+    width: 30%;
   }
 }
 
@@ -82,7 +73,7 @@
 
   border-radius: 3rem 0.5rem 0.5rem 0.5rem;
   cursor: pointer;
-  transition: all 0.3s ease-in;
+  @include simpleTransition;
   box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
 
   &:hover {
@@ -101,8 +92,7 @@
     z-index: 1;
   }
   &::before {
-    content: "";
-    position: absolute;
+@include pseudo;
     inset: 0 0 0 0;
     background: rgb(68, 26, 101);
     background: rgb(202, 78, 151);
@@ -139,9 +129,7 @@
   inset: auto 50% auto auto;
   transform: translateX(50%) rotate(180deg);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend .d-flex,.flex-row,.justify-content-center,.align-items-center;
 }
 .article__carousel__indicator {
   display: inline-block;

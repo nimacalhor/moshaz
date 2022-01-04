@@ -1,6 +1,13 @@
-@import "./fontIcons";
+@import "../node_modules/bootstrap/scss/functions";
 @import "./variables";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/utilities/api";
 @import "./mixins";
+@import "./fontIcons";
 @import "./header";
 @import "./hero";
 @import "./gallery";
@@ -89,7 +96,7 @@ scroll bar */
   }
 }
 
-.accordion--hidden{
+.accordion--hidden {
   padding: 0;
   max-height: 0;
   overflow: hidden;

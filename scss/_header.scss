@@ -1,23 +1,14 @@
 header {
   padding: 0 0.25rem;
+  margin-inline: 0 !important;
+  max-width: 100%;
 
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  @media (min-width: 576px) {
-    & {
-      padding: 1rem 4vw;
-    }
+  @extend .d-flex, .justify-content-around, .align-items-center;
+  @include mobile {
+    padding: 1rem 4vw;
   }
-  @media (min-width: 768px) {
-    & {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: 1fr;
-      grid-column-gap: 0px;
-      grid-row-gap: 0px;
-    }
+  @include tablet {
+    @include make-row();
   }
 }
 
@@ -35,23 +26,19 @@ header.sticky-header {
 
   .header__content {
     .header__actions {
-      display: none;
+      display: none !important;
     }
 
     .header__nav {
       @include glass;
-      @media (min-width: 768px) {
-        & {
-          @include clear-glass;
-        }
+      @include tablet {
+        @include clear-glass;
       }
       ul.header__list {
         width: 85%;
         margin: 0 auto;
-        @media (min-width: 768px) {
-          & {
-            margin: 0.75rem 0 0.5rem 0;
-          }
+        @include tablet {
+          margin: 0.75rem 0 0.5rem 0;
         }
       }
     }
@@ -75,10 +62,8 @@ header.sticky-header {
   padding: 0.5rem;
   z-index: 999;
   border: 0;
-  @media (min-width: 768px) {
-    & {
-      display: none;
-    }
+  @include tablet {
+    display: none;
   }
   i {
     color: $primary-color;
@@ -92,10 +77,8 @@ header.sticky-header {
   min-width: 15vw;
   height: 100%;
   overflow: hidden;
-  @media (min-width: 768px) {
-    & {
-      grid-area: 1 / 1 / 2 / 2;
-    }
+  @include tablet {
+    @include make-col(2);
   }
   .header__logo {
     max-height: 100%;
@@ -106,26 +89,22 @@ header.sticky-header {
 
 /* content */
 .header__content {
-  grid-area: 1 / 2 / 2 / 13;
-  display: flex;
-  flex-direction: column;
+  @include make-col(9);
+  @extend .d-flex, .flex-column;
 }
 
 .header__actions {
-  display: flex;
-  justify-content: space-between;
+  @extend .d-flex, .justify-content-between;
   &__template {
-    display: flex;
+    @extend .d-flex;
   }
 }
 
 /* buttons  */
 .header__btn--sign-up {
   background: $primary-gradient-row !important;
-  @media (min-width: 576px) {
-    & {
-      min-width: 5rem;
-    }
+  @include mobile {
+    min-width: 5rem;
   }
   i {
     transform: translateY(4px) translateX(-3px);
@@ -133,20 +112,16 @@ header.sticky-header {
     color: #ffffff;
     font-size: 1.5rem;
 
-    @media (min-width: 576px) {
-      & {
-        transform: translateY(4px) translateX(0);
-        font-size: 1.75rem;
-      }
+    @include mobile {
+      transform: translateY(4px) translateX(0);
+      font-size: 1.75rem;
     }
   }
   &--text {
     display: none;
     color: rgb(255, 255, 255);
-    @media (min-width: 576px) {
-      & {
-        display: inline-block;
-      }
+    @include mobile {
+      display: inline-block;
     }
   }
 }
@@ -160,19 +135,15 @@ header.sticky-header {
     color: $secondary-color;
     font-size: 1.5rem;
 
-    @media (min-width: 576px) {
-      & {
-        transform: translateY(4px) translateX(0);
-        font-size: 1.75rem;
-      }
+    @include mobile {
+      transform: translateY(4px) translateX(0);
+      font-size: 1.75rem;
     }
   }
   &--text {
     display: none;
-    @media (min-width: 576px) {
-      & {
-        display: inline-block;
-      }
+    @include mobile {
+      display: inline-block;
     }
   }
 }
@@ -181,10 +152,8 @@ header.sticky-header {
   display: none;
   position: relative;
   margin: 0 0.5rem 0 0;
-  @media (min-width: 768px) {
-    & {
-      display: block;
-    }
+  @include tablet {
+    display: block;
   }
 
   .header__search-input {
@@ -224,18 +193,14 @@ header.sticky-header {
     color: $primary-color;
     font-size: 1.25rem;
     transform: translateY(2px);
-    @media (min-width: 576px) {
-      & {
-        margin-right: 0.5rem;
-      }
+    @include mobile {
+      margin-right: 0.5rem;
     }
   }
   &--text {
     display: none;
-    @media (min-width: 576px) {
-      & {
-        display: block;
-      }
+    @include mobile {
+      display: block;
     }
   }
 }
@@ -301,18 +266,16 @@ header.sticky-header {
   background-color: #ffffff;
   transform: translateX(120%);
   @include simpleTransition;
-  @media (min-width: 768px) {
-    & {
-      position: relative;
-      inset: 0 0 auto 0;
-      height: auto;
-      overflow-y: visible;
-      transform: none;
+  @include tablet {
+    position: relative;
+    inset: 0 0 auto 0;
+    height: auto;
+    overflow-y: visible;
+    transform: none;
 
-      z-index: 2;
+    z-index: 2;
 
-      margin: 0.5rem 0 0.75rem 0;
-    }
+    margin: 0.5rem 0 0.75rem 0;
   }
 }
 
@@ -328,10 +291,8 @@ header.sticky-header {
 .header__nav__logo {
   display: block;
   margin: 1rem auto;
-  @media (min-width: 768px) {
-    & {
-      display: none;
-    }
+  @include tablet {
+    display: none;
   }
 }
 
@@ -339,10 +300,8 @@ header.sticky-header {
   display: block;
   width: 70%;
   margin: 1rem auto;
-  @media (min-width: 768px) {
-    & {
-      display: none;
-    }
+  @include tablet {
+    display: none;
   }
 }
 .header__search-input--mobile {
@@ -357,20 +316,18 @@ header.sticky-header {
 }
 
 .header__list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @extend .d-flex,
+    .justify-content-center,
+    .justify-content-md-between,
+    .flex-column,
+    .flex-md-row;
   gap: 0.5rem;
 
   position: relative;
   z-index: 99;
-  @media (min-width: 768px) {
-    & {
-      justify-content: space-between;
-      flex-direction: row;
-      gap: 0;
-      margin-top: 1rem;
-    }
+  @include tablet {
+    gap: 0;
+    margin-top: 1rem;
   }
   &__item {
     position: relative;
@@ -384,14 +341,13 @@ header.sticky-header {
     cursor: pointer;
     font-size: 1.25rem;
     color: #ffffff;
-    @media (min-width: 768px) {
-      & {
-        font-size: 1rem;
-        @include m0p0;
-        width: auto;
-        color: #1a1a1a;
-        background: none;
-      }
+
+    @include tablet {
+      font-size: 1rem;
+      @include m0p0;
+      width: auto;
+      color: #1a1a1a;
+      background: none;
     }
     &__title {
       position: relative;
@@ -401,19 +357,15 @@ header.sticky-header {
       padding: 0.5rem 0;
       z-index: 2;
 
-      @media (min-width: 768px) {
-        & {
-          background: transparent;
-          padding: 0;
-        }
+      @include tablet {
+        background: transparent;
+        padding: 0;
       }
     }
     a {
       color: #ffffff;
-      @media (min-width: 768px) {
-        & {
-          color: #1a1a1a;
-        }
+      @include tablet {
+        color: #1a1a1a;
       }
     }
     i {
@@ -427,10 +379,8 @@ header.sticky-header {
     & div > i {
       display: none;
       font-size: 1.5rem;
-      @media (min-width: 768px) {
-        & {
-          display: block;
-        }
+      @include tablet {
+        display: block;
       }
     }
     &:hover > i,
@@ -465,58 +415,44 @@ header.sticky-header {
   box-shadow: 8px 8px 16px #d9d9d9;
 
   /* content */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+  @extend .d-flex, .flex-column, .justify-content-between, .align-items-start;
 
   padding: 0;
 
   text-align: start;
-  @media (min-width: 768px) {
-    & {
-      position: absolute;
-      top: 105%;
-      right: -1.75rem;
-      left: -10rem;
+  @include tablet {
+    position: absolute;
+    top: 105%;
+    right: -1.75rem;
+    left: -10rem;
 
-      overflow-x: hidden;
-      width: auto;
+    overflow-x: hidden;
+    width: auto;
 
-      border-radius: 0.5rem;
-      color: #ffffff;
-      box-shadow: none;
-      background-color: $primary-color;
-    }
+    border-radius: 0.5rem;
+    color: #ffffff;
+    box-shadow: none;
+    background-color: $primary-color;
   }
   &::after {
     @include pseudo;
     bottom: 100%;
     right: 25%;
     /* creates triangle 🔺 */
+    @extend .d-none, .d-md-block;
     display: none;
-    width: 0;
-    height: 0;
+    @include h-w(0);
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid #602d88;
-    @media (min-width: 768px) {
-      & {
-        display: block;
-      }
-    }
   }
   &__item {
     list-style: none;
-    width: 100%;
     padding: 0.5rem 0.5rem 0.5rem 0;
     border-bottom: solid 1px #ffffff;
     @include simpleTransition;
-    @media (min-width: 768px) {
-      & {
-        width: 100%;
-        border-bottom: solid 1px #572b79;
-      }
+    @include tablet {
+      border-bottom: solid 1px #572b79;
     }
     /* hover effect */
     &:hover,
@@ -536,11 +472,9 @@ header.sticky-header {
       @include simpleTransition;
       font-size: 1.1rem;
 
-      @media (min-width: 768px) {
-        & {
-          text-decoration: none;
-          color: #ffffff;
-        }
+      @include tablet {
+        text-decoration: none;
+        color: #ffffff;
       }
     }
     /* hover effect */
@@ -550,7 +484,6 @@ header.sticky-header {
     }
   }
 }
-
 
 /* second dropdown */
 .header__list__item--teacher-into:hover > ul {

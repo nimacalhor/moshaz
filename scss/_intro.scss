@@ -20,48 +20,31 @@
 
     background-color: #e0dcf6;
   }
-  @media (min-width: 768px) {
-    & {
-      width: 80%;
-    }
+  @include tablet {
+    width: 80%;
   }
 }
 
 // ____________________
 // header
 .intro__header {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row-reverse;
+  @extend .d-flex,.justify-content-end,.flex-row-reverse;
 
   margin: 0.75rem 0 2rem 0;
 }
 
 .intro__dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend .d-flex,.flex-row,.justify-content-center,.align-items-center;
 
   margin: 0 0.5rem;
 }
 
 .intro__dot {
-  width: 5px;
-  height: 5px;
+  @include h-w(5px);
   margin-inline: 0.15rem;
 
   border-radius: 2rem;
-  background-color: red;
-
-  &:nth-child(1) {
-    background-color: #4d39ad;
-  }
-  &:nth-child(2) {
-    background-color: #602d88;
-  }
-  &:nth-child(3) {
-    background-color: #ca4e97;
-  }
+  @include dotsColor;
 }
 
 // ____________________
@@ -72,10 +55,8 @@ $intro_card_width: 15rem;
   margin: 0 auto 0 1rem;
   height: 25rem;
   overflow: hidden;
-  @media (min-width: 768px) {
-    & {
-      margin: 0 auto 0 4rem;
-    }
+  @include tablet {
+    margin: 0 auto 0 4rem;
   }
 }
 
@@ -86,20 +67,14 @@ $intro_card_width: 15rem;
 
   transition: transform 0.4s cubic-bezier(0.73, 0.25, 0.68, 1.35);
   padding: 6rem 0 4rem 0;
-  @media (min-width: 576px) {
-    & {
-      width: calc(1 * (20rem));
-    }
+  @include mobile {
+    width: calc(1 * (20rem));
   }
-  @media (min-width: 768px) {
-    & {
-      width: calc(2 * (20rem));
-    }
+  @include tablet {
+    width: calc(2 * (20rem));
   }
-  @media (min-width: 992px) {
-    & {
-      width: calc(3 * (20rem));
-    }
+  @include laptop {
+    width: calc(3 * (20rem));
   }
 }
 
@@ -126,8 +101,7 @@ $intro_card_width: 15rem;
   padding: 3rem 1.5rem 0.5rem 1.5rem;
   margin: 0 1rem;
 
-  display: grid;
-  place-content: center;
+  @include grid-center;
 
   background-color: rgb(255, 255, 255);
   border-radius: 2rem 0.25rem 0.25rem 0.25rem;
@@ -184,8 +158,7 @@ $intro_card_width: 15rem;
 
   overflow: hidden;
 
-  display: grid;
-  place-content: center;
+  @include grid-center;
 }
 .intro__card__img {
   object-fit: cover;
@@ -194,10 +167,7 @@ $intro_card_width: 15rem;
 
 // ____________________
 .intro__card__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @extend .d-flex,.flex-column,.justify-content-center, .align-items-center;
 
   width: 80%;
   text-align: center;
@@ -218,13 +188,10 @@ $intro_card_width: 15rem;
   top: 60%;
   z-index: 98;
 
-  height: 40px;
-  width: 40px;
+  @include h-w(40px);
+  @include grid-center;
 
-  display: grid;
-  place-content: center;
-
-  background-color: #602d88;
+  background-color: $primary-color;
 
   &--right {
     right: 8%;
@@ -238,6 +205,6 @@ $intro_card_width: 15rem;
   }
 
   i {
-    color: #ca4e97;
+    color: $secondary-color;
   }
 }

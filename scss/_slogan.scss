@@ -1,28 +1,29 @@
 .slogan {
-  width: 100%;
-  height: auto;
+  height: fit-content;
 
   position: relative;
   z-index: -1;
 
-  padding-top: 3rem;
+  padding: 3rem 2vw 0 0;
 
-  display: flex;
-  flex-direction: column;
-  place-content: space-around;
-  place-items: center;
+  @extend .d-flex,
+    .flex-column,
+    .flex-md-row,
+    .justify-content-around,
+    .align-items-center;
+
+  @include make-row();
+  margin-inline: 0 !important;
 
   background-image: url("../assets/slogan__bg.png");
   @include fixedBg;
 
   border-radius: 4rem 0 0 0;
-  @media (min-width: 768px) {
-    & {
-      flex-direction: row;
-      height: 80vh;
-      padding-top: 1rem;
-    }
+
+  @include laptop {
+    padding-top: 0;
   }
+
   &::before {
     @include pseudo;
     inset: 0 0 0 0;
@@ -37,55 +38,40 @@
     border-radius: 4rem 0 0 0;
   }
 
-  &__text,
-  &__img__cn {
-    width: 90%;
-    @media (min-width: 768px) {
-      &__text,
-      &__img__cn {
-        width: 45%;
-      }
-      &__img__cn {
-        height: 100%;
-      }
-    }
-  }
   /* ____________________
     Img */
   &__img__cn {
+    @include make-col(11);
+    @include laptop {
+      @include make-col(5);
+    }
     @include grid-center;
+    height: fit-content;
   }
   &__img {
     position: relative;
     max-width: 100%;
     height: auto;
-    @media (min-width: 768px) {
-      & {
-        max-width: 100%;
-        height: 115%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-      }
-    }
-    @media (min-width: 992px) {
-      & {
-        left: 10%;
-      }
+    @include laptop{
+      transform: scale(1.1) translateY(-10%);
     }
   }
   /* ____________________
     text */
   &__text {
+    @include make-col(11);
+    @include laptop{
+      @include make-col(5);
+    }
     color: #ffffff;
     font-size: 1.2rem;
   }
-  
+
   &__light {
     color: #d0bede;
     font-size: 1rem;
   }
-  
+
   &__title {
     margin: 0 0 5vw 0;
   }
@@ -97,5 +83,3 @@
     inset: auto 0 0 0;
   }
 }
-
-

@@ -1,48 +1,35 @@
 .school {
   width: 90%;
   margin: 4rem auto;
-  @media (min-width: 768px) {
-    & {
-      width: 80%;
-    }
+  @include tablet {
+    width: 80%;
   }
 }
 
 // ____________________
 // header
 .school__header {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  align-items: center;
+  @extend .d-flex
+    ,.flex-row-reverse
+    ,.justify-content-end
+    ,.align-items-center;
 }
 
 .school__dots {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @extend .d-flex
+    ,.flex-row
+    ,.align-items-center;
 
   margin-inline: 0.5rem;
 }
 
 .school__dot {
-  width: 5px;
-  height: 5px;
+  @include h-w(5px);
 
   border-radius: 2rem;
   margin-inline: 0.25rem;
 
-  &:nth-child(1) {
-    background-color: #4d39ad;
-  }
-
-  &:nth-child(2) {
-    background-color: #602d88;
-  }
-
-  &:nth-child(3) {
-    background-color: #ca4e97;
-  }
+  @include dotsColor;
 }
 
 // ____________________
@@ -52,48 +39,43 @@
   height: 12rem;
   overflow: hidden;
   padding: 0 0 3rem 0;
-}
-.school__carousel__cn {
-  height: 100%;
-  margin: 2rem 0;
-  text-align: left;
+  &__cn {
+    height: 100%;
+    margin: 2rem 0;
+    text-align: left;
 
-  transition: transform 0.4s cubic-bezier(.73,.25,.68,1.35);
+    transition: transform 0.4s cubic-bezier(0.73, 0.25, 0.68, 1.35);
+  }
 }
 
 // ____________________
 // card
-.school__carousel__item{
+.school__carousel__item {
   position: absolute;
   width: fit-content;
   width: 90%;
   cursor: pointer;
 
-  @media (min-width: 768px){
-    &{
-      width: 75%;
-    }
+  @include tablet {
+    width: 75%;
   }
-  @media (min-width: 992px){
-     &{
-       width: 50%;
-   }
+  @include laptop {
+    width: 50%;
   }
 }
 .school__card {
   position: relative;
   z-index: inherit;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  @extend .d-flex
+    ,.flex-row
+    ,.justify-content-between;
 
   padding: 0.75rem;
   margin: 1rem auto;
 
   height: 7.25rem;
   width: 90%;
-
 
   border-radius: 2rem 0.5rem 0.5rem 0.5rem;
   color: #ffffff;
@@ -106,28 +88,23 @@
 
   //shape
   &::before {
-    content: "";
-    position: absolute;
+    @include pseudo;
     inset: -0.5rem 0.25rem 0.25rem 3%;
     z-index: -1;
 
     background: rgb(202, 78, 151);
-    background: linear-gradient(
-      90deg,
-      rgba(202, 78, 151, 1) 0%,
-      rgba(96, 45, 136, 1) 100%
-    );
+    background: $primary-gradient-row;
     border-radius: 2rem 0.5rem 0 0;
   }
 
   // shadow
   &::after {
-    content: "";
-    position: absolute;
+    @include pseudo;
+
     inset: 1px;
     z-index: -2;
 
-    transition: all 0.3s ease;
+    @include simpleTransition;
 
     border-radius: 2rem 0.5rem 0.5rem 0.5rem;
     box-shadow: 7px 7px 14px #c2c2c2, -7px -7px 14px #ffffff;
@@ -140,10 +117,8 @@
   &:hover > .school__card__img__cn::after {
     opacity: 100%;
   }
-  @media (min-width: 768px) {
-    & {
-      margin: 0;
-    }
+  @include tablet {
+    margin: 0;
   }
 }
 
@@ -173,10 +148,8 @@
 
     @include simpleTransition;
   }
-  @media (min-width: 992px) {
-    & {
-      width: 30%;
-    }
+  @include laptop {
+    width: 30%;
   }
 }
 .school__card__img {
@@ -188,24 +161,23 @@
   width: 55%;
   margin: 0 auto;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  @extend .d-flex
+    ,.flex-column
+    ,.justify-content-between;
 }
 
 .school__card__upper {
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  @extend .d-flex
+    ,.flex-row
+    ,.justify-content-between
+    ,.m-0;
 
   padding: 0.25rem 0 1.5rem 0;
   border-bottom: 1px solid #efefef;
 }
 
 .school__card__title {
-  margin: 0;
-  padding: 0;
+  @include m0p0;
   font-size: 1.05rem;
 }
 
@@ -220,10 +192,9 @@
 }
 
 .school__card__phone {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
+  @extend .d-flex
+    ,.flex-row
+    ,.justify-content-center;
   margin: 0.25rem 0;
 }
 
@@ -232,23 +203,24 @@
   position: absolute;
   inset: auto 0 auto 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend .d-flex
+    ,.flex-row
+    ,.justify-content-center;
 
   transform: rotate(180deg);
 }
 
 .school__carousel__indicator {
   display: inline-block;
-  // width: 5px;
-  padding: 3px;
-  background-color: #602d88;
+  padding: 5px;
+  @include h-w(5px);
+  background-color: $primary-color;
   cursor: pointer;
 
   &--current {
     background-color: #ffffff;
-    border: 8px solid #ca4e97;
+    padding: 3px;
+    border: 8px solid $secondary-color;
     box-shadow: 5px 5px 2px #f5f5f5, -5px -5px 2px #ffffff;
   }
 }

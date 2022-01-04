@@ -1,3 +1,29 @@
+@mixin mobile {
+  @include media-breakpoint-up(sm) {
+    @content;
+  }
+}
+@mixin tablet {
+  @include media-breakpoint-up(md) {
+    @content;
+  }
+}
+@mixin laptop {
+  @include media-breakpoint-up(lg) {
+    @content;
+  }
+}
+@mixin desktop {
+  @include media-breakpoint-up(xl) {
+    @content;
+  }
+}
+@mixin tv {
+  @include media-breakpoint-up(xxl) {
+    @content;
+  }
+}
+
 @mixin grid-center {
   display: grid;
   place-content: center;
@@ -77,4 +103,15 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+@mixin dotsColor {
+  &:nth-child(1) {
+    background-color: #4d39ad;
+  }
+  &:nth-child(2) {
+    background-color: #602d88;
+  }
+  &:nth-child(3) {
+    background-color: #ca4e97;
+  }
 }
