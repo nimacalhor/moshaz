@@ -1,7 +1,6 @@
 //________________________________________________________________________________
 // elements
-// ____________________
-// header
+// header ____________________
 
 const header = document.querySelector("header")
 const headerDropDownParents = document.querySelectorAll(".header__list__item")
@@ -11,24 +10,21 @@ const headerNav = document.querySelector(".header__nav");
 const overlayShadowEl = document.querySelector("div.overlay-shadow")
 const btnHamburger = document.querySelector(".header__hamburger")
 
-// ____________________
-// hero
+// hero ____________________
 const sectionHero = document.querySelector("div.hero")
 const containerHeroSlider = document.querySelector(".hero__slider__cn")
 const heroSlides = Array.from(containerHeroSlider.children)
 const containerHeroSliderDots = document.querySelector(".hero__slider__nav")
 const heroSliderDots = Array.from(containerHeroSliderDots.children)
 
-// ____________________
-// gallery
+// gallery ____________________
 const containerGallerySlider = document.querySelector("ul.gallery__carousel__cn")
 const gallerySlides = Array.from(containerGallerySlider.children)
 
 const btnGallerySlideLeft = document.querySelector("button.gallery__carousel__controller--left")
 const btnGallerySlideRight = document.querySelector("button.gallery__carousel__controller--right")
 
-// ____________________
-// books carousel
+// books carousel ____________________
 const containerBooksSlider = document.querySelector("ul.books__carousel__cn")
 const booksSlides = Array.from(containerBooksSlider.children)
 
@@ -36,62 +32,60 @@ const btnBooksSliderRight = document.querySelector("button.books__carousel__acti
 const btnBooksSliderLeft = document.querySelector("button.books__carousel__action--left")
 
 
-// ____________________
-// teacher intro
+// teacher intro ____________________
 const containerIntroSlider = document.querySelector("ul.intro__carousel__cn")
 const introSlides = Array.from(containerIntroSlider.children)
 
 const btnIntroSliderRight = document.querySelector("button.intro__carousel__indicator--right")
 const btnIntroSliderLeft = document.querySelector("button.intro__carousel__indicator--left")
 
-// ____________________
-// schools
+// schools ____________________
 const containerSchoolSlider = document.querySelector("ul.school__carousel__cn")
 const schoolSlides = Array.from(containerSchoolSlider.children)
 
 const containerSchoolDots = document.querySelector("div.school__carousel__indicators")
 const schoolDots = Array.from(containerSchoolDots.children)
 
-// ____________________
-// news
+// news ____________________
 const containerNewsSlider = document.querySelector("ul.news__carousel__cn")
 const newsSlides = Array.from(containerNewsSlider.children)
 
 const btnNewsSliderRight = document.querySelector("button.news__carousel__ind--right")
 const btnNewsSliderLeft = document.querySelector("button.news__carousel__ind--left")
 
-// ____________________
-// article
+// article ____________________
 const containerArticleSlider = document.querySelector("ul.article__carousel__cn")
 const articleSlides = Array.from(containerArticleSlider.children)
 
 const containerArticleDots = document.querySelector(".article__carousel__indicators")
 const articleDots = Array.from(containerArticleDots.children)
 
-// ____________________
-// footer
+// footer ____________________
 const footerNavList = document.querySelector('ul.footer__link')
 const footerFormCn = document.querySelector("div.footer__section--form__cn")
 const btnFooterListToggler = document.querySelector("button.footer__section__toggle-btn--links")
 const btnFooterFormToggler = document.querySelector("button.footer__section__toggle-btn--form")
 
-// ________________________________________________________________________________
-// Accordion
+const getViewPort = () => Math.max(document.documentElement.clientWidth, window.innerWidth);
+
+// Classes ________________________________________________________________________________
+
+// Accordion ____________________
 class Accordion {
     constructor(controller, content, padding = null,) {
-        this._controller = controller;
-        this._content = content;
+        this._controller = controller; // btn to open / close the accordion
+        this._content = content;    // element which is hidden by default
         this._padding = padding && padding + "rem";
 
-        this._setInitial()
-        this._controller.addEventListener("click", () => this._toggle())
+        this._setInitial();
+        this._controller.addEventListener("click", this._toggle)
     }
 
-    _isActive() {
+    _isActive() { // true / false
         return !(this._content.style.maxHeight)
     }
 
-    _setInitial() {
+    _setInitial() { // being closed by default
         this._content.classList.add("accordion--hidden")
     }
 
@@ -107,76 +101,65 @@ class Accordion {
     }
 }
 
-const getViewPort = () => Math.max(document.documentElement.clientWidth, window.innerWidth);
-
-
-// ________________________________________________________________________________
-// mobile nav dropdown
-headerDropDownParents.forEach(function (el) {
-    if (!el.querySelector("ul")) return
-    new Accordion(el.querySelector(".header__list__item__title"), el.querySelector("ul.header__list__dropdown-content"))
-})
-
-// ________________________________________________________________________________
-// navigation toggle in mobile
-let navIsOpen = false;
-
-btnHamburger.addEventListener("click", function () {
-    navIsOpen = !navIsOpen;
-    if (navIsOpen) {
-        headerNav.style.transform = "translateX(0)"
-        overlayShadowEl.style.display = "block"
+// navigation toggle ____________________
+class Navigation {
+    constructor() {
+        this._isActive = false;
+        btnHamburger.addEventListener("click", this._toggle.bind(this)); // top right (=) button
+        overlayShadowEl.addEventListener("click", this._close.bind(this)); // shadow on page when nav is active
     }
-    else {
+    _toggle() { // close / open
+        this._isActive = !this._isActive;
+        if (this._isActive) {
+            headerNav.style.transform = "translateX(0)"
+            overlayShadowEl.style.display = "block"
+        }
+        else {
+            headerNav.style.transform = "translateX(120%)"
+            overlayShadowEl.style.display = "none"
+        }
+    }
+    _close() {
+        this._isActive = false
         headerNav.style.transform = "translateX(120%)"
-        overlayShadowEl.style.display = "none"
+        overlayShadowEl.style.display = "none";
+        // closeAllNavDropDowns()
     }
-})
-
-overlayShadowEl.addEventListener("click", () => {
-    navIsOpen = false
-    headerNav.style.transform = "translateX(120%)"
-    overlayShadowEl.style.display = "none";
-    closeAllNavDropDowns()
-})
-
-// ________________________________________________________________________________
-// sticky nav on scroll
-const stickHeader = function (entries) {
-    const [entry] = entries;
-    if (!entry.isIntersecting) {
-        header.classList.add("sticky-header")
-    } else header.classList.remove('sticky-header')
 }
 
-const headerObserver = new IntersectionObserver(stickHeader, {
-    root: null,
-    threshold: 0,
-    rootMargin: "0px"
-})
+// sticky nav ____________________
+class StickyHeader {
+    constructor() {
+        this._observer = new IntersectionObserver(this._stickHeader, {
+            root: null,
+            threshold: 0,
+            rootMargin: "0px"
+        });
+        this._observer.observe(sectionHero);
+    }
 
-headerObserver.observe(sectionHero)
-
-// ________________________________________________________________________________
-// footer dropDowns
-if (getViewPort() < 768) {
-    new Accordion(btnFooterListToggler, footerNavList, false,)
-    new Accordion(btnFooterFormToggler, footerFormCn, false,)
+    _stickHeader(entries) { // call back F
+        const [entry] = entries;
+        if (!entry.isIntersecting) {
+            header.classList.add("sticky-header")
+        } else header.classList.remove('sticky-header')
+    }
 }
 
-// ________________________________________________________________________________
-// Slider 
+// Slider ____________________
 class Slider {
     constructor(parent, slides) {
-        this._parent = parent;
-        this._slides = slides;
+        this._parent = parent; // <ul> [all slides] </ul>
+        this._slides = slides; // <li> [each item] </li>
     }
+
     // position
-    _getSlideWidth() {
+    _getSlideWidth() { // width of the first el 
         return this._slides[0].getBoundingClientRect().width
     }
 
-    _setSlidePosition(el, i, margin = 0) {
+    _setSlidePosition(el, i, margin = 0) { // make each slide item sit next to each other
+        // margin is used to make space between each item
         el.style.left = this._getSlideWidth() * i + margin + "px"
     }
 
@@ -184,8 +167,8 @@ class Slider {
         this._slides.forEach((el, i) => this._setSlidePosition(el, i, margin))
     }
 
-    // move
-    _identifyTarget(target, currentSlide) {
+    // moving the slides 🚎
+    _identifyTarget(target, currentSlide) { // identify which item user wants to see
         if (target === "next") return currentSlide.nextElementSibling;
         else if (target === "prev") return currentSlide.previousElementSibling;
         else return target
@@ -216,7 +199,7 @@ class Slider {
     }
 }
 
-class SliderWithInd extends Slider {
+class SliderWithInd extends Slider { // slide which can be controlled using indicators ⚫⚫⚫ 
     constructor(parent, slides, indCn) {
         super(parent, slides);
         // indicator container
@@ -224,46 +207,85 @@ class SliderWithInd extends Slider {
         this._indicators;
     }
 
-    _getClass() {
+    _getClass() { // indicator class for changing the ui
         return this._indCn.firstElementChild.classList[0] + "--current"
     }
 
-    // create ind
-    _insertIndicator(ind, i) {
+    // create ind __________
+
+    _insertIndicator(ind, i) { // appendChild
         const newInd = ind.cloneNode()
         newInd.dataset.target = i;
         this._indCn.appendChild(newInd)
     }
 
-    createIndicators() {
+    createIndicators() { // make ⚫ as much as slides
         const { _indCn, _insertIndicator, _slides, _getClass } = this;
-        const indicator = _indCn.firstElementChild;
-        _indCn.innerHTML = "";
+        const indicator = _indCn.firstElementChild; // need one example from DOM
+        _indCn.innerHTML = ""; // empty container
 
         for (let i = 0; i < _slides.length; i++) _insertIndicator.call(this, indicator, i)
 
         this._indicators = Array.from(this._indCn.children)
-        console.log(this._indicators)
         // make active class
         const className = _getClass.call(this);
-        this._indicators[0].classList.add(className)
-
+        this._indicators[0].classList.add(className) // first el being active
     }
 
-    // click handling
-    getIndex(e) {
+    // click handling __________
+
+    getIndex(e) { // witch one is clicked
         const clickedInd = e.target.closest("button");
         return clickedInd.dataset.target
     }
 
-    // update ind
-    update() {
+    update() { // update ind
         const className = this._getClass.call(this);
         this._indicators.forEach(ind => ind.classList.remove(className))
         const index = Math.abs(this._slides.findIndex(item => item.dataset.current === "true"))
         this._indicators[index].classList.add(className)
     }
 }
+
+// ________________________________________________________________________________
+// ________________________________________________________________________________
+
+// mobile nav dropdown
+headerDropDownParents.forEach(function (el) {
+    if (!el.querySelector("ul")) return
+    new Accordion(el.querySelector(".header__list__item__title"), el.querySelector("ul.header__list__dropdown-content"))
+})
+
+// footer dropDowns
+if (getViewPort() < 768) {
+    new Accordion(btnFooterListToggler, footerNavList, false,)
+    new Accordion(btnFooterFormToggler, footerFormCn, false,)
+}
+
+// navigation toggle in mobile
+const navigation = new Navigation();
+
+// sticky nav on scroll
+const stickyHeader = new StickyHeader();
+
+// Sliders
+const pageSlidersData = [
+    //[--slidesContainer--, --slidesArray--, --btnNext--, --btnPrev--, --⚫Container--, --margin = 0-- ]
+    // hero carousel
+    [containerHeroSlider, heroSlides, false, false, containerHeroSliderDots],
+    // gallery carousel
+    [containerGallerySlider, gallerySlides, btnGallerySlideRight, btnGallerySlideLeft, false],
+    // books slider
+    [containerBooksSlider, booksSlides, btnBooksSliderRight, btnBooksSliderLeft, false, 5],
+    // teacher intro slider
+    [containerIntroSlider, introSlides, btnIntroSliderRight, btnIntroSliderLeft, false, 5],
+    // school Slider
+    [containerSchoolSlider, schoolSlides, false, false, containerSchoolDots],
+    // news slider
+    [containerNewsSlider, newsSlides, btnNewsSliderRight, btnNewsSliderLeft, false],
+    // articles carousel
+    [containerArticleSlider, articleSlides, false, false, containerArticleDots]
+]
 
 const activateSlider = function (slidesCn, slidesArr, btnNext, btnPrev, dotsCn, margin = 0) {
     let slider;
@@ -285,24 +307,5 @@ const activateSlider = function (slidesCn, slidesArr, btnNext, btnPrev, dotsCn, 
     })
 }
 
-// hero carousel
-activateSlider(containerHeroSlider, heroSlides, false, false, containerHeroSliderDots)
-
-// gallery carousel
-activateSlider(containerGallerySlider, gallerySlides, btnGallerySlideRight, btnGallerySlideLeft, false)
-
-// books slider
-activateSlider(containerBooksSlider, booksSlides, btnBooksSliderRight, btnBooksSliderLeft, false, 5)
-
-// teacher intro slider
-activateSlider(containerIntroSlider, introSlides, btnIntroSliderRight, btnIntroSliderLeft, false, 5)
-
-// school Slider
-activateSlider(containerSchoolSlider, schoolSlides, false, false, containerSchoolDots)
-
-// news slider
-activateSlider(containerNewsSlider, newsSlides, btnNewsSliderRight, btnNewsSliderLeft, false)
-
-// articles carousel
-activateSlider(containerArticleSlider, articleSlides, false, false, containerArticleDots)
+pageSlidersData.forEach(argArr => activateSlider(...argArr))
 
