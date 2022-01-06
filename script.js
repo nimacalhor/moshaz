@@ -1,8 +1,7 @@
-//________________________________________________________________________________
 // elements
-// header ____________________
 
-const header = document.querySelector("header")
+// header ____________________
+const headerEl = document.querySelector("header")
 const headerDropDownParents = document.querySelectorAll(".header__list__item")
 const headerDropDownEl = document.querySelectorAll("ul.header__list__dropdown-content")
 const headerNav = document.querySelector(".header__nav");
@@ -66,6 +65,7 @@ const footerFormCn = document.querySelector("div.footer__section--form__cn")
 const btnFooterListToggler = document.querySelector("button.footer__section__toggle-btn--links")
 const btnFooterFormToggler = document.querySelector("button.footer__section__toggle-btn--form")
 
+const breakPoints = [576, 768, 992, 1200, 1400];
 const getViewPort = () => Math.max(document.documentElement.clientWidth, window.innerWidth);
 
 // Classes ________________________________________________________________________________
@@ -78,7 +78,7 @@ class Accordion {
         this._padding = padding && padding + "rem";
 
         this._setInitial();
-        this._controller.addEventListener("click", this._toggle)
+        this._controller.addEventListener("click", this._toggle.bind(this))
     }
 
     _isActive() { // true / false
@@ -90,7 +90,7 @@ class Accordion {
     }
 
     _toggle() {
-        if (this._isActive()) {
+        if (this._isActive.call(this)) {
             this._content.style.maxHeight = this._content.scrollHeight + "px"
             this._content.style.padding = this._padding
         }
@@ -141,16 +141,24 @@ class StickyHeader {
     _stickHeader(entries) { // call back F
         const [entry] = entries;
         if (!entry.isIntersecting) {
-            header.classList.add("sticky-header")
-        } else header.classList.remove('sticky-header')
+            headerEl.classList.add("sticky-header")
+        } else headerEl.classList.remove('sticky-header')
     }
 }
 
 // Slider ____________________
 class Slider {
-    constructor(parent, slides) {
+    constructor(parent, slides, margin = 0, buttons = false) {
         this._parent = parent; // <ul> [all slides] </ul>
         this._slides = slides; // <li> [each item] </li>
+        this._margin = margin;
+        this._buttons = buttons // [prevBtn, nextBtn]
+
+        this._setPosition(margin);
+
+        if (!this._buttons) return;
+        this._buttons[1].addEventListener("click", () => this.move.call(this, "next"))
+        this._buttons[0].addEventListener("click", () => this.move.call(this, "prev"))
     }
 
     // position
@@ -163,7 +171,7 @@ class Slider {
         el.style.left = this._getSlideWidth() * i + margin + "px"
     }
 
-    setPosition(margin) {
+    _setPosition(margin) {
         this._slides.forEach((el, i) => this._setSlidePosition(el, i, margin))
     }
 
@@ -200,11 +208,17 @@ class Slider {
 }
 
 class SliderWithInd extends Slider { // slide which can be controlled using indicators ⚫⚫⚫ 
-    constructor(parent, slides, indCn) {
-        super(parent, slides);
-        // indicator container
-        this._indCn = indCn;
+    constructor(parent, slides, margin = 0, buttons = false, indCn) {
+        super(parent, slides, margin, buttons);
+        this._indCn = indCn; // indicator container
         this._indicators;
+
+        this._createIndicators()
+        this._indCn.addEventListener("click", e => {
+            if (e.target.localName !== "button") return
+            this.move.call(this, this._slides[this._getIndex(e)])
+            this._update.call(this)
+        })
     }
 
     _getClass() { // indicator class for changing the ui
@@ -219,7 +233,7 @@ class SliderWithInd extends Slider { // slide which can be controlled using indi
         this._indCn.appendChild(newInd)
     }
 
-    createIndicators() { // make ⚫ as much as slides
+    _createIndicators() { // make ⚫ as much as slides
         const { _indCn, _insertIndicator, _slides, _getClass } = this;
         const indicator = _indCn.firstElementChild; // need one example from DOM
         _indCn.innerHTML = ""; // empty container
@@ -234,12 +248,12 @@ class SliderWithInd extends Slider { // slide which can be controlled using indi
 
     // click handling __________
 
-    getIndex(e) { // witch one is clicked
+    _getIndex(e) { // witch one is clicked
         const clickedInd = e.target.closest("button");
         return clickedInd.dataset.target
     }
 
-    update() { // update ind
+    _update() { // update ind
         const className = this._getClass.call(this);
         this._indicators.forEach(ind => ind.classList.remove(className))
         const index = Math.abs(this._slides.findIndex(item => item.dataset.current === "true"))
@@ -269,42 +283,28 @@ const navigation = new Navigation();
 const stickyHeader = new StickyHeader();
 
 // Sliders
-const pageSlidersData = [
+const pageSlidersData = [ // arguments for {activateSlider} function
     //[--slidesContainer--, --slidesArray--, --btnNext--, --btnPrev--, --⚫Container--, --margin = 0-- ]
     // hero carousel
-    [containerHeroSlider, heroSlides, false, false, containerHeroSliderDots],
+    [containerHeroSlider, heroSlides, false, containerHeroSliderDots],
     // gallery carousel
-    [containerGallerySlider, gallerySlides, btnGallerySlideRight, btnGallerySlideLeft, false],
+    [containerGallerySlider, gallerySlides, [btnGallerySlideLeft, btnGallerySlideRight], false],
     // books slider
-    [containerBooksSlider, booksSlides, btnBooksSliderRight, btnBooksSliderLeft, false, 5],
+    [containerBooksSlider, booksSlides, [btnBooksSliderLeft, btnBooksSliderRight], false, 5],
     // teacher intro slider
-    [containerIntroSlider, introSlides, btnIntroSliderRight, btnIntroSliderLeft, false, 5],
+    [containerIntroSlider, introSlides, [btnIntroSliderLeft, btnIntroSliderRight], false, 5],
     // school Slider
-    [containerSchoolSlider, schoolSlides, false, false, containerSchoolDots],
+    [containerSchoolSlider, schoolSlides, false, containerSchoolDots],
     // news slider
-    [containerNewsSlider, newsSlides, btnNewsSliderRight, btnNewsSliderLeft, false],
+    [containerNewsSlider, newsSlides, [btnNewsSliderLeft, btnNewsSliderRight], false],
     // articles carousel
-    [containerArticleSlider, articleSlides, false, false, containerArticleDots]
+    [containerArticleSlider, articleSlides, false, containerArticleDots]
 ]
 
-const activateSlider = function (slidesCn, slidesArr, btnNext, btnPrev, dotsCn, margin = 0) {
+const activateSlider = function (slidesCn, slidesArr, btnArr, dotsCn, margin = 0) { // make slider
     let slider;
-    if (dotsCn) slider = new SliderWithInd(slidesCn, slidesArr, dotsCn)
-    else slider = new Slider(slidesCn, slidesArr)
-
-    slider.setPosition(margin)
-
-    btnNext && btnNext.addEventListener("click", () => slider.move("next"))
-    btnPrev && btnPrev.addEventListener("click", () => slider.move("prev"))
-
-    if (!dotsCn) return
-
-    slider.createIndicators()
-    dotsCn.addEventListener("click", e => {
-        if (e.target.localName !== "button") return
-        slider.move(slidesArr[slider.getIndex(e)])
-        slider.update()
-    })
+    if (dotsCn) slider = new SliderWithInd(slidesCn, slidesArr, margin, btnArr, dotsCn)
+    else slider = new Slider(slidesCn, slidesArr, margin, btnArr)
 }
 
 pageSlidersData.forEach(argArr => activateSlider(...argArr))
