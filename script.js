@@ -65,7 +65,7 @@ const footerFormCn = document.querySelector("div.footer__section--form__cn")
 const btnFooterListToggler = document.querySelector("button.footer__section__toggle-btn--links")
 const btnFooterFormToggler = document.querySelector("button.footer__section__toggle-btn--form")
 
-const breakPoints = [576, 768, 992, 1200, 1400];
+const breakPoints = { sm: 576, md: 768, lg: 992, xl: 1200, xxl: 1400 };
 const getViewPort = () => Math.max(document.documentElement.clientWidth, window.innerWidth);
 
 // Classes ________________________________________________________________________________
@@ -107,6 +107,11 @@ class Navigation {
         this._isActive = false;
         btnHamburger.addEventListener("click", this._toggle.bind(this)); // top right (=) button
         overlayShadowEl.addEventListener("click", this._close.bind(this)); // shadow on page when nav is active
+
+        window.addEventListener("resize", function({target:{innerWidth}}){ // make nav back to its original place when vw > 768
+            if(innerWidth > breakPoints.md) 
+                headerNav.style.transform = "translateX(0)"
+        })
     }
     _toggle() { // close / open
         this._isActive = !this._isActive;
@@ -123,7 +128,6 @@ class Navigation {
         this._isActive = false
         headerNav.style.transform = "translateX(120%)"
         overlayShadowEl.style.display = "none";
-        // closeAllNavDropDowns()
     }
 }
 
@@ -156,6 +160,9 @@ class Slider {
 
         this._setPosition(margin);
 
+        // make spaces between carousel items change when items width change 
+        window.addEventListener("resize", this._setPosition.bind(this, margin))
+
         if (!this._buttons) return;
         this._buttons[1].addEventListener("click", () => this.move.call(this, "next"))
         this._buttons[0].addEventListener("click", () => this.move.call(this, "prev"))
@@ -163,7 +170,8 @@ class Slider {
 
     // position
     _getSlideWidth() { // width of the first el 
-        return this._slides[0].getBoundingClientRect().width
+        return this._slides[0].getBoundingClientRect().width;
+
     }
 
     _setSlidePosition(el, i, margin = 0) { // make each slide item sit next to each other
@@ -182,7 +190,7 @@ class Slider {
         else return target
     }
 
-    _resetSlider() {
+    _resetSlider() { // show first element
         this._slides.forEach(el => el.dataset.current = "false");
         this._slides[0].dataset.current = "true";
         this.move(this._slides[0])
@@ -202,7 +210,7 @@ class Slider {
         const amountToMove = targetSlide.style.left;
         this._transformParent(amountToMove)
 
-        currentSlide.dataset.current = "false";
+        currentSlide.dataset.current = "false"; // change "data-current"
         targetSlide.dataset.current = "true"
     }
 }
@@ -214,6 +222,7 @@ class SliderWithInd extends Slider { // slide which can be controlled using indi
         this._indicators;
 
         this._createIndicators()
+
         this._indCn.addEventListener("click", e => {
             if (e.target.localName !== "button") return
             this.move.call(this, this._slides[this._getIndex(e)])
@@ -284,7 +293,7 @@ const stickyHeader = new StickyHeader();
 
 // Sliders
 const pageSlidersData = [ // arguments for {activateSlider} function
-    //[--slidesContainer--, --slidesArray--, --btnNext--, --btnPrev--, --⚫Container--, --margin = 0-- ]
+    //[--slidesContainer--, --slidesArray--, [--btnPrev--, --btnNext--}, --⚫Container--, --margin = 0-- ]
     // hero carousel
     [containerHeroSlider, heroSlides, false, containerHeroSliderDots],
     // gallery carousel

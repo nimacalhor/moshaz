@@ -143,6 +143,7 @@
 
   &__card {
     @include make-row();
+    @extend .flex-column,.flex-md-row,.justify-content-center;
     gap: 0;
 
     border-radius: 0.75rem;
@@ -155,19 +156,15 @@
     }
     /* grid child element */
     &__img__cn {
-      @include make-col(2);
+      @include make-col(10);
+
+      margin-inline: auto !important;
+      @include tablet {
+        @include make-col(2);
+      }
     }
     &__body {
       @include make-col();
-    }
-    @include tablet {
-      &__img__cn {
-        grid-row: auto;
-      }
-      &__body {
-        grid-row: auto;
-        grid-column: 2/6;
-      }
     }
 
     &__img {
