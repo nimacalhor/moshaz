@@ -1,4 +1,4 @@
-.articles {
+.articles { // container
   width: 85%;
   margin: 2rem auto;
   @include tablet {
@@ -6,9 +6,8 @@
   }
 }
 
-// ____________________
-// header
-.article__header {
+// header ____________________
+.article__header { 
   @extend .d-flex,.flex-row,.justify-content-between,.align-items-center;
 
   h3 {
@@ -16,7 +15,7 @@
   }
 }
 
-.article__header__btn {
+.article__header__btn { // view all
   padding: 0.25rem 0.75rem;
   font-size: 1rem;
 
@@ -29,15 +28,14 @@
   }
 }
 
-// ____________________
-// carousel
-.article__carousel {
+// carousel ____________________
+.article__carousel { // container
   position: relative;
   overflow: hidden;
   height: fit-content;
   padding: 0 0 3rem 0;
 }
-.article__carousel__cn {
+.article__carousel__cn { // ul > li
   position: relative;
   margin: 1rem 0;
   padding: 3rem 0;
@@ -47,9 +45,7 @@
   transition: transform 0.45s cubic-bezier(0.73, 0.25, 0.68, 1.35);
 }
 
-// ____________________
-// card
-.article__carousel__item {
+.article__carousel__item { // each item / li > card
   position: absolute;
   width: 90%;
   padding: 0 1rem;
@@ -61,7 +57,7 @@
   }
 }
 
-.article__card {
+.article__card { // card
   overflow: hidden;
   position: relative;
 
@@ -79,8 +75,8 @@
   &:hover {
     box-shadow: 9px 9px 18px #c7c7c7, -9px -9px 18px #ffffff;
   }
-  //   filter
-  &::after {
+
+  &::after { // color filter
     @include pseudo;
     inset: 0 0 0 0;
     background: rgb(68, 26, 101);
@@ -91,8 +87,8 @@
     );
     z-index: 1;
   }
-  &::before {
-@include pseudo;
+  &::before { // color filter
+    @include pseudo;
     inset: 0 0 0 0;
     background: rgb(68, 26, 101);
     background: rgb(202, 78, 151);
@@ -106,32 +102,34 @@
 
     transition: opacity 0.3s ease-in;
   }
-  &:hover::before {
+  &:hover::before { // color filter
     opacity: 0.5;
   }
 }
 
-.article__card__img {
+.article__card__img { // image
   object-fit: cover;
   position: relative;
   z-index: 0;
 }
 
-.article__card__text {
+.article__card__text { // text / body
   position: absolute;
   inset: auto 5% 10% 5%;
   z-index: 2;
 
   color: #ffffff;
 }
-.article__carousel__indicators {
+
+.article__carousel__indicators { // ⚫⚫⚫
   position: absolute;
   inset: auto 50% auto auto;
   transform: translateX(50%) rotate(180deg);
 
   @extend .d-flex,.flex-row,.justify-content-center,.align-items-center;
 }
-.article__carousel__indicator {
+
+.article__carousel__indicator { // ⚫
   display: inline-block;
   padding: 3px;
   background-color: #602d88;

@@ -1,7 +1,7 @@
-.section-exam{
+.section-exam { // section
   max-width: 100vw
 }
-.exam {
+.exam { // div
   @include make-row();
   @include laptop {
     margin: 5rem auto 0 auto;
@@ -12,8 +12,7 @@
   margin: 2rem auto 0 auto !important;
 }
 
-/* ____________________
-  card */
+// card ____________________
 .exam__card {
   @include make-col(10);
   width: 100%;
@@ -43,8 +42,8 @@
     background: rgb(202, 78, 151);
     background: $primary-gradient-35;
   }
-  /* shadow */
-  &__shadow {
+
+  &__shadow { // card shadow 
     position: absolute;
     inset: 0 0 0 0;
     z-index: -2;
@@ -52,24 +51,18 @@
   }
 }
 
-/* ____________________
-  card content */
+// card content ____________________
 .exam__header {
   background-color: #372784;
   border-radius: 1.5rem 0.5rem 0 0;
 }
 
-.exam__title {
+.exam__title { // h4
   margin: 1rem;
   color: #ffffff;
 }
 
-.exam__content {
-  @extend .d-flex,
-    .flex-column,
-    .flex-sm-row,
-    .justify-content-around,
-    .align-items-center;
+.exam__content { // image and text
   padding: 1.25rem 1rem;
 
   color: #6c6c6c;
@@ -84,21 +77,17 @@
   }
 }
 
-.exam__text {
+.exam__text { // div > p
   padding: 0 1rem;
   line-height: 1.5rem;
   font-size: 1.05rem;
 }
 
-.exam__action__cn {
-  @extend .d-flex, .flex-row, .justify-content-end;
-
+.exam__action__cn { // div > button
   padding: 0 0 1rem 1rem;
 }
 
-.exam__action {
-  @extend .d-flex, .flex-row-reverse, .justify-content-between;
-
+.exam__action { // <a> </a>
   padding: 0.5rem 0.75rem 0.5rem 0.5rem;
   background-color: $accent-color;
   i {
