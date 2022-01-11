@@ -6,6 +6,9 @@
   color: #ffffff;
 
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   & a,
   & i {
     color: #ffffff;
@@ -22,16 +25,20 @@
 
 // content ____________________
 .footer__content {
-  @extend .d-flex,.flex-column,.flex-md-row,.align-items-center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 85%;
 
   @include tablet {
+    flex-direction: row;
     @include make-row();
     margin: 0 auto !important;
-    }
+  }
 }
 
-.footer__section { // each container in footer
+.footer__section {
+  // each container in footer
   @include tablet {
     @include make-col(5);
   }
@@ -39,17 +46,20 @@
     @include make-col(3);
   }
   height: fit-content;
-  &--logo { // div including logo img
+  &--logo {
+    // div including logo img
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: flex-start;
 
-    .footer__logo { // <img>
+    .footer__logo {
+      // <img>
       max-width: 100%;
     }
 
-    .footer__info { // mail and phone below img
+    .footer__info {
+      // mail and phone below img
       display: flex;
       flex-direction: row;
       justify-content: space-around;
@@ -73,7 +83,8 @@
     }
   }
 
-  &__header { // container title / (V) drop down controller
+  &__header {
+    // container title / (V) drop down controller
     width: 95%;
 
     margin: 0 0 0 auto;
@@ -85,7 +96,8 @@
     justify-content: space-around;
     align-items: center;
 
-    &::after { // pink line ____
+    &::after {
+      // pink line ____
       @include pseudo;
       inset: 52% 25% auto auto;
 
@@ -99,12 +111,14 @@
       }
     }
 
-    h6 { // title
+    h6 {
+      // title
       font-size: 1rem;
     }
   }
 
-  &__toggle-btn { // toggle button
+  &__toggle-btn {
+    // toggle button
     display: inline-block;
     background-color: $secondary-color;
     border-radius: 2rem;
@@ -135,7 +149,8 @@
         color: #d0bede;
       }
 
-      &::before { // dot color
+      &::before {
+        // dot color
         content: "\2022";
         color: $secondary-color;
         font-weight: bold;
@@ -150,17 +165,19 @@
     transition: max-height 0.3s ease-out;
   }
 
-  &--form__cn { // div
+  &--form__cn {
+    // div
     overflow: hidden;
   }
 
-  &--form { // span / info text
+  &--form {
+    // span / info text
     span {
       color: #d0bede;
     }
   }
 
-  .footer__input { 
+  .footer__input {
     position: relative;
     width: 85%;
     &__email {

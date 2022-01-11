@@ -12,7 +12,7 @@ const babel = require("gulp-babel");
 // paths ________________________________________________________________________________
 const PATH_DIST = "public/dist"
 const PATH_SCRIPT = "public/scripts/**/*.js";
-const PATH_SCSS = "public/scss/style.scss";
+const PATH_SCSS = "public/scss/*.scss";
 const PATH_HTML = "public/index.html"
 
 
@@ -40,8 +40,8 @@ gulp.task("styles", () =>
     gulp.src(PATH_SCSS)
         .pipe(plumber()) // error handling
         .pipe(sourcemaps.init()) // source map
-        .pipe(autoprefixer())
         .pipe(sass({ outputStyle: "compressed" }).on('error', sass.logError)) // scss 
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write()) // source map
         .pipe(gulp.dest(PATH_DIST))
         .pipe(livereload())

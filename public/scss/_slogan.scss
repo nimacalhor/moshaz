@@ -6,11 +6,10 @@
 
   padding: 3rem 2vw 0 0;
 
-  @extend .d-flex,
-    .flex-column,
-    .flex-md-row,
-    .justify-content-around,
-    .align-items-center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 
   @include make-row();
   margin-inline: 0 !important;
@@ -21,6 +20,7 @@
   border-radius: 4rem 0 0 0;
 
   @include laptop {
+  flex-direction: row;
     padding-top: 0;
   }
 

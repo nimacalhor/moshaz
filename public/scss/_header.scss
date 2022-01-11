@@ -3,7 +3,10 @@ header {
   margin-inline: 0 !important;
   max-width: 100%;
 
-  @extend .d-flex, .justify-content-around, .align-items-center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
   @include mobile {
     padding: 1rem 4vw;
   }
@@ -12,8 +15,7 @@ header {
   }
 }
 
-// ________________________________________________________________________________
-// sticky heder
+// sticky heder ________________________________________________________________________________
 header.sticky-header {
   position: fixed;
   inset: 0 0 auto 0;
@@ -90,13 +92,13 @@ header.sticky-header {
 /* content */
 .header__content {
   @include make-col(9);
-  @extend .d-flex, .flex-column;
+  flex-direction: column;
 }
 
 .header__actions {
-  @extend .d-flex, .justify-content-between;
+  justify-content: space-between;
   &__template {
-    @extend .d-flex;
+    display: flex;
   }
 }
 
@@ -251,21 +253,23 @@ header.sticky-header {
     @include h-w(20px);
   }
 }
-/* ________________________________________
-  nav */
+// nav ____________________
 .header__nav {
   display: inline-block;
   position: fixed;
   inset: 0 0 0 20%;
   top: 0;
   bottom: 0;
+
   height: 100vh;
   width: auto;
   overflow-y: scroll;
   z-index: 99;
+
   background-color: #ffffff;
   transform: translateX(120%);
   @include simpleTransition;
+
   @include tablet {
     position: relative;
     inset: 0 0 auto 0;
@@ -316,16 +320,16 @@ header.sticky-header {
 }
 
 .header__list {
-  @extend .d-flex,
-    .justify-content-center,
-    .justify-content-md-between,
-    .flex-column,
-    .flex-md-row;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 0.5rem;
 
   position: relative;
   z-index: 99;
   @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
     gap: 0;
     margin-top: 1rem;
   }
@@ -369,7 +373,7 @@ header.sticky-header {
       }
     }
     i {
-      color: #602d88;
+      color: $primary-color;
       font-size: 1.2rem;
       transition: all 0.3s ease;
     }
@@ -415,7 +419,10 @@ header.sticky-header {
   box-shadow: 8px 8px 16px #d9d9d9;
 
   /* content */
-  @extend .d-flex, .flex-column, .justify-content-between, .align-items-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 
   padding: 0;
 
@@ -444,7 +451,7 @@ header.sticky-header {
     @include h-w(0);
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 8px solid #602d88;
+    border-bottom: 8px solid $primary-color;
   }
   &__item {
     list-style: none;
@@ -480,7 +487,7 @@ header.sticky-header {
     /* hover effect */
     &:hover a,
     &:focus a {
-      color: #602d88;
+      color: $primary-color;
     }
   }
 }

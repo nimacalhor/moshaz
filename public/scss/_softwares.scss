@@ -9,15 +9,17 @@
 /* ____________________
 header */
 .software__header {
-  @extend .d-flex,
-    .flex-row-reverse,
-    .justify-content-end,
-    .align-items-center,
-    .w-100;
+  @extend .w-100;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .software__dots {
-  @extend .d-flex, .flex-row, .justify-content-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
   margin: 0 0 0 0.5rem;
 
@@ -34,7 +36,9 @@ header */
 grid */
 .software__grid {
   @include make-row();
-  @extend .justify-content-center, .align-items-center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 1rem auto !important;
   gap: 3rem;
 }
@@ -42,7 +46,9 @@ grid */
 /* ____________________
 card */
 .software__card {
-  @extend .d-flex, .flex-row, .justify-content-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   @include make-col(5);
   @include laptop {
     @include make-col(3);
@@ -110,23 +116,26 @@ card */
 /* ____________________
 sale */
 .sale {
-  @extend .d-flex,
-    .flex-column,
-    .flex-md-row,
-    .justify-content-between,
-    .align-items-center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
   margin-inline: auto;
   gap: 2vw;
 
   @include tablet {
+    flex-direction: row;
     width: 80%;
   }
   &__card {
     position: relative;
 
     @include make-row();
-    @extend .justify-content-center, .align-items-center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     padding: 0.5rem;
     margin: 1rem auto !important;
@@ -172,10 +181,10 @@ sale */
       @include make-col(2);
     }
     &__btn {
-      @extend .d-flex,
-        .flex-row-reverse,
-        .justify-content-between,
-        .align-items-center;
+       display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
 
       padding: 0.25rem 0.75rem !important;
 

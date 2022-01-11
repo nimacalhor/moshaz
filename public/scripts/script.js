@@ -10,7 +10,7 @@ const overlayShadowEl = document.querySelector("div.overlay-shadow")
 const btnHamburger = document.querySelector(".header__hamburger")
 
 // hero ____________________
-const sectionHero = document.querySelector("div.hero")
+const sectionHero = document.querySelector(".hero")
 const containerHeroSlider = document.querySelector(".hero__slider__cn")
 const heroSlides = Array.from(containerHeroSlider.children)
 const containerHeroSliderDots = document.querySelector(".hero__slider__nav")

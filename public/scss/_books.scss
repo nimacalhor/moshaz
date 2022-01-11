@@ -1,4 +1,5 @@
-.books { // section container
+.books {
+  // section container
   margin: 5rem auto 0 0;
   padding: 3rem;
   padding-top: 6rem;
@@ -8,16 +9,18 @@
   background-color: $primary-color;
   border-radius: 0 0 5vw 0;
   @include laptop {
-      width: 80%;
+    width: 80%;
   }
-  svg { // svg / border shape
+  svg {
+    // svg / border shape
     height: fit-content;
     max-width: 100%;
     position: absolute;
     inset: -10px 0 auto 0;
   }
 
-  &__title { // h5 / newest
+  &__title {
+    // h5 / newest
     color: #ffffff;
     font-size: 1.1rem;
     font-weight: 1.1rem;
@@ -25,7 +28,8 @@
 }
 
 // carousel ____________________
-.books__carousel { // div / container
+.books__carousel { 
+  // div > ul + button*2
   position: relative;
   width: 95%;
   margin: 0 0 0 auto;
@@ -33,10 +37,11 @@
   overflow: hidden;
 
   @include laptop {
-      width: 80%;
+    width: 80%;
   }
 
-  &__cn { // ul > li
+  &__cn {
+    // ul > li
     width: auto;
     height: 100%;
     position: relative;
@@ -45,7 +50,8 @@
     transition: all 0.4s cubic-bezier(0.48, 0.46, 0.68, 1.35);
   }
 
-  &__item { // li
+  &__item {
+    // li
     position: absolute;
     @include top-center;
   }
@@ -58,8 +64,10 @@
 
   position: relative;
 
-  @extend .d-flex,.flex-column,.justify-content-between;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   padding: 0 0.75rem 2rem 0.75rem;
   margin: 0 1rem;
 
@@ -76,10 +84,12 @@
   }
 
   &__img {
+    // <img />
     @include imgRes;
   }
 
-  &__title { // h5
+  &__title {
+    // h5
     margin: 1rem 0 0.5rem 0;
   }
 
@@ -87,7 +97,8 @@
     color: $primary-color;
   }
 
-  &__action { // button
+  &__action {
+    // button
     position: absolute;
     bottom: 0.5rem;
     left: 0.5rem;

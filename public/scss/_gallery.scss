@@ -2,9 +2,10 @@
   margin: 5rem auto;
 }
 
-/* grid */
 .gallery__grid {
-  @extend .justify-content-center, .align-items-center;
+  /* grid */
+  justify-content: center;
+  align-items: center;
   @include make-container();
   @include make-row();
   width: 85%;
@@ -21,8 +22,8 @@
   }
 }
 
-/* card */
 .gallery__card {
+  // card
   @include make-col(12);
   @include tablet {
     @include make-col(5);
@@ -30,7 +31,9 @@
   @include laptop {
     @include make-col(3);
   }
-  @extend .d-flex, .flex-column, .justify-content-center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   position: relative;
   z-index: inherit;
@@ -52,21 +55,24 @@
   &:focus {
     box-shadow: 9px 9px 18px #dedede, -9px -9px 18px #ffffff00;
   }
+
   &__upper {
-    @extend .d-flex, .flex-row, .justify-content-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     img {
       max-width: 25%;
       margin: 0 0 0 1rem;
     }
     h3 {
-      color: #602d88;
+      color: $primary-color;
     }
   }
   &__body {
     color: #1a1a1a;
   }
-  /* card backdrop */
   &::before {
+    /* card backdrop */
     @include pseudo;
     inset: -0.9rem 0.5rem 0 0;
     z-index: -5;
@@ -81,12 +87,12 @@
     position: absolute;
     inset: auto auto -1rem 1rem;
 
-    width: 40px;
-    height: 40px;
-    margin: 0;
-    padding: 0;
+    @include h-w(40px);
+    @include m0p0;
 
-    @extend .d-flex, .justify-content-center, .align-items-center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     font-size: 1.25rem;
     background-color: $accent-color;
@@ -107,8 +113,7 @@
   }
 }
 
-/* ____________________
-  carousel */
+// carousel ____________________
 .gallery__carousel {
   position: relative;
   width: 85%;
@@ -143,7 +148,8 @@
 
   &__card {
     @include make-row();
-    @extend .flex-column,.flex-md-row,.justify-content-center;
+    flex-direction: column;
+    justify-content: center;
     gap: 0;
 
     border-radius: 0.75rem;
@@ -152,6 +158,7 @@
     padding: 0 1rem;
     margin: 0 1rem;
     @include tablet {
+      flex-direction: row;
       gap: 1rem;
     }
     /* grid child element */
@@ -181,8 +188,8 @@
       }
     }
   }
-  /* ____________________
-    left right Buttons */
+
+  // < > buttons ____________________
   &__controller {
     position: absolute;
     display: inline-block;

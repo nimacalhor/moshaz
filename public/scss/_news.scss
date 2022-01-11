@@ -35,8 +35,8 @@
   }
 }
 
-//____________________
-// grid
+// grid ____________________
+// [] [   ]
 .news__content {
   width: 90%;
 
@@ -110,8 +110,9 @@
 }
 
 .news__carousel__card {
-  @extend .d-flex, .flex-column, .justify-content-between;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: auto;
   min-width: 100%;
   padding: 0.75rem;
@@ -197,8 +198,7 @@
   top: 50%;
   transform: translateY(-50%);
 
-  width: 35px;
-  height: 35px;
+  @include h-w(35px);
 
   display: grid;
   place-content: center;
@@ -256,15 +256,7 @@
 
   margin: 0 0.25rem;
 
-  &:nth-child(1) {
-    background-color: #372784;
-  }
-  &:nth-child(2) {
-    background-color: #9557c6;
-  }
-  &:nth-child(3) {
-    background-color: #ca4e97;
-  }
+  @include dotsColor;
 }
 
 .news__list__cn {

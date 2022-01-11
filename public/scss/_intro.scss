@@ -9,8 +9,7 @@
   background-color: #e0dcf6;
   border-radius: 5vw 0 0 0;
 
-  // ____________________
-  // svg
+  // svg  ____________________
   svg {
     position: absolute;
     height: fit-content;
@@ -25,17 +24,20 @@
   }
 }
 
-// ____________________
-// header
+// header ____________________
 .intro__header {
-  @extend .d-flex,.justify-content-end,.flex-row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 
   margin: 0.75rem 0 2rem 0;
 }
 
 .intro__dots {
-  @extend .d-flex,.flex-row,.justify-content-center,.align-items-center;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin: 0 0.5rem;
 }
 
@@ -47,8 +49,7 @@
   @include dotsColor;
 }
 
-// ____________________
-// carousel
+// carousel ____________________
 $intro_card_width: 15rem;
 
 .intro__carousel {
@@ -78,8 +79,7 @@ $intro_card_width: 15rem;
   }
 }
 
-// ____________________
-// card
+// card ____________________
 .intro__carousel__item {
   position: absolute;
   @include simpleTransition;
@@ -117,8 +117,8 @@ $intro_card_width: 15rem;
     outline: 2px solid #e0dcf6;
     transform: translate(50%, -45%) scale(1.03);
   }
-  // ____________________
-  // pink shape
+
+  // pink shape ____________________
   &::before {
     @include pseudo;
     inset: -0.5rem 0 -0.5rem 60%;
@@ -128,8 +128,9 @@ $intro_card_width: 15rem;
     border-right: none;
     border-radius: 0.5rem;
   }
-  // ____________________
-  // shadow
+
+  // shadow ____________________
+
   &::after {
     @include pseudo;
     inset: 0 0 0 0;
@@ -151,7 +152,7 @@ $intro_card_width: 15rem;
   @include h-w(110px);
 
   border-radius: 100%;
-  border: 3.5px solid #602d88;
+  border: 3.5px solid $primary-color;
   outline: 5px solid #e0dcf6;
   outline-offset: 0;
   transition: all 0.2s ease-in;
@@ -167,7 +168,10 @@ $intro_card_width: 15rem;
 
 // ____________________
 .intro__card__text {
-  @extend .d-flex,.flex-column,.justify-content-center, .align-items-center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   width: 80%;
   text-align: center;
@@ -179,7 +183,7 @@ $intro_card_width: 15rem;
   margin: 1rem 0 0 0;
   padding: 0 0 1rem 0;
 
-  color: #602d88;
+  color: $primary-color;
   border-bottom: 2px solid #d0bede;
 }
 
