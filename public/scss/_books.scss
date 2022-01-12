@@ -94,6 +94,8 @@
   }
 
   &__price {
+    @extend .ss02;
+    @extend .ss03;
     color: $primary-color;
   }
 

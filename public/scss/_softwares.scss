@@ -108,6 +108,8 @@ card */
     padding: 0 0 0.5rem 0;
   }
   &__price {
+    @extend .ss02;
+    @extend .ss03;
     color: $primary-color;
     font-weight: 1.3;
   }

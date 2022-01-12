@@ -194,6 +194,11 @@
   flex-direction: row;
   justify-content: center;
   margin: 0.25rem 0;
+
+  span{
+    @extend .ss02;
+    @extend .ss03;
+  }
 }
 
 // indicators

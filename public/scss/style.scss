@@ -7,6 +7,7 @@
 @import "../../node_modules/bootstrap/scss/grid";
 @import "../../node_modules/bootstrap/scss/utilities/api";
 @import "./mixins";
+@import "./font";
 @import "./fontIcons";
 @import "./header";
 @import "./hero";
@@ -26,6 +27,22 @@ body {
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+	direction: rtl;
+  font-family: 'iransansxv', iransansx, tahoma;
+
+}
+
+h1, h2, h3, h4, h5, h6,input, textarea, span {
+	font-family: 'iransansxv', iransansx, tahoma !important;
+}
+h1 {
+	font-weight: bold;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+   font-family: 'iransansxv', tahoma;
+  }
 }
 
 button,

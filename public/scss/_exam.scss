@@ -8,7 +8,7 @@
   @include laptop {
     margin: 5rem auto 0 auto;
   }
-  flex-direction: space-between;
+  justify-content: space-between;
 
   width: 85%;
   @include m0p0;
@@ -74,6 +74,15 @@
   padding: 1.25rem 1rem;
 
   color: #6c6c6c;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  @include mobile{
+    flex-direction: row;
+  }
 }
 
 .exam__img__cn {
@@ -95,12 +104,20 @@
 .exam__action__cn {
   // div > button
   padding: 0 0 1rem 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .exam__action {
   // <a> </a>
   padding: 0.5rem 0.75rem 0.5rem 0.5rem;
   background-color: $accent-color;
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   i {
     width: 32px;
     height: 30px;

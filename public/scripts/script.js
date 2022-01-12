@@ -108,8 +108,8 @@ class Navigation {
         btnHamburger.addEventListener("click", this._toggle.bind(this)); // top right (=) button
         overlayShadowEl.addEventListener("click", this._close.bind(this)); // shadow on page when nav is active
 
-        window.addEventListener("resize", function({target:{innerWidth}}){ // make nav back to its original place when vw > 768
-            if(innerWidth > breakPoints.md) 
+        window.addEventListener("resize", function ({ target: { innerWidth } }) { // make nav back to its original place when vw > 768
+            if (innerWidth > breakPoints.md)
                 headerNav.style.transform = "translateX(0)"
         })
     }
@@ -280,7 +280,7 @@ headerDropDownParents.forEach(function (el) {
 })
 
 // footer dropDowns
-if (getViewPort() < 768) {
+if (getViewPort() < breakPoints.md) {
     new Accordion(btnFooterListToggler, footerNavList, false,)
     new Accordion(btnFooterFormToggler, footerFormCn, false,)
 }

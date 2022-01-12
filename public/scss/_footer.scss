@@ -31,8 +31,8 @@
   width: 85%;
 
   @include tablet {
-    flex-direction: row;
     @include make-row();
+    flex-direction: row-reverse;
     margin: 0 auto !important;
   }
 }
@@ -50,8 +50,8 @@
     // div including logo img
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
 
     .footer__logo {
       // <img>
@@ -61,9 +61,9 @@
     .footer__info {
       // mail and phone below img
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: flex-start;
 
       i {
         margin: 0 0.5rem;
@@ -80,30 +80,40 @@
           transform: translateY(2px);
         }
       }
+
+      &--phone{
+        span{
+          @extend .ss02;
+          @extend .ss03;
+        }
+      }
     }
   }
 
   &__header {
     // container title / (V) drop down controller
-    width: 95%;
 
-    margin: 0 0 0 auto;
+    margin: 1rem 0 1rem auto;
 
     position: relative;
 
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     align-items: center;
 
     &::after {
       // pink line ____
       @include pseudo;
-      inset: 52% 25% auto auto;
+      inset: 40% 40% auto auto;
 
       width: 58%;
 
       border: 1px solid $primary-color;
+
+      @include tablet {
+        inset: 52% 30% auto auto;
+      }
     }
     @include laptop {
       &::after {
@@ -114,19 +124,23 @@
     h6 {
       // title
       font-size: 1rem;
+      text-align: right;
+      margin: 0 !important;
     }
   }
 
   &__toggle-btn {
     // toggle button
-    display: inline-block;
     background-color: $secondary-color;
     border-radius: 2rem;
     border: none;
     padding: 0.5rem;
+    position: relative;
+    z-index: 3;
     @include h-w(30px);
-
+    
     @include grid-center;
+    display: inline-grid;
 
     &:hover {
       box-shadow: none;
@@ -137,9 +151,12 @@
   }
 
   .footer__link {
+    // ul
     margin: 0;
     padding: 0 0 0 1rem;
     overflow: hidden;
+    text-align: right;
+
     &__item {
       list-style: none;
       margin: 1rem 0;
@@ -149,7 +166,7 @@
         color: #d0bede;
       }
 
-      &::before {
+      &::after {
         // dot color
         content: "\2022";
         color: $secondary-color;
@@ -200,7 +217,7 @@
     i {
       position: absolute;
       z-index: 2;
-      inset: 50% auto auto -15px;
+      inset: 50% auto auto 1vw;
       transform: translateY(-50%);
 
       @include h-w(20px);
@@ -241,6 +258,9 @@
 
     margin: 1rem 0;
     padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+
+    display: flex;
+    flex-direction: row-reverse;
 
     i {
       margin-right: 1rem;

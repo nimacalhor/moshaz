@@ -7,7 +7,8 @@ const plumber = require("gulp-plumber");
 const sourcemaps = require("gulp-sourcemaps");
 const minify = require("gulp-minify-css");
 const sass = require('gulp-sass')(require('sass'));
-const babel = require("gulp-babel"); 
+const babel = require("gulp-babel");
+const gcmq = require('gulp-group-css-media-queries');
 
 // paths ________________________________________________________________________________
 const PATH_DIST = "public/dist"
@@ -19,7 +20,7 @@ const PATH_HTML = "public/index.html"
 // script ________________________________________________________________________________
 gulp.task("script", () =>
     gulp.src(PATH_SCRIPT)
-        .pipe(babel({presets: ['@babel/env']}))
+        .pipe(babel({ presets: ['@babel/env'] }))
         .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(sourcemaps.write())
@@ -30,6 +31,7 @@ gulp.task("script", () =>
 // watch ________________________________________________________________________________
 gulp.task("watch", () => {
     require("./server"); // live server
+    livereload.listen()
     gulp.watch(PATH_SCRIPT, gulp.series("script"));
     gulp.watch(PATH_SCSS, gulp.series("styles"))
 })
@@ -40,11 +42,12 @@ gulp.task("styles", () =>
     gulp.src(PATH_SCSS)
         .pipe(plumber()) // error handling
         .pipe(sourcemaps.init()) // source map
-        .pipe(sass({ outputStyle: "compressed" }).on('error', sass.logError)) // scss 
+        .pipe(sass().on('error', sass.logError)) // scss 
         .pipe(autoprefixer())
+        .pipe(gcmq())
         .pipe(sourcemaps.write()) // source map
+        .pipe(minify())
         .pipe(gulp.dest(PATH_DIST))
         .pipe(livereload())
-    // .pipe(concat("style.css"))
-    // .pipe(minify())
 )
+
