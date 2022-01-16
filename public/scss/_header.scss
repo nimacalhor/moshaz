@@ -237,6 +237,10 @@ header.sticky-header {
   background-color: $accent-color;
 }
 
+// language select
+.header__lan{
+  position: relative;
+}
 .header__btn--lan {
   display: block;
   position: relative;
@@ -256,14 +260,14 @@ header.sticky-header {
   object-fit: cover;
 }
 
-.header__dropdown__cn--lan {
+// options
+.header__lan__options{ // ul
   position: absolute;
-  top: 100%;
-  right: -10px;
-  left: 0;
-  bottom: -100px;
-  img {
-    @include h-w(20px);
+  inset: 0 100% auto auto;
+  @include simpleTransition;
+
+  .header__lan__item{
+    transform: scale(0.8);
   }
 }
 // nav ____________________

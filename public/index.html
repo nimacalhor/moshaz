@@ -15,7 +15,7 @@
     Header -->
     <!-- 🔵 cn = container -->
     <div class="overlay-shadow"></div>
-    <header class="header">
+    <header class="header" style="z-index: 99999;">
       <button class="header__hamburger">
         <i class="glyphicon glyphicon-hamburger"></i>
       </button>
@@ -56,33 +56,35 @@
               <i class="glyphicon glyphicon-cart"></i>
               <span class="header__badge header__badge--cart"> 0 </span>
             </a>
-            <button class="header__btn header__btn--lan">
-              <i class="header__icon header__icon--dropdown"></i>
-              <img src="./images/iran.png" alt="" class="header__flag-img" />
-              <!-- drop down content -->
-              <ul class="header__dropdown__cn header__dropdown__cn--lan">
-                <li class="header__dropdown-el header__dropdown-el--usa">
-                  <a href="#">
+            <div class="header__lan">
+              <button class="header__btn header__btn--lan header__btn--lan--toggler">
+                <i class="header__icon header__icon--dropdown"></i>
+                <img src="./images/iran.png" alt="" class="header__flag-img" />
+              </button>
+              <!-- options -->
+              <ul class="header__lan__options">
+                <li class="header__lan__item">
+                  <button data-lan="en" data-flag="Britain-flag.png" class="header__btn header__btn--lan">
+                    <i class="header__icon header__icon--dropdown"></i>
                     <img
-                      class="header__flag-img"
-                      src="./images/iran.png"
+                      src="./images/Britain-flag.png"
                       alt=""
+                      class="header__flag-img"
                     />
-                    <span>persian</span>
-                  </a>
+                  </button>
                 </li>
-                <li class="header__dropdown-el header__dropdown-el--uk">
-                  <a href="#">
+                <li class="header__lan__item">
+                  <button data-lan="fa" data-flag="iran.png" class="header__btn header__btn--lan">
+                    <i class="header__icon header__icon--dropdown"></i>
                     <img
-                      class="header__flag-img"
                       src="./images/iran.png"
                       alt=""
+                      class="header__flag-img"
                     />
-                    <span>persian</span>
-                  </a>
+                  </button>
                 </li>
               </ul>
-            </button>
+            </div>
           </div>
         </div>
         <!-- ________________________________________

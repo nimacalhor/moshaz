@@ -9,6 +9,9 @@ const headerNav = document.querySelector(".header__nav");
 const overlayShadowEl = document.querySelector("div.overlay-shadow")
 const btnHamburger = document.querySelector(".header__hamburger")
 
+const btnLanToggler = headerEl.querySelector("button.header__btn--lan--toggler")
+const containerLanOptions = headerEl.querySelector("ul.header__lan__options")
+
 // hero ____________________
 const sectionHero = document.querySelector(".hero")
 const containerHeroSlider = document.querySelector(".hero__slider__cn")
@@ -150,6 +153,50 @@ class StickyHeader {
     }
 }
 
+// language selecting ____________________
+class Language {
+    constructor() {
+        this._active = false;
+        this._currentImg = "iran.png";
+        this._currentValue = "fa";
+        this._optionBtn = Array.from(containerLanOptions.querySelectorAll("button"))
+
+        this._updateBtn(this._currentImg)
+        this._hideOptions(); // initial
+        btnLanToggler.addEventListener("click", this._toggleOptions.bind(this))
+
+        // each option click handling
+        this._optionBtn.forEach(btn => btn.addEventListener("click", this._changeData.bind(this)))
+    }
+
+    _hideOptions() {
+        containerLanOptions.style.opacity = 0;
+        setTimeout(() => containerLanOptions.style.display = 'none', 1000)
+    }
+
+    _showOptions() {
+        containerLanOptions.style.display = 'block'
+        containerLanOptions.style.opacity = 1;
+    }
+
+    _toggleOptions() {
+        this._active = !this._active;
+        this._active ? this._showOptions() : this._hideOptions()
+    }
+
+    _updateBtn(img) { // change image of toggler button
+        const path = `./images/${img}`
+        btnLanToggler.querySelector("img").src = path;
+    }
+
+    _changeData({ target }) { // get data-flag and data-lan from option buttons
+        const btn = target.closest("button")
+        this._currentImg = btn.dataset.flag;
+        this._currentValue = btn.dataset.value;
+        this._updateBtn(this._currentImg)
+    }
+}
+
 // Slider ____________________
 class Slider {
     constructor(parent, slides, margin = 0, buttons = false) {
@@ -272,6 +319,7 @@ class SliderWithInd extends Slider { // slide which can be controlled using indi
 
 // ________________________________________________________________________________
 // ________________________________________________________________________________
+new Language();
 
 // mobile nav dropdown
 headerDropDownParents.forEach(function (el) {
